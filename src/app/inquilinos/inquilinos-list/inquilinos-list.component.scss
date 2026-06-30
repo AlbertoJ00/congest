@@ -10,10 +10,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: $spacing-xl;
-  background-color: $bg-card;
-  padding: $spacing-lg;
-  border-radius: $border-radius-lg;
+  margin-bottom: $spacing-md;
+  padding: 0 8px;
+  // background-color: $bg-card;
+  // padding: $spacing-lg;
+  // border-radius: $border-radius-lg;
 
   &__title {
     font-size: $font-size-xl;

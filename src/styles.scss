@@ -325,6 +325,7 @@ $avatar-colors: (
     border-top-right-radius: 42px;
     background-color: #ffffff99;
     padding-top: 10px;
+    min-height: calc(100vh - 100px);
   }
 }
 
