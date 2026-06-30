@@ -1,0 +1,163 @@
+@use '../../../../variables' as *;
+
+.header {
+  background-color: $bg-header;
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  padding: 0 $spacing-lg;
+  box-shadow: $shadow-header;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: $content-max-width;
+    margin: 0 auto;
+  }
+
+  // Logo
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  &__logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  &__logo-text {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    letter-spacing: -0.5px;
+  }
+
+  &__logo-con {
+    color: $text-primary;
+  }
+
+  &__logo-gest {
+    color: $primary-green;
+  }
+
+  // Navegación
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: $border-radius-full;
+    background-color: $bg-input;
+    color: $text-secondary;
+    transition: all $transition-fast;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($bg-input, 5%);
+      color: $text-primary;
+    }
+
+    &.active {
+      background-color: $primary-green-light;
+      color: $primary-green;
+    }
+  }
+
+  // Pill selector
+  &__pill {
+    display: flex;
+    align-items: center;
+    background-color: $bg-input;
+    border-radius: $border-radius-xl;
+    padding: 4px;
+    gap: 2px;
+  }
+
+  &__pill-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 20px;
+    border-radius: $border-radius-xl;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $text-secondary;
+    background: transparent;
+    transition: all $transition-fast;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &:hover {
+      color: $text-primary;
+    }
+
+    &.active {
+      background-color: $bg-card;
+      color: $text-primary;
+      font-weight: $font-weight-semibold;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  &__pill-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__pill-text {
+    line-height: 1;
+  }
+
+  // Perfil
+  &__profile {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    flex-shrink: 0;
+  }
+
+  &__profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__profile-name {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    line-height: 1.2;
+  }
+
+  &__profile-role {
+    font-size: $font-size-xs;
+    color: $text-muted;
+    line-height: 1.2;
+  }
+
+  &__profile-avatar {
+    cursor: pointer;
+    transition: transform $transition-fast;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

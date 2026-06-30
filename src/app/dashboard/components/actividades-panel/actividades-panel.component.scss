@@ -1,0 +1,88 @@
+@use '../../../../variables' as *;
+
+.panel {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin-bottom: 4px;
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+  }
+
+  &__link {
+    font-size: $font-size-sm;
+    color: $primary-green;
+    font-weight: $font-weight-medium;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.actividades-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.actividad {
+  display: flex;
+  align-items: baseline;
+  gap: $spacing-md;
+  padding: $spacing-md 0;
+  border-bottom: 1px solid $border-color;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+
+    &--pago { background-color: $activity-pago; }
+    &--anuncio { background-color: $activity-anuncio; }
+    &--incidencia { background-color: $activity-incidencia; }
+    &--sistema { background-color: $activity-sistema; }
+    &--reserva { background-color: $activity-reserva; }
+  }
+
+  &__content {
+    flex: 1;
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    line-height: 1.4;
+  }
+
+  &__author {
+    color: $text-primary;
+    font-weight: $font-weight-medium;
+  }
+
+  &__amount {
+    color: $text-primary;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__time {
+    font-size: $font-size-xs;
+    color: $text-muted;
+    white-space: nowrap;
+  }
+}

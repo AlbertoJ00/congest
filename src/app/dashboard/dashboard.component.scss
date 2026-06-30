@@ -1,0 +1,57 @@
+@use '../../variables' as *;
+
+.dashboard {
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  // KPI Cards row
+  &__kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-md;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Fila central
+  &__middle {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: $spacing-lg;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Fila inferior
+  &__bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-lg;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__estados-cuenta,
+  &__incidencias,
+  &__actividades,
+  &__chart {
+    background-color: $bg-card;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-card;
+    padding: $spacing-lg;
+  }
+}

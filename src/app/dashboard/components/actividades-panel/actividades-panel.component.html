@@ -1,0 +1,24 @@
+<div class="panel">
+  <div class="panel__header">
+    <div class="panel__title-wrapper">
+      <h2 class="panel__title">Actividades</h2>
+      <span class="panel__subtitle">Reportes, pagos, asignados</span>
+    </div>
+    <a href="#" class="panel__link">Ver todas &gt;</a>
+  </div>
+
+  <div class="actividades-list">
+    <div class="actividad" *ngFor="let actividad of actividades">
+      <div class="actividad__dot" [ngClass]="getDotClass(actividad.tipo)"></div>
+      <div class="actividad__content">
+        <span class="actividad__text">
+          <strong *ngIf="actividad.nombrePersona" class="actividad__author">{{ actividad.nombrePersona }}</strong>
+          {{ actividad.descripcion }}
+          <strong *ngIf="actividad.monto" class="actividad__amount">${{ actividad.monto | number }}</strong>
+          <span *ngIf="actividad.unidad"> — {{ actividad.unidad }}</span>
+        </span>
+      </div>
+      <div class="actividad__time">{{ actividad.tiempo }}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="table-panel">
+  <div class="table-panel__header">
+    <div class="table-panel__title-wrapper">
+      <h2 class="table-panel__title">Estados de cuenta</h2>
+      <span class="table-panel__subtitle">Cuotas de mantenimiento — junio</span>
+    </div>
+    <app-search-bar (searchChange)="onSearch($event)"></app-search-bar>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Inquilinos</th>
+          <th>Condominio</th>
+          <th>Celular</th>
+          <th>Estado</th>
+          <th>Cuotas</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let estado of filteredEstados">
+          <td class="text-secondary">{{ estado.numero }}</td>
+          <td>
+            <div class="user-cell">
+              <div class="avatar avatar--sm" [ngClass]="'avatar--color-' + ((estado.id % 8) + 1)">
+                {{ getInitials(estado.inquilinoNombre) }}
+              </div>
+              <span class="font-medium">{{ estado.inquilinoNombre }}</span>
+            </div>
+          </td>
+          <td class="text-secondary">{{ estado.condominioNombre }}</td>
+          <td class="text-secondary">{{ estado.celular }}</td>
+          <td>
+            <app-status-badge [status]="estado.estado"></app-status-badge>
+          </td>
+          <td class="font-medium">${{ estado.cuota | number }}</td>
+          <td>
+            <button class="menu-dots">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="5" r="2"/>
+                <circle cx="12" cy="12" r="2"/>
+                <circle cx="12" cy="19" r="2"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

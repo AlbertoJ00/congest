@@ -1,0 +1,27 @@
+<app-header activeSection="Condominios"></app-header>
+
+<main class="condominios-page">
+  <div class="page-header">
+    <div class="page-header__titles">
+      <h1 class="page-header__title">Mis Condominios</h1>
+      <p class="page-header__subtitle">Listado de todos los condominios</p>
+    </div>
+    
+    <div class="page-header__actions">
+      <app-search-bar (searchChange)="onSearch($event)"></app-search-bar>
+      <button class="btn-primary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="16"></line>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+        Nuevo
+      </button>
+    </div>
+  </div>
+
+  <div class="condominios-grid">
+    <app-condominio-card *ngFor="let condominio of filteredCondominios" [condominio]="condominio">
+    </app-condominio-card>
+  </div>
+</main>

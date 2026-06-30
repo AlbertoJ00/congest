@@ -1,0 +1,158 @@
+<div class="login-page">
+  <!-- Columna izquierda: Formulario -->
+  <div class="login-page__form-side">
+    <!-- Logo -->
+    <div class="login-page__logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect width="32" height="32" rx="8" fill="#2FAE60"/>
+        <path d="M8 24V12L16 6L24 12V24H19V17H13V24H8Z" fill="white"/>
+      </svg>
+      <span class="login-page__logo-text">
+        <span class="login-page__logo-con">CON</span><span class="login-page__logo-gest">GEST</span>
+      </span>
+    </div>
+
+    <!-- Formulario -->
+    <div class="login-page__form-container">
+      <h1 class="login-page__title">Iniciar Sesión</h1>
+      <p class="login-page__subtitle">La manera más inteligente de gestionar tu condominio.</p>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-page__form">
+        <!-- Correo -->
+        <div class="login-page__field">
+          <label class="form-label" for="email">Correo</label>
+          <input
+            id="email"
+            type="email"
+            class="form-input"
+            formControlName="email"
+            placeholder="Example@email.com"
+            autocomplete="email">
+          <div class="login-page__error" *ngIf="email?.touched && email?.errors">
+            <span *ngIf="email?.errors?.['required']">El correo es requerido</span>
+            <span *ngIf="email?.errors?.['email']">Ingresa un correo válido</span>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="login-page__field">
+          <label class="form-label" for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            class="form-input"
+            formControlName="password"
+            placeholder="at least 8 characters"
+            autocomplete="current-password">
+          <div class="login-page__error" *ngIf="password?.touched && password?.errors">
+            <span *ngIf="password?.errors?.['required']">La contraseña es requerida</span>
+            <span *ngIf="password?.errors?.['minlength']">Mínimo 8 caracteres</span>
+          </div>
+        </div>
+
+        <!-- Olvidaste tu contraseña -->
+        <div class="login-page__forgot">
+          <a href="#" class="login-page__forgot-link">Olvidaste tu contraseña?</a>
+        </div>
+
+        <!-- Error general -->
+        <div class="login-page__error login-page__error--general" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+
+        <!-- Botón Entrar -->
+        <button
+          type="submit"
+          class="btn-primary login-page__submit"
+          [disabled]="isLoading">
+          <span *ngIf="!isLoading">Entrar</span>
+          <span *ngIf="isLoading">Ingresando...</span>
+        </button>
+      </form>
+
+      <!-- Registro -->
+      <p class="login-page__register">
+        No tienes cuenta? <a routerLink="/registro" class="login-page__register-link">Regístrate</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Columna derecha: Imagen -->
+  <div class="login-page__image-side">
+    <div class="login-page__image-container">
+      <div class="login-page__image-placeholder">
+        <!-- Imagen de edificio con gradiente de fondo -->
+        <svg viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg" class="login-page__building-svg">
+          <!-- Cielo -->
+          <rect width="400" height="600" rx="24" fill="url(#skyGrad)"/>
+          <!-- Edificio principal -->
+          <rect x="80" y="120" width="140" height="480" rx="4" fill="#F97316"/>
+          <rect x="85" y="120" width="130" height="480" fill="#FB923C"/>
+          <!-- Ventanas naranja -->
+          <rect x="95" y="140" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="130" y="140" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="165" y="140" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="95" y="185" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="130" y="185" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="165" y="185" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="95" y="230" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="130" y="230" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="165" y="230" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="95" y="275" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="130" y="275" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="165" y="275" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="95" y="320" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="130" y="320" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="165" y="320" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="95" y="365" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="130" y="365" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <rect x="165" y="365" width="25" height="30" rx="2" fill="#FED7AA"/>
+          <!-- Edificio gris izquierdo -->
+          <rect x="20" y="200" width="70" height="400" rx="4" fill="#D1D5DB"/>
+          <rect x="30" y="215" width="20" height="20" rx="2" fill="#E5E7EB"/>
+          <rect x="58" y="215" width="20" height="20" rx="2" fill="#E5E7EB"/>
+          <rect x="30" y="250" width="20" height="20" rx="2" fill="#E5E7EB"/>
+          <rect x="58" y="250" width="20" height="20" rx="2" fill="#E5E7EB"/>
+          <rect x="30" y="285" width="20" height="20" rx="2" fill="#E5E7EB"/>
+          <rect x="58" y="285" width="20" height="20" rx="2" fill="#E5E7EB"/>
+          <rect x="30" y="320" width="20" height="20" rx="2" fill="#E5E7EB"/>
+          <rect x="58" y="320" width="20" height="20" rx="2" fill="#E5E7EB"/>
+          <!-- Edificio azul derecho -->
+          <rect x="230" y="80" width="150" height="520" rx="4" fill="#60A5FA"/>
+          <rect x="235" y="80" width="140" height="520" fill="#93C5FD"/>
+          <!-- Ventanas azul -->
+          <rect x="245" y="100" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="280" y="100" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="315" y="100" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="350" y="100" width="20" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="245" y="140" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="280" y="140" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="315" y="140" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="350" y="140" width="20" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="245" y="180" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="280" y="180" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="315" y="180" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="350" y="180" width="20" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="245" y="220" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="280" y="220" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="315" y="220" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="350" y="220" width="20" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="245" y="260" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="280" y="260" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="315" y="260" width="25" height="25" rx="2" fill="#BFDBFE"/>
+          <rect x="350" y="260" width="20" height="25" rx="2" fill="#BFDBFE"/>
+          <!-- Nubes -->
+          <ellipse cx="60" cy="60" rx="40" ry="15" fill="white" opacity="0.8"/>
+          <ellipse cx="320" cy="40" rx="50" ry="18" fill="white" opacity="0.6"/>
+          <defs>
+            <linearGradient id="skyGrad" x1="200" y1="0" x2="200" y2="600" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#87CEEB"/>
+              <stop offset="0.5" stop-color="#B0E0E6"/>
+              <stop offset="1" stop-color="#E0F7FA"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

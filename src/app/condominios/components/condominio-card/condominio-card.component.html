@@ -1,0 +1,60 @@
+<div class="condominio-card">
+  <div class="condominio-card__image-container">
+    <img [src]="placeholderImage" [alt]="condominio.nombre" class="condominio-card__image">
+    <button class="condominio-card__menu menu-dots">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <circle cx="12" cy="5" r="2"/>
+        <circle cx="12" cy="12" r="2"/>
+        <circle cx="12" cy="19" r="2"/>
+      </svg>
+    </button>
+  </div>
+  
+  <div class="condominio-card__content">
+    <div class="condominio-card__header">
+      <h3 class="condominio-card__title">{{ condominio.nombre }}</h3>
+      <span class="condominio-card__price">${{ condominio.precio | number }}</span>
+    </div>
+    
+    <p class="condominio-card__location">{{ condominio.ciudad }} • {{ condominio.sector }}</p>
+    
+    <div class="condominio-card__specs">
+      <div class="spec">
+        <div class="spec__info">
+          <span class="spec__label">Cuartos</span>
+          <span class="spec__value">{{ condominio.cuartos }}</span>
+        </div>
+        <svg class="spec__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <path d="M4 19V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14"></path>
+        </svg>
+      </div>
+      
+      <div class="spec">
+        <div class="spec__info">
+          <span class="spec__label">Baños</span>
+          <span class="spec__value">{{ condominio.banos }}</span>
+        </div>
+        <svg class="spec__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 6v13"></path>
+          <path d="M4 19h16"></path>
+          <path d="M12 6h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7"></path>
+          <path d="M12 6a2 2 0 0 0-2-2"></path>
+        </svg>
+      </div>
+      
+      <div class="spec">
+        <div class="spec__info">
+          <span class="spec__label">Capacidad</span>
+          <span class="spec__value">{{ condominio.capacidad }}</span>
+        </div>
+        <svg class="spec__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

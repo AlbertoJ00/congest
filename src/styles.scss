@@ -1,0 +1,279 @@
+// =============================================
+// CONGEST — Estilos Globales
+// =============================================
+@use 'variables' as *;
+
+// Reset mínimo
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  color: $text-primary;
+  background-color: $bg-main;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a {
+  color: $primary-green;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary-green-dark;
+  }
+}
+
+button {
+  font-family: $font-family;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+input, textarea, select {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+// =============================================
+// Utilidades globales
+// =============================================
+
+// Contenedor principal
+.container {
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: 0 $content-padding;
+}
+
+// Botón primario
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  background-color: $primary-green;
+  color: $text-white;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-sm;
+  padding: 10px 24px;
+  border-radius: $border-radius-sm;
+  transition: all $transition-fast;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-green-hover;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba($primary-green, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+// Botón secundario / outline
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  background-color: transparent;
+  color: $text-secondary;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  padding: 10px 24px;
+  border-radius: $border-radius-sm;
+  border: 1px solid $border-color;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $bg-input;
+    border-color: $text-secondary;
+  }
+}
+
+// Input base
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: $font-size-base;
+  color: $text-primary;
+  background-color: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-sm;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  &:focus {
+    border-color: $primary-green;
+    box-shadow: 0 0 0 3px rgba($primary-green, 0.1);
+  }
+
+  &.ng-invalid.ng-touched {
+    border-color: $status-late;
+  }
+}
+
+// Label
+.form-label {
+  display: block;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+  margin-bottom: $spacing-sm;
+}
+
+// Card base
+.card {
+  background-color: $bg-card;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-card;
+  padding: $spacing-lg;
+  transition: box-shadow $transition-base;
+}
+
+// Texto truncado
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Scrollbar personalizada
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+// Avatar de iniciales
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius-full;
+  font-weight: $font-weight-semibold;
+  color: $text-white;
+  text-transform: uppercase;
+  flex-shrink: 0;
+
+  &--sm {
+    width: 32px;
+    height: 32px;
+    font-size: $font-size-xs;
+  }
+
+  &--md {
+    width: 40px;
+    height: 40px;
+    font-size: $font-size-sm;
+  }
+
+  &--lg {
+    width: 48px;
+    height: 48px;
+    font-size: $font-size-base;
+  }
+}
+
+// Colores de avatar
+$avatar-colors: (
+  1: #2FAE60,
+  2: #3B82F6,
+  3: #8B5CF6,
+  4: #F59E0B,
+  5: #EF4444,
+  6: #EC4899,
+  7: #06B6D4,
+  8: #84CC16
+);
+
+@each $i, $color in $avatar-colors {
+  .avatar--color-#{$i} {
+    background-color: $color;
+  }
+}
+
+// Menu de 3 puntos
+.menu-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: $border-radius-full;
+  cursor: pointer;
+  transition: background-color $transition-fast;
+  color: $text-muted;
+
+  &:hover {
+    background-color: $bg-input;
+    color: $text-secondary;
+  }
+}
+
+// Animación fadeIn
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}

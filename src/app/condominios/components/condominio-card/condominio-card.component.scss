@@ -1,0 +1,105 @@
+@use '../../../../variables' as *;
+
+.condominio-card {
+  background-color: $bg-card;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+  transition: transform $transition-fast, box-shadow $transition-fast;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-card-hover;
+  }
+
+  &__image-container {
+    position: relative;
+    height: 200px;
+    width: 100%;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__menu {
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-sm;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    backdrop-filter: blur(4px);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+    }
+  }
+
+  &__content {
+    padding: $spacing-md;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+  }
+
+  &__price {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $primary-green;
+  }
+
+  &__location {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__specs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-sm;
+  }
+}
+
+.spec {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $bg-input;
+  border-radius: $border-radius-sm;
+  padding: 8px $spacing-sm;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: 11px;
+    color: $text-secondary;
+  }
+
+  &__value {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+  }
+
+  &__icon {
+    color: $text-muted;
+    opacity: 0.5;
+  }
+}

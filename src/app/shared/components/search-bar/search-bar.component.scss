@@ -1,0 +1,35 @@
+@use '../../../../variables' as *;
+
+.search-bar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  &__icon {
+    position: absolute;
+    left: 14px;
+    color: $text-muted;
+    pointer-events: none;
+  }
+
+  &__input {
+    width: 220px;
+    padding: 10px 14px 10px 40px;
+    font-size: $font-size-sm;
+    color: $text-primary;
+    background-color: $bg-card;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-sm;
+    transition: all $transition-fast;
+
+    &::placeholder {
+      color: $text-muted;
+    }
+
+    &:focus {
+      border-color: $primary-green;
+      box-shadow: 0 0 0 3px rgba($primary-green, 0.08);
+      width: 260px;
+    }
+  }
+}

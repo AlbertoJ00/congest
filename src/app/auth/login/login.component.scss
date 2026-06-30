@@ -1,0 +1,178 @@
+@use '../../../variables' as *;
+
+.login-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: $bg-card;
+
+  // Columna izquierda: formulario
+  &__form-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-2xl;
+    max-width: 50%;
+    background: linear-gradient(180deg, rgba(47, 174, 96, 0.03) 0%, rgba(255, 255, 255, 1) 40%);
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-3xl;
+  }
+
+  &__logo-text {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+  }
+
+  &__logo-con {
+    color: $text-primary;
+  }
+
+  &__logo-gest {
+    color: $primary-green;
+  }
+
+  // Contenedor del formulario — centrado vertical
+  &__form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    font-style: italic;
+    color: $text-primary;
+    margin-bottom: $spacing-sm;
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    margin-bottom: $spacing-xl;
+  }
+
+  // Formulario
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__error {
+    font-size: $font-size-xs;
+    color: $status-late;
+    margin-top: $spacing-xs;
+    animation: fadeIn 0.2s ease;
+
+    &--general {
+      text-align: center;
+      padding: $spacing-sm $spacing-md;
+      background-color: $status-late-bg;
+      border-radius: $border-radius-sm;
+    }
+  }
+
+  &__forgot {
+    text-align: center;
+    margin-top: -$spacing-sm;
+  }
+
+  &__forgot-link {
+    font-size: $font-size-sm;
+    color: $text-primary;
+    text-decoration: underline;
+    font-weight: $font-weight-medium;
+
+    &:hover {
+      color: $primary-green;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    padding: 14px;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    border-radius: $border-radius-sm;
+    margin-top: $spacing-sm;
+  }
+
+  &__register {
+    text-align: center;
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    margin-top: $spacing-xl;
+  }
+
+  &__register-link {
+    color: $text-primary;
+    font-weight: $font-weight-semibold;
+    text-decoration: underline;
+
+    &:hover {
+      color: $primary-green;
+    }
+  }
+
+  // Columna derecha: imagen
+  &__image-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-lg;
+    max-width: 50%;
+  }
+
+  &__image-container {
+    width: 100%;
+    height: calc(100vh - #{$spacing-lg} * 2);
+    border-radius: $border-radius-xl;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  &__building-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-lg) {
+    flex-direction: column;
+
+    &__form-side {
+      max-width: 100%;
+      padding: $spacing-lg;
+    }
+
+    &__image-side {
+      display: none;
+    }
+  }
+}

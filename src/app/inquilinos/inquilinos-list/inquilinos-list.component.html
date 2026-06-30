@@ -1,0 +1,78 @@
+<app-header activeSection="Inquilinos"></app-header>
+
+<main class="inquilinos-page">
+  <div class="page-header">
+    <div class="page-header__titles">
+      <h1 class="page-header__title">Inquilinos</h1>
+      <p class="page-header__subtitle">Listados de todos los inquilinos</p>
+    </div>
+    
+    <div class="page-header__actions">
+      <app-search-bar (searchChange)="onSearch($event)"></app-search-bar>
+      <button class="btn-primary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="16"></line>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+        Nuevo
+      </button>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Documento</th>
+            <th>Celular</th>
+            <th>Proxima fecha</th>
+            <th>Alquiler</th>
+            <th>Estado</th>
+            <th>Condominios</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inquilino of filteredInquilinos">
+            <td>
+              <div class="user-cell">
+                <div class="avatar avatar--md" [ngClass]="'avatar--color-' + ((inquilino.id % 8) + 1)">
+                  {{ getInitials(inquilino.nombre) }}
+                </div>
+                <div class="user-info">
+                  <span class="user-info__name">{{ inquilino.nombre }}</span>
+                  <a href="mailto:{{ inquilino.email }}" class="user-info__email">{{ inquilino.email }}</a>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="doc-cell">
+                <span class="doc-cell__num">{{ inquilino.documento }}</span>
+                <span class="doc-cell__type">{{ inquilino.tipoDocumento }}</span>
+              </div>
+            </td>
+            <td class="text-secondary">{{ inquilino.celular }}</td>
+            <td class="text-secondary">{{ inquilino.proximaFechaPago }}</td>
+            <td class="font-medium">${{ inquilino.montoAlquiler | number }}</td>
+            <td>
+              <app-status-badge [status]="inquilino.estado"></app-status-badge>
+            </td>
+            <td class="text-secondary">{{ inquilino.condominioNombre }}</td>
+            <td>
+              <button class="menu-dots">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <circle cx="12" cy="5" r="2"/>
+                  <circle cx="12" cy="12" r="2"/>
+                  <circle cx="12" cy="19" r="2"/>
+                </svg>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

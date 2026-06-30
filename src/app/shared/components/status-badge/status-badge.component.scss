@@ -1,0 +1,52 @@
+@use '../../../../variables' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+
+  &--paid {
+    background-color: $status-paid-bg;
+    color: $status-paid;
+  }
+
+  &--late {
+    background-color: $status-late-bg;
+    color: $status-late;
+  }
+
+  &--pending {
+    background-color: $status-pending-bg;
+    color: $status-pending;
+  }
+
+  &--in-use {
+    background-color: $status-in-use-bg;
+    color: $status-in-use;
+  }
+
+  &--in-process {
+    background-color: $status-in-process-bg;
+    color: $status-in-process;
+  }
+
+  &--assigned {
+    background-color: $status-assigned-bg;
+    color: $status-assigned;
+  }
+
+  &--resolved {
+    background-color: $status-resolved-bg;
+    color: $status-resolved;
+  }
+
+  &--default {
+    background-color: $bg-input;
+    color: $text-secondary;
+  }
+}

@@ -1,0 +1,36 @@
+<div class="panel">
+  <div class="panel__header">
+    <div class="panel__title-wrapper">
+      <h2 class="panel__title">Reporte de incidencias</h2>
+      <span class="panel__subtitle">{{ resumen.abiertas }} abiertas · {{ resumen.resueltasHoy }} resueltas hoy</span>
+    </div>
+    <a href="#" class="panel__link">Ver todas &gt;</a>
+  </div>
+
+  <div class="incidencias-list">
+    <div class="incidencia-card" *ngFor="let incidencia of incidencias">
+      <div class="incidencia-card__icon" [ngClass]="'incidencia-card__icon--' + incidencia.severidad">
+        <svg *ngIf="incidencia.severidad === 'alta'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <svg *ngIf="incidencia.severidad === 'media'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <svg *ngIf="incidencia.severidad === 'baja'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+      </div>
+      <div class="incidencia-card__content">
+        <h3 class="incidencia-card__title">{{ incidencia.titulo }}</h3>
+        <p class="incidencia-card__meta">{{ incidencia.ubicacion }} · {{ incidencia.tiempo }}</p>
+      </div>
+      <div class="incidencia-card__status">
+        <app-status-badge [status]="incidencia.estado"></app-status-badge>
+      </div>
+    </div>
+  </div>
+</div>

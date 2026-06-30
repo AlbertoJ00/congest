@@ -1,0 +1,48 @@
+<app-header activeSection="Dashboard"></app-header>
+
+<main class="dashboard">
+  <!-- KPI Cards -->
+  <section class="dashboard__kpis fade-in">
+    <app-kpi-card
+      icon="revenue"
+      [value]="kpis.recaudacion"
+      title="Recaudación del mes">
+    </app-kpi-card>
+    <app-kpi-card
+      icon="expense"
+      [value]="kpis.gastos"
+      title="Gastos del mes">
+    </app-kpi-card>
+    <app-kpi-card
+      icon="payments"
+      [value]="kpis.pagosAlDia"
+      title="Pagos al día">
+    </app-kpi-card>
+    <app-kpi-card
+      icon="profit"
+      [value]="kpis.ganancias"
+      title="Ganancias del Mes"
+      [highlighted]="true">
+    </app-kpi-card>
+  </section>
+
+  <!-- Fila central: Estados de cuenta + Incidencias -->
+  <section class="dashboard__middle fade-in">
+    <div class="dashboard__estados-cuenta">
+      <app-estados-cuenta-table></app-estados-cuenta-table>
+    </div>
+    <div class="dashboard__incidencias">
+      <app-incidencias-panel></app-incidencias-panel>
+    </div>
+  </section>
+
+  <!-- Fila inferior: Actividades + Gráfico -->
+  <section class="dashboard__bottom fade-in">
+    <div class="dashboard__actividades">
+      <app-actividades-panel></app-actividades-panel>
+    </div>
+    <div class="dashboard__chart">
+      <app-ingresos-gastos-chart></app-ingresos-gastos-chart>
+    </div>
+  </section>
+</main>
