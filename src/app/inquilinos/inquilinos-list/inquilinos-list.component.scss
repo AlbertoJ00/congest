@@ -14,13 +14,11 @@
   background-color: $bg-card;
   padding: $spacing-lg;
   border-radius: $border-radius-lg;
-  box-shadow: $shadow-card;
 
   &__title {
     font-size: $font-size-xl;
     font-weight: $font-weight-bold;
     color: $text-primary;
-    margin-bottom: 4px;
   }
 
   &__subtitle {
@@ -38,46 +36,11 @@
 .table-container {
   background-color: $bg-card;
   border-radius: $border-radius-lg;
-  box-shadow: $shadow-card;
   padding: $spacing-lg;
 }
 
 .table-responsive {
   overflow-x: auto;
-}
-
-.table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-
-  th {
-    text-align: left;
-    font-size: $font-size-sm;
-    font-weight: $font-weight-semibold;
-    color: $text-primary;
-    padding: $spacing-md;
-    border-bottom: 1px solid $border-color;
-  }
-
-  td {
-    padding: $spacing-md;
-    font-size: $font-size-sm;
-    border-bottom: 1px solid $border-color;
-    vertical-align: middle;
-  }
-
-  tr:last-child td {
-    border-bottom: none;
-  }
-
-  tr {
-    transition: background-color $transition-fast;
-    
-    &:hover {
-      background-color: $bg-input;
-    }
-  }
 }
 
 .user-cell {

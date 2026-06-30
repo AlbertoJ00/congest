@@ -49,9 +49,8 @@
   &__incidencias,
   &__actividades,
   &__chart {
-    background-color: $bg-card;
-    border-radius: $border-radius-md;
-    box-shadow: $shadow-card;
-    padding: $spacing-lg;
+    background-color: hsla(0, 0%, 100%,);
+    border-radius: 18px;
+    padding: 20px;
   }
 }

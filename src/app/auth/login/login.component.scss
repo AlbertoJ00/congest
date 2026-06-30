@@ -18,21 +18,14 @@
   &__logo {
     display: flex;
     align-items: center;
-    gap: $spacing-sm;
     margin-bottom: $spacing-3xl;
   }
 
-  &__logo-text {
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-  }
-
-  &__logo-con {
-    color: $text-primary;
-  }
-
-  &__logo-gest {
-    color: $primary-green;
+  &__logo-image {
+    height: 52px;
+    width: auto;
+    display: block;
+    object-fit: contain;
   }
 
   // Contenedor del formulario — centrado vertical

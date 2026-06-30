@@ -1,13 +1,13 @@
 @use '../../../../variables' as *;
 
 .header {
-  background-color: $bg-header;
-  height: $header-height;
+  // background-color: $bg-header;
+  height: 100px;
   display: flex;
   align-items: center;
   padding: 0 $spacing-lg;
-  box-shadow: $shadow-header;
-  position: sticky;
+  // box-shadow: $shadow-header;
+  // position: sticky;
   top: 0;
   z-index: 100;
 
@@ -24,14 +24,15 @@
   &__logo {
     display: flex;
     align-items: center;
-    gap: $spacing-sm;
     cursor: pointer;
     flex-shrink: 0;
   }
 
-  &__logo-icon {
-    width: 32px;
-    height: 32px;
+  &__logo-image {
+    height: 25px;
+    width: auto;
+    display: block;
+    object-fit: contain;
   }
 
   &__logo-text {
