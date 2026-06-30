@@ -61,6 +61,16 @@
     margin-bottom: $spacing-xl;
   }
 
+  &__helper {
+    font-size: $font-size-sm;
+    color: $text-primary;
+    background: rgba(47, 174, 96, 0.08);
+    border: 1px solid rgba(47, 174, 96, 0.2);
+    border-radius: $border-radius-sm;
+    padding: $spacing-sm $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
   // Formulario
   &__form {
     display: flex;
