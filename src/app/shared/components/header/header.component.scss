@@ -138,6 +138,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    cursor: pointer;
   }
 
   &__profile-name {
@@ -159,6 +160,137 @@
 
     &:hover {
       transform: scale(1.05);
+    }
+  }
+
+  &__modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-lg;
+    z-index: 1000;
+  }
+
+  &__modal {
+    width: min(100%, 620px);
+    background: $bg-card;
+    border-radius: $border-radius-xl;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.16);
+    padding: $spacing-xl;
+  }
+
+  &__modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__modal-title {
+    margin: 0 0 $spacing-xs;
+    font-size: $font-size-xl;
+    color: $text-primary;
+  }
+
+  &__modal-subtitle {
+    margin: 0;
+    font-size: $font-size-sm;
+    color: $text-secondary;
+  }
+
+  &__modal-close {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: $border-radius-full;
+    background: $bg-input;
+    color: $text-primary;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  &__modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__modal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: $spacing-md;
+  }
+
+  &__modal-field {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    label {
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      color: $text-primary;
+    }
+
+    &--full {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__modal-error {
+    font-size: $font-size-xs;
+    color: $status-late;
+  }
+
+  &__modal-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-md;
+  }
+
+  &__modal-actions-right {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__modal-secondary {
+    border: none;
+    background: $bg-input;
+    color: $text-primary;
+    border-radius: $border-radius-sm;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-weight: $font-weight-medium;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &__modal {
+      padding: $spacing-lg;
+    }
+
+    &__modal-grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__modal-field--full {
+      grid-column: auto;
+    }
+
+    &__modal-actions {
+      flex-direction: column-reverse;
+      align-items: stretch;
+    }
+
+    &__modal-actions-right {
+      flex-direction: column;
+      align-items: stretch;
     }
   }
 }

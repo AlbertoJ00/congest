@@ -51,13 +51,68 @@
 
     <!-- Perfil de usuario -->
     <div class="header__profile" *ngIf="currentUser">
-      <div class="header__profile-info">
-        <span class="header__profile-name">{{ currentUser.nombre }}</span>
+      <div class="header__profile-info" (click)="openProfileModal()">
+        <span class="header__profile-name">{{ getDisplayName(currentUser) }}</span>
         <span class="header__profile-role">{{ currentUser.rol }}</span>
       </div>
-      <div class="header__profile-avatar avatar avatar--md avatar--color-1" (click)="logout()">
-        {{ getInitials(currentUser.nombre) }}
+      <div class="header__profile-avatar avatar avatar--md avatar--color-1" (click)="openProfileModal()">
+        {{ getInitials(getDisplayName(currentUser)) }}
       </div>
     </div>
   </div>
 </header>
+
+<div class="header__modal-backdrop" *ngIf="isProfileModalOpen" (click)="closeProfileModal()">
+  <div class="header__modal" (click)="$event.stopPropagation()">
+    <div class="header__modal-header">
+      <div>
+        <h3 class="header__modal-title">Editar perfil</h3>
+        <p class="header__modal-subtitle">Actualiza tus datos personales en un solo lugar.</p>
+      </div>
+      <button type="button" class="header__modal-close" (click)="closeProfileModal()" aria-label="Cerrar modal">
+        ×
+      </button>
+    </div>
+
+    <form [formGroup]="profileForm" class="header__modal-form" (ngSubmit)="saveProfile()">
+      <div class="header__modal-grid">
+        <div class="header__modal-field">
+          <label for="profile-nombre">Nombre</label>
+          <input id="profile-nombre" type="text" formControlName="nombre" class="form-input">
+          <span class="header__modal-error" *ngIf="profileForm.get('nombre')?.touched && profileForm.get('nombre')?.invalid">
+            El nombre es obligatorio.
+          </span>
+        </div>
+
+        <div class="header__modal-field">
+          <label for="profile-apellido">Apellido</label>
+          <input id="profile-apellido" type="text" formControlName="apellido" class="form-input">
+        </div>
+
+        <div class="header__modal-field header__modal-field--full">
+          <label for="profile-email">Correo</label>
+          <input id="profile-email" type="email" formControlName="email" class="form-input">
+          <span class="header__modal-error" *ngIf="profileForm.get('email')?.touched && profileForm.get('email')?.hasError('required')">
+            El correo es obligatorio.
+          </span>
+          <span class="header__modal-error" *ngIf="profileForm.get('email')?.touched && profileForm.get('email')?.hasError('email')">
+            Ingresa un correo valido.
+          </span>
+        </div>
+
+        <div class="header__modal-field header__modal-field--full">
+          <label for="profile-telefono">Telefono</label>
+          <input id="profile-telefono" type="text" formControlName="telefono" class="form-input">
+        </div>
+      </div>
+
+      <div class="header__modal-actions">
+        <button type="button" class="header__modal-secondary" (click)="logout()">Cerrar sesion</button>
+        <div class="header__modal-actions-right">
+          <button type="button" class="header__modal-secondary" (click)="closeProfileModal()">Cancelar</button>
+          <button type="submit" class="btn-primary">Guardar cambios</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -15,6 +15,7 @@ export class AuthService {
     {
       id: 1,
       nombre: 'Admin Congest',
+      apellido: 'Principal',
       email: 'admin@congest.com',
       password: 'admin123',
       rol: 'Administrador',
@@ -24,6 +25,7 @@ export class AuthService {
     {
       id: 2,
       nombre: 'Ana Propietaria',
+      apellido: 'Demo',
       email: 'ana@congest.com',
       password: 'propietario123',
       rol: 'Propietario',
@@ -76,6 +78,27 @@ export class AuthService {
 
   getCurrentUser(): Usuario | null {
     return this.currentUserSubject.value;
+  }
+
+  updateCurrentUser(updates: Partial<Usuario>): void {
+    const currentUser = this.currentUserSubject.value;
+
+    if (!currentUser) {
+      return;
+    }
+
+    const updatedUser: Usuario = {
+      ...currentUser,
+      ...updates
+    };
+
+    localStorage.setItem('congest_user', JSON.stringify(updatedUser));
+    this.currentUserSubject.next(updatedUser);
+
+    const mockUser = this.mockUsers.find(user => user.id === updatedUser.id);
+    if (mockUser) {
+      Object.assign(mockUser, updatedUser);
+    }
   }
 
   private mockLogin(credentials: LoginRequest): Observable<LoginResponse> {
