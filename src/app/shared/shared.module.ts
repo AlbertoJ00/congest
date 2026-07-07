@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './components/header/header.component';
 import { StatusBadgeComponent } from './components/status-badge/status-badge.component';
@@ -16,12 +17,14 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     // Re-exportar módulos comunes
     CommonModule,
     RouterModule,
+    ReactiveFormsModule,
     // Exportar componentes compartidos
     HeaderComponent,
     StatusBadgeComponent,

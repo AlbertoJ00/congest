@@ -3,13 +3,11 @@
 .condominio-card {
   background-color: $bg-card;
   border-radius: $border-radius-lg;
-  box-shadow: $shadow-card;
   overflow: hidden;
   transition: transform $transition-fast, box-shadow $transition-fast;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: $shadow-card-hover;
   }
 
   &__image-container {

@@ -10,17 +10,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: $spacing-xl;
-  background-color: $bg-card;
-  padding: $spacing-lg;
-  border-radius: $border-radius-lg;
-  box-shadow: $shadow-card;
+  margin-bottom: $spacing-sm;
+  // background-color: $bg-card;
+  // padding: $spacing-lg;
+  // border-radius: $border-radius-lg;
 
   &__title {
     font-size: $font-size-xl;
     font-weight: $font-weight-bold;
     color: $text-primary;
-    margin-bottom: 4px;
   }
 
   &__subtitle {

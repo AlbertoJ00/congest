@@ -3,19 +3,16 @@
   <div class="login-page__form-side">
     <!-- Logo -->
     <div class="login-page__logo">
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <rect width="32" height="32" rx="8" fill="#2FAE60"/>
-        <path d="M8 24V12L16 6L24 12V24H19V17H13V24H8Z" fill="white"/>
-      </svg>
-      <span class="login-page__logo-text">
-        <span class="login-page__logo-con">CON</span><span class="login-page__logo-gest">GEST</span>
-      </span>
+      <img src="/img/logo.png" alt="Congest" class="login-page__logo-image">
     </div>
 
     <!-- Formulario -->
     <div class="login-page__form-container">
       <h1 class="login-page__title">Iniciar Sesión</h1>
       <p class="login-page__subtitle">La manera más inteligente de gestionar tu condominio.</p>
+      <div class="login-page__helper">
+        Desarrollo local: usa <strong>admin@congest.com</strong> y <strong>admin123</strong>.
+      </div>
 
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-page__form">
         <!-- Correo -->
