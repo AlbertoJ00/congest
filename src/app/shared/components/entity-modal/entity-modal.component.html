@@ -11,7 +11,7 @@
     </div>
 
     <form [formGroup]="entityForm" class="entity-modal__form" (ngSubmit)="submit()">
-      <ng-container *ngIf="mode === 'inquilino'; else condominioForm">
+      <ng-container *ngIf="mode === 'inquilino'; else nonTenantForms">
         <div class="entity-modal__grid">
           <div class="entity-modal__field">
             <label>Tipo de documento</label>
@@ -72,46 +72,76 @@
         </div>
       </ng-container>
 
-      <ng-template #condominioForm>
+      <ng-template #nonTenantForms>
+        <ng-container *ngIf="mode === 'reporte'; else pagoForm">
+          <div class="entity-modal__grid">
+            <div class="entity-modal__field">
+              <label>Prioridad</label>
+              <select class="form-input" formControlName="prioridad">
+                <option value="Alta">Alta</option>
+                <option value="Media">Media</option>
+                <option value="Baja">Baja</option>
+              </select>
+            </div>
+
+            <div class="entity-modal__field">
+              <label>Condominio</label>
+              <input type="text" class="form-input" formControlName="condominioNombre">
+            </div>
+
+            <div class="entity-modal__field">
+              <label>Estado</label>
+              <select class="form-input" formControlName="estado">
+                <option value="En proceso">En proceso</option>
+                <option value="Asignado">Asignado</option>
+                <option value="Resuelto">Resuelto</option>
+              </select>
+            </div>
+
+            <div class="entity-modal__field entity-modal__field--full">
+              <label>Concepto</label>
+              <input type="text" class="form-input" formControlName="concepto">
+            </div>
+          </div>
+        </ng-container>
+      </ng-template>
+
+      <ng-template #pagoForm>
         <div class="entity-modal__grid">
           <div class="entity-modal__field">
-            <label>Nombre de la casa</label>
-            <input type="text" class="form-input" formControlName="nombre">
+            <label>Tipo</label>
+            <select class="form-input" formControlName="tipo">
+              <option value="Ingreso">Ingreso</option>
+              <option value="Gasto">Gasto</option>
+            </select>
           </div>
 
           <div class="entity-modal__field">
-            <label>Ciudad</label>
-            <input type="text" class="form-input" formControlName="ciudad">
+            <label>Categoria</label>
+            <select class="form-input" formControlName="categoria">
+              <option value="Cuotas">Cuotas</option>
+              <option value="Servicios">Servicios</option>
+              <option value="Mantenimiento">Mantenimiento</option>
+            </select>
           </div>
 
           <div class="entity-modal__field">
-            <label>Sector</label>
-            <input type="text" class="form-input" formControlName="sector">
+            <label>Metodo</label>
+            <select class="form-input" formControlName="metodo">
+              <option value="Efectivo">Efectivo</option>
+              <option value="Transferencia">Transferencia</option>
+              <option value="Tarjeta">Tarjeta</option>
+            </select>
           </div>
 
           <div class="entity-modal__field">
-            <label>Precio</label>
-            <input type="number" class="form-input" formControlName="precio">
-          </div>
-
-          <div class="entity-modal__field">
-            <label>Habitaciones</label>
-            <input type="number" class="form-input" formControlName="cuartos">
-          </div>
-
-          <div class="entity-modal__field">
-            <label>Banos</label>
-            <input type="number" class="form-input" formControlName="banos">
-          </div>
-
-          <div class="entity-modal__field">
-            <label>Capacidad</label>
-            <input type="number" class="form-input" formControlName="capacidad">
+            <label>Monto</label>
+            <input type="number" class="form-input" formControlName="monto">
           </div>
 
           <div class="entity-modal__field entity-modal__field--full">
-            <label>Descripcion</label>
-            <textarea rows="4" class="form-input entity-modal__textarea" formControlName="descripcion"></textarea>
+            <label>Concepto</label>
+            <input type="text" class="form-input" formControlName="concepto">
           </div>
         </div>
       </ng-template>

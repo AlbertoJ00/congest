@@ -1,0 +1,58 @@
+<app-header activeSection="Reportes"></app-header>
+
+<div class="content-main-container">
+  <div class="content-main">
+    <main class="reports-page">
+      <div class="page-header">
+        <div class="page-header__titles">
+          <h1 class="page-header__title">Reportes</h1>
+          <p class="page-header__subtitle">Todas las actividades del sistema</p>
+        </div>
+
+        <div class="page-header__actions">
+          <app-search-bar (searchChange)="onSearch($event)"></app-search-bar>
+          <button class="btn-primary" type="button" (click)="openCreateModal()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="16"></line>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+            Nuevo
+          </button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <div class="table-responsive">
+          <table class="table reportes-table">
+            <thead>
+              <tr>
+                <th>Prioridad</th>
+                <th>Fecha</th>
+                <th>Problema</th>
+                <th>Condominio</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let reporte of filteredReportes">
+                <td><span [class]="getPriorityClass(reporte.prioridad)">{{ reporte.prioridad }}</span></td>
+                <td class="text-secondary">{{ reporte.fecha }}</td>
+                <td class="font-medium">{{ reporte.problema }}</td>
+                <td class="text-secondary">{{ reporte.condominio }}</td>
+                <td><span [class]="getStateClass(reporte.estado)">{{ reporte.estado }}</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<app-entity-modal
+  [open]="isCreateModalOpen"
+  mode="reporte"
+  (close)="closeCreateModal()"
+  (save)="handleCreateReporte($event)">
+</app-entity-modal>

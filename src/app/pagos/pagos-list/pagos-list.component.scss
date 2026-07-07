@@ -1,0 +1,91 @@
+@use '../../../variables' as *;
+
+.payments-page {
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: $spacing-lg;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+  padding: 0 8px;
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+}
+
+.table-container {
+  background-color: rgba($bg-card, 0.9);
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+}
+
+.font-medium {
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+}
+
+.text-secondary {
+  color: $text-secondary;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: $font-weight-semibold;
+
+  &--ingreso {
+    background: rgba(#34d399, 0.14);
+    color: #059669;
+  }
+
+  &--gasto {
+    background: rgba(#fca5a5, 0.22);
+    color: #ef4444;
+  }
+
+  &--category-cuotas {
+    background: rgba(#0ea5e9, 0.12);
+    color: #0284c7;
+  }
+
+  &--category-servicios {
+    background: rgba(#8b5cf6, 0.12);
+    color: #7c3aed;
+  }
+
+  &--category-mantenimiento {
+    background: rgba(#f59e0b, 0.14);
+    color: #b45309;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+}

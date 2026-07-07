@@ -18,15 +18,16 @@ export class HeaderComponent {
   profileForm: FormGroup;
 
   sections = [
-    { name: 'Dashboard', route: '/dashboard', icon: 'layers' },
     { name: 'Condominios', route: '/condominios', icon: 'building' },
-    { name: 'Inquilinos', route: '/inquilinos', icon: 'person' }
+    { name: 'Inquilinos', route: '/inquilinos', icon: 'person' },
+    { name: 'Reportes', route: '/reportes', icon: 'report' },
+    { name: 'Pagos', route: '/pagos', icon: 'money' }
   ];
 
   navIcons = [
-    { icon: 'document', route: '/documentos' },
+    { icon: 'document', route: '/reportes' },
     { icon: 'money', route: '/pagos' },
-    { icon: 'location', route: '/ubicacion' }
+    { icon: 'location', route: '/inquilinos' }
   ];
 
   constructor(

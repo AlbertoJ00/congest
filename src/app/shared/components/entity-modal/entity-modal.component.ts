@@ -1,7 +1,7 @@
 import { Component, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-type ModalMode = 'condominio' | 'inquilino';
+type ModalMode = 'condominio' | 'inquilino' | 'reporte' | 'pago';
 
 @Component({
   selector: 'app-entity-modal',
@@ -33,17 +33,33 @@ export class EntityModalComponent implements OnChanges {
   }
 
   get title(): string {
-    return this.mode === 'inquilino' ? 'Nuevo Inquilino' : 'Nuevo Condominio';
+    switch (this.mode) {
+      case 'inquilino':
+        return 'Nuevo Inquilino';
+      case 'reporte':
+        return 'Nuevo Reporte';
+      case 'pago':
+        return 'Nuevo Pago';
+      default:
+        return 'Nuevo Condominio';
+    }
   }
 
   get subtitle(): string {
-    return this.mode === 'inquilino'
-      ? 'Registra un nuevo inquilino con sus datos principales.'
-      : 'Registra un nuevo condominio con su información básica.';
+    switch (this.mode) {
+      case 'inquilino':
+        return 'Registra un nuevo inquilino con sus datos principales.';
+      case 'reporte':
+        return 'Registra un nuevo reporte con su estado y prioridad.';
+      case 'pago':
+        return 'Registra un nuevo pago o movimiento financiero.';
+      default:
+        return 'Registra un nuevo condominio con su información básica.';
+    }
   }
 
   get primaryButtonLabel(): string {
-    return this.mode === 'inquilino' ? 'Guardar' : 'Guardar';
+    return 'Guardar';
   }
 
   closeModal(): void {
@@ -83,6 +99,25 @@ export class EntityModalComponent implements OnChanges {
       });
     }
 
+    if (mode === 'reporte') {
+      return this.fb.group({
+        prioridad: ['Alta', Validators.required],
+        condominioNombre: ['', Validators.required],
+        estado: ['En proceso', Validators.required],
+        concepto: ['', Validators.required]
+      });
+    }
+
+    if (mode === 'pago') {
+      return this.fb.group({
+        tipo: ['Ingreso', Validators.required],
+        categoria: ['Cuotas', Validators.required],
+        metodo: ['Efectivo', Validators.required],
+        monto: ['', Validators.required],
+        concepto: ['', Validators.required]
+      });
+    }
+
     return this.fb.group({
       nombre: ['', Validators.required],
       ciudad: ['', Validators.required],
@@ -108,6 +143,25 @@ export class EntityModalComponent implements OnChanges {
         tipoSangre: '',
         estadoCivil: '',
         condominioNombre: ''
+      };
+    }
+
+    if (this.mode === 'reporte') {
+      return {
+        prioridad: 'Alta',
+        condominioNombre: '',
+        estado: 'En proceso',
+        concepto: ''
+      };
+    }
+
+    if (this.mode === 'pago') {
+      return {
+        tipo: 'Ingreso',
+        categoria: 'Cuotas',
+        metodo: 'Efectivo',
+        monto: '',
+        concepto: ''
       };
     }
 

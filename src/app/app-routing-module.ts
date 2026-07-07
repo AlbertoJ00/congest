@@ -22,6 +22,16 @@ const routes: Routes = [
     loadChildren: () => import('./inquilinos/inquilinos.module').then(m => m.InquilinosModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'reportes',
+    loadChildren: () => import('./reportes/reportes.module').then(m => m.ReportesModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pagos',
+    loadChildren: () => import('./pagos/pagos.module').then(m => m.PagosModule),
+    canActivate: [AuthGuard]
+  },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }
 ];

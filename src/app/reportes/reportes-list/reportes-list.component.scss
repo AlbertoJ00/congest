@@ -1,0 +1,96 @@
+@use '../../../variables' as *;
+
+.reports-page {
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: $spacing-lg;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+  padding: 0 8px;
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+}
+
+.table-container {
+  background-color: rgba($bg-card, 0.9);
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+}
+
+.font-medium {
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+}
+
+.text-secondary {
+  color: $text-secondary;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: $font-weight-semibold;
+
+  &--alta {
+    background: rgba(#ef4444, 0.12);
+    color: #ef4444;
+  }
+
+  &--media {
+    background: rgba(#f59e0b, 0.14);
+    color: #b45309;
+  }
+
+  &--baja {
+    background: rgba(#22c55e, 0.14);
+    color: #15803d;
+  }
+
+  &--state-en-proceso {
+    background: rgba(#0ea5e9, 0.14);
+    color: #0284c7;
+  }
+
+  &--state-asignado {
+    background: rgba(#8b5cf6, 0.14);
+    color: #7c3aed;
+  }
+
+  &--state-resuelto {
+    background: rgba(#22c55e, 0.14);
+    color: #15803d;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+}
