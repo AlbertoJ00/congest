@@ -11,6 +11,8 @@ import { Inquilino } from '../../core/models/inquilino.model';
 export class InquilinosListComponent implements OnInit {
   inquilinos: Inquilino[] = [];
   filteredInquilinos: Inquilino[] = [];
+  isCreateModalOpen = false;
+  searchTerm = '';
 
   constructor(private inquilinosService: InquilinosService) {}
 
@@ -37,20 +39,60 @@ export class InquilinosListComponent implements OnInit {
   }
 
   onSearch(term: string): void {
-    if (!term) {
-      this.filteredInquilinos = this.inquilinos;
-      return;
-    }
-    const lowerTerm = term.toLowerCase();
-    this.filteredInquilinos = this.inquilinos.filter(i =>
-      i.nombre.toLowerCase().includes(lowerTerm) ||
-      i.email.toLowerCase().includes(lowerTerm) ||
-      i.documento.includes(term) ||
-      (i.condominioNombre && i.condominioNombre.toLowerCase().includes(lowerTerm))
-    );
+    this.searchTerm = term;
+    this.applyFilter();
+  }
+
+  openCreateModal(): void {
+    this.isCreateModalOpen = true;
+  }
+
+  closeCreateModal(): void {
+    this.isCreateModalOpen = false;
+  }
+
+  handleCreateInquilino(payload: Record<string, unknown>): void {
+    const nextId = this.inquilinos.length ? Math.max(...this.inquilinos.map(i => i.id)) + 1 : 1;
+    const nombres = String(payload['nombres'] || '');
+    const apellidos = String(payload['apellidos'] || '');
+    const nombreCompleto = [nombres, apellidos].filter(Boolean).join(' ');
+
+    const inquilino: Inquilino = {
+      id: nextId,
+      nombre: nombreCompleto || 'Nuevo inquilino',
+      email: String(payload['correoElectronico'] || ''),
+      documento: String(payload['documento'] || ''),
+      tipoDocumento: String(payload['tipoDocumento'] || 'Cedula'),
+      celular: String(payload['celular'] || ''),
+      proximaFechaPago: 'Pendiente',
+      montoAlquiler: 0,
+      estado: 'Pendiente',
+      condominioId: 0,
+      condominioNombre: String(payload['condominioNombre'] || '')
+    };
+
+    this.inquilinos = [inquilino, ...this.inquilinos];
+    this.applyFilter();
+    this.closeCreateModal();
   }
 
   getInitials(name: string): string {
     return name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+  }
+
+  private applyFilter(): void {
+    const term = this.searchTerm.trim().toLowerCase();
+
+    if (!term) {
+      this.filteredInquilinos = this.inquilinos;
+      return;
+    }
+
+    this.filteredInquilinos = this.inquilinos.filter(i =>
+      i.nombre.toLowerCase().includes(term) ||
+      i.email.toLowerCase().includes(term) ||
+      i.documento.includes(term) ||
+      (i.condominioNombre && i.condominioNombre.toLowerCase().includes(term))
+    );
   }
 }

@@ -1,0 +1,125 @@
+<div class="entity-modal__backdrop" *ngIf="open" (click)="closeModal()">
+  <div class="entity-modal" (click)="$event.stopPropagation()">
+    <div class="entity-modal__header">
+      <div>
+        <h3 class="entity-modal__title">{{ title }}</h3>
+        <p class="entity-modal__subtitle">{{ subtitle }}</p>
+      </div>
+      <button type="button" class="entity-modal__close" (click)="closeModal()" aria-label="Cerrar modal">
+        ×
+      </button>
+    </div>
+
+    <form [formGroup]="entityForm" class="entity-modal__form" (ngSubmit)="submit()">
+      <ng-container *ngIf="mode === 'inquilino'; else condominioForm">
+        <div class="entity-modal__grid">
+          <div class="entity-modal__field">
+            <label>Tipo de documento</label>
+            <select class="form-input" formControlName="tipoDocumento">
+              <option value="Cedula">Cedula</option>
+              <option value="Pasaporte">Pasaporte</option>
+              <option value="RNC">RNC</option>
+            </select>
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Numero documento</label>
+            <input type="text" class="form-input" formControlName="documento">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Nombres</label>
+            <input type="text" class="form-input" formControlName="nombres">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Apellidos</label>
+            <input type="text" class="form-input" formControlName="apellidos">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Correo electronico</label>
+            <input type="email" class="form-input" formControlName="correoElectronico">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Numero de celular</label>
+            <input type="text" class="form-input" formControlName="celular">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Telefono adicional</label>
+            <input type="text" class="form-input" formControlName="telefonoAdicional">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Tipo de sangre</label>
+            <input type="text" class="form-input" formControlName="tipoSangre">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Estado civil</label>
+            <input type="text" class="form-input" formControlName="estadoCivil">
+          </div>
+
+          <div class="entity-modal__field entity-modal__field--full">
+            <label>Condominio</label>
+            <div class="entity-modal__inline">
+              <input type="text" class="form-input" formControlName="condominioNombre" placeholder="Selecciona o escribe un condominio">
+              <button type="button" class="entity-modal__ghost-button">Agregar nuevo condominio</button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #condominioForm>
+        <div class="entity-modal__grid">
+          <div class="entity-modal__field">
+            <label>Nombre de la casa</label>
+            <input type="text" class="form-input" formControlName="nombre">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Ciudad</label>
+            <input type="text" class="form-input" formControlName="ciudad">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Sector</label>
+            <input type="text" class="form-input" formControlName="sector">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Precio</label>
+            <input type="number" class="form-input" formControlName="precio">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Habitaciones</label>
+            <input type="number" class="form-input" formControlName="cuartos">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Banos</label>
+            <input type="number" class="form-input" formControlName="banos">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Capacidad</label>
+            <input type="number" class="form-input" formControlName="capacidad">
+          </div>
+
+          <div class="entity-modal__field entity-modal__field--full">
+            <label>Descripcion</label>
+            <textarea rows="4" class="form-input entity-modal__textarea" formControlName="descripcion"></textarea>
+          </div>
+        </div>
+      </ng-template>
+
+      <div class="entity-modal__actions">
+        <button type="button" class="entity-modal__secondary" (click)="closeModal()">Cancelar</button>
+        <button type="submit" class="btn-primary">{{ primaryButtonLabel }}</button>
+      </div>
+    </form>
+  </div>
+</div>

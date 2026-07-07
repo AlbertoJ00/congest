@@ -11,7 +11,7 @@
         
         <div class="page-header__actions">
           <app-search-bar (searchChange)="onSearch($event)"></app-search-bar>
-          <button class="btn-primary">
+          <button class="btn-primary" type="button" (click)="openCreateModal()">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="12" y1="8" x2="12" y2="16"></line>
@@ -80,3 +80,10 @@
     </main>
   </div>
 </div>
+
+<app-entity-modal
+  [open]="isCreateModalOpen"
+  mode="inquilino"
+  (close)="closeCreateModal()"
+  (save)="handleCreateInquilino($event)">
+</app-entity-modal>

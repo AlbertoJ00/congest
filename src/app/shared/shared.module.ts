@@ -7,13 +7,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { StatusBadgeComponent } from './components/status-badge/status-badge.component';
 import { KpiCardComponent } from './components/kpi-card/kpi-card.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { EntityModalComponent } from './components/entity-modal/entity-modal.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     StatusBadgeComponent,
     KpiCardComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    EntityModalComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     HeaderComponent,
     StatusBadgeComponent,
     KpiCardComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    EntityModalComponent
   ]
 })
 export class SharedModule { }

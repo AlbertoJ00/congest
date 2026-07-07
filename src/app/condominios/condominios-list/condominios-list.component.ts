@@ -11,6 +11,8 @@ import { Condominio } from '../../core/models/condominio.model';
 export class CondominiosListComponent implements OnInit {
   condominios: Condominio[] = [];
   filteredCondominios: Condominio[] = [];
+  isCreateModalOpen = false;
+  searchTerm = '';
 
   constructor(private condominiosService: CondominiosService) {}
 
@@ -36,15 +38,49 @@ export class CondominiosListComponent implements OnInit {
   }
 
   onSearch(term: string): void {
+    this.searchTerm = term;
+    this.applyFilter();
+  }
+
+  openCreateModal(): void {
+    this.isCreateModalOpen = true;
+  }
+
+  closeCreateModal(): void {
+    this.isCreateModalOpen = false;
+  }
+
+  handleCreateCondominio(payload: Record<string, unknown>): void {
+    const nextId = this.condominios.length ? Math.max(...this.condominios.map(c => c.id)) + 1 : 1;
+    const condominio: Condominio = {
+      id: nextId,
+      nombre: String(payload['nombre'] || ''),
+      ciudad: String(payload['ciudad'] || ''),
+      sector: String(payload['sector'] || ''),
+      precio: Number(payload['precio'] || 0),
+      cuartos: Number(payload['cuartos'] || 0),
+      banos: Number(payload['banos'] || 0),
+      capacidad: Number(payload['capacidad'] || 0),
+      descripcion: String(payload['descripcion'] || '')
+    };
+
+    this.condominios = [condominio, ...this.condominios];
+    this.applyFilter();
+    this.closeCreateModal();
+  }
+
+  private applyFilter(): void {
+    const term = this.searchTerm.trim().toLowerCase();
+
     if (!term) {
       this.filteredCondominios = this.condominios;
       return;
     }
-    const lowerTerm = term.toLowerCase();
+
     this.filteredCondominios = this.condominios.filter(c =>
-      c.nombre.toLowerCase().includes(lowerTerm) ||
-      c.ciudad.toLowerCase().includes(lowerTerm) ||
-      c.sector.toLowerCase().includes(lowerTerm)
+      c.nombre.toLowerCase().includes(term) ||
+      c.ciudad.toLowerCase().includes(term) ||
+      c.sector.toLowerCase().includes(term)
     );
   }
 }
