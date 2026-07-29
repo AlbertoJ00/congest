@@ -64,16 +64,18 @@
 
           <div class="entity-modal__field entity-modal__field--full">
             <label>Condominio</label>
-            <div class="entity-modal__inline">
-              <input type="text" class="form-input" formControlName="condominioNombre" placeholder="Selecciona o escribe un condominio">
-              <button type="button" class="entity-modal__ghost-button">Agregar nuevo condominio</button>
-            </div>
+            <select class="form-input" formControlName="condominioId">
+              <option [ngValue]="''" disabled>Selecciona un condominio</option>
+              <option *ngFor="let condominio of condominios" [ngValue]="condominio.id">
+                {{ condominio.nombre }} — {{ condominio.sector }}
+              </option>
+            </select>
           </div>
         </div>
       </ng-container>
 
       <ng-template #nonTenantForms>
-        <ng-container *ngIf="mode === 'reporte'; else pagoForm">
+        <ng-container *ngIf="mode === 'reporte'; else nonReportForms">
           <div class="entity-modal__grid">
             <div class="entity-modal__field">
               <label>Prioridad</label>
@@ -86,7 +88,10 @@
 
             <div class="entity-modal__field">
               <label>Condominio</label>
-              <input type="text" class="form-input" formControlName="condominioNombre">
+              <select class="form-input" formControlName="condominioId">
+                <option [ngValue]="''" disabled>Selecciona un condominio</option>
+                <option *ngFor="let condominio of condominios" [ngValue]="condominio.id">{{ condominio.nombre }}</option>
+              </select>
             </div>
 
             <div class="entity-modal__field">
@@ -106,8 +111,22 @@
         </ng-container>
       </ng-template>
 
+      <ng-template #nonReportForms>
+        <ng-container *ngIf="mode === 'pago'; else condominioForm">
+          <ng-container *ngTemplateOutlet="pagoForm"></ng-container>
+        </ng-container>
+      </ng-template>
+
       <ng-template #pagoForm>
         <div class="entity-modal__grid">
+          <div class="entity-modal__field entity-modal__field--full">
+            <label>Condominio</label>
+            <select class="form-input" formControlName="condominioId">
+              <option [ngValue]="''" disabled>Selecciona un condominio</option>
+              <option *ngFor="let condominio of condominios" [ngValue]="condominio.id">{{ condominio.nombre }}</option>
+            </select>
+          </div>
+
           <div class="entity-modal__field">
             <label>Tipo</label>
             <select class="form-input" formControlName="tipo">
@@ -142,6 +161,60 @@
           <div class="entity-modal__field entity-modal__field--full">
             <label>Concepto</label>
             <input type="text" class="form-input" formControlName="concepto">
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #condominioForm>
+        <div class="entity-modal__grid">
+          <div class="entity-modal__field entity-modal__field--full">
+            <label>Nombre del condominio</label>
+            <input type="text" class="form-input" formControlName="nombre">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Ciudad</label>
+            <input type="text" class="form-input" formControlName="ciudad">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Sector</label>
+            <input type="text" class="form-input" formControlName="sector">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Precio mensual</label>
+            <input type="number" class="form-input" formControlName="precio">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Cuartos</label>
+            <input type="number" class="form-input" formControlName="cuartos">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Baños</label>
+            <input type="number" class="form-input" formControlName="banos">
+          </div>
+
+          <div class="entity-modal__field">
+            <label>Capacidad</label>
+            <input type="number" class="form-input" formControlName="capacidad">
+          </div>
+
+          <div class="entity-modal__field entity-modal__field--full">
+            <label>Descripción</label>
+            <textarea class="form-input" formControlName="descripcion" rows="3"></textarea>
+          </div>
+
+          <div class="entity-modal__field entity-modal__field--full" *ngIf="propietarios.length">
+            <label>Propietario responsable</label>
+            <select class="form-input" formControlName="propietarioId">
+              <option [ngValue]="''" disabled>Selecciona un propietario</option>
+              <option *ngFor="let propietario of propietarios" [ngValue]="propietario.id">
+                {{ propietario.nombre }} {{ propietario.apellido }} — {{ propietario.email }}
+              </option>
+            </select>
           </div>
         </div>
       </ng-template>

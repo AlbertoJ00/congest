@@ -1,59 +1,54 @@
 # Congest
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.6.
+Aplicación Angular con una API Express y persistencia centralizada en SQLite.
 
-## Development server
+## Ejecutar en desarrollo
 
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Instala dependencias y levanta el frontend y la API con un solo comando:
 
 ```bash
-ng generate component component-name
+npm install --legacy-peer-deps
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Frontend: `http://localhost:4200`
+- API: `http://localhost:3000/api`
+- Salud de la API: `http://localhost:3000/api/health`
+- Base de datos: `server/data/congest.sqlite`
+
+El primer arranque crea las tablas e importa automáticamente los datos de demostración que antes estaban definidos dentro de los componentes. Los siguientes arranques conservan la información existente.
+
+## Usuarios iniciales
+
+| Correo | Contraseña | Rol |
+| --- | --- | --- |
+| `admin@congest.com` | `admin123` | Administrador |
+| `ana@congest.com` | `propietario123` | Propietario |
+
+## Configuración
+
+Copia `.env.example` a `.env` si necesitas cambiar el puerto, la ruta de SQLite o el secreto JWT. En un entorno compartido o productivo es obligatorio definir un `JWT_SECRET` privado.
+
+Para ejecutar los procesos por separado:
 
 ```bash
-ng generate --help
+npm run server
+npm run web
 ```
 
-## Building
+El proxy de Angular reenvía `/api` al puerto `3000`. Por eso la API debe estar en ejecución para poder iniciar sesión.
 
-To build the project run:
+## Roles y permisos
+
+- **Administrador:** acceso global, administración de usuarios, creación/asignación de condominios y operaciones destructivas.
+- **Propietario:** solo consulta y modifica datos de los condominios que tiene asignados. No puede acceder a usuarios, crear condominios, eliminar registros ni operar sobre propiedades ajenas.
+
+El registro público siempre crea cuentas con rol `Propietario`. Un administrador debe asignarles condominios desde la edición de cada propiedad. Los permisos también se validan en la API; no dependen únicamente de los botones visibles en Angular.
+
+Las altas, ediciones y eliminaciones administrativas quedan registradas en la tabla `auditoria` de SQLite.
+
+## Compilar
 
 ```bash
-ng build
+npm run build
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

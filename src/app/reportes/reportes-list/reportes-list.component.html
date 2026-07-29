@@ -53,6 +53,7 @@
 <app-entity-modal
   [open]="isCreateModalOpen"
   mode="reporte"
+  [condominios]="condominios"
   (close)="closeCreateModal()"
   (save)="handleCreateReporte($event)">
 </app-entity-modal>

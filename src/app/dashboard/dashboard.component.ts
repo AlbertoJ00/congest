@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EstadosCuentaService } from '../core/services/estados-cuenta.service';
 import { ResumenKPI } from '../core/models/estado-cuenta.model';
+import { AuthService } from '../core/services/auth.service';
+import { Usuario } from '../core/models/usuario.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,17 +11,13 @@ import { ResumenKPI } from '../core/models/estado-cuenta.model';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  // KPI data — mock inicial (se actualiza con la API)
-  kpis = {
-    recaudacion: '$284,500',
-    gastos: '$82,000',
-    pagosAlDia: '8/9',
-    ganancias: '$202,500'
-  };
+  kpis = { recaudacion: '$0', gastos: '$0', pagosAlDia: '0/0', ganancias: '$0' };
+  currentUser: Usuario | null = null;
 
-  constructor(private estadosCuentaService: EstadosCuentaService) {}
+  constructor(private estadosCuentaService: EstadosCuentaService, private authService: AuthService) {}
 
   ngOnInit(): void {
+    this.authService.currentUser$.subscribe(user => this.currentUser = user);
     this.estadosCuentaService.getResumen().subscribe({
       next: (resumen: ResumenKPI) => {
         this.kpis = {
@@ -28,11 +26,12 @@ export class DashboardComponent implements OnInit {
           pagosAlDia: `${resumen.pagosAlDia}/${resumen.totalPagos}`,
           ganancias: this.formatCurrency(resumen.gananciasMes)
         };
-      },
-      error: () => {
-        // Mantener datos mock si el backend no está disponible
       }
     });
+  }
+
+  get isOwner(): boolean {
+    return this.currentUser?.rol === 'Propietario';
   }
 
   private formatCurrency(amount: number): string {

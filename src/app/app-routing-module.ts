@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
+import { RoleGuard } from './core/guards/role.guard';
 
 const routes: Routes = [
   { 
@@ -31,6 +32,14 @@ const routes: Routes = [
     path: 'pagos',
     loadChildren: () => import('./pagos/pagos.module').then(m => m.PagosModule),
     canActivate: [AuthGuard]
+  },
+  { path: 'incidencias', loadChildren: () => import('./incidencias/incidencias.module').then(m => m.IncidenciasModule), canActivate: [AuthGuard] },
+  { path: 'estados-cuenta', loadChildren: () => import('./estados-cuenta/estados-cuenta.module').then(m => m.EstadosCuentaModule), canActivate: [AuthGuard] },
+  {
+    path: 'usuarios',
+    loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosModule),
+    canActivate: [AuthGuard, RoleGuard],
+    data: { roles: ['Administrador'] }
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }

@@ -18,4 +18,6 @@ export class EstadosCuentaService {
   getResumen(): Observable<ResumenKPI> {
     return this.http.get<ResumenKPI>(`${this.API_URL}/resumen`);
   }
+
+  getById(id: number): Observable<EstadoDeCuenta> { return this.http.get<EstadoDeCuenta>(`${this.API_URL}/${id}`); }
 }

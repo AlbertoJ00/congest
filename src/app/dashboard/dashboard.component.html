@@ -3,6 +3,15 @@
 <div class="content-main-container">
   <div class="content-main">
     <main class="dashboard">
+      <section class="dashboard__context" *ngIf="isOwner">
+        <div>
+          <span class="dashboard__context-eyebrow">Panel de propietario</span>
+          <h1>Resumen de tus condominios</h1>
+          <p>Los indicadores, pagos e incidencias mostrados pertenecen únicamente a tus propiedades.</p>
+        </div>
+        <span class="dashboard__context-badge">Acceso limitado</span>
+      </section>
+
       <!-- KPI Cards -->
       <section class="dashboard__kpis fade-in">
         <app-kpi-card

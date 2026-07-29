@@ -11,7 +11,17 @@
       <h1 class="login-page__title">Iniciar Sesión</h1>
       <p class="login-page__subtitle">La manera más inteligente de gestionar tu condominio.</p>
       <div class="login-page__helper">
-        Desarrollo local: usa <strong>admin@congest.com</strong> y <strong>admin123</strong>.
+        <span class="login-page__helper-title">Credenciales de prueba</span>
+        <div class="login-page__credential">
+          <span class="login-page__credential-role">Administrador</span>
+          <span><strong>Usuario:</strong> admin@congest.com</span>
+          <span><strong>Contraseña:</strong> admin123</span>
+        </div>
+        <div class="login-page__credential">
+          <span class="login-page__credential-role">Propietario</span>
+          <span><strong>Usuario:</strong> ana@congest.com</span>
+          <span><strong>Contraseña:</strong> propietario123</span>
+        </div>
       </div>
 
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-page__form">
@@ -49,7 +59,7 @@
 
         <!-- Olvidaste tu contraseña -->
         <div class="login-page__forgot">
-          <a href="#" class="login-page__forgot-link">Olvidaste tu contraseña?</a>
+          <a routerLink="/recuperar-contrasena" class="login-page__forgot-link">Olvidaste tu contraseña?</a>
         </div>
 
         <!-- Error general -->

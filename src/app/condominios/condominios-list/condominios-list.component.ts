@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CondominiosService } from '../../core/services/condominios.service';
 import { Condominio } from '../../core/models/condominio.model';
+import { AuthService } from '../../core/services/auth.service';
+import { UsuariosService } from '../../core/services/usuarios.service';
+import { Usuario } from '../../core/models/usuario.model';
 
 @Component({
   selector: 'app-condominios-list',
@@ -12,9 +15,18 @@ export class CondominiosListComponent implements OnInit {
   condominios: Condominio[] = [];
   filteredCondominios: Condominio[] = [];
   isCreateModalOpen = false;
+  editingCondominio: Condominio | null = null;
   searchTerm = '';
+  propietarios: Usuario[] = [];
+  readonly isAdmin: boolean;
 
-  constructor(private condominiosService: CondominiosService) {}
+  constructor(
+    private condominiosService: CondominiosService,
+    private authService: AuthService,
+    private usuariosService: UsuariosService
+  ) {
+    this.isAdmin = this.authService.hasRole('Administrador');
+  }
 
   ngOnInit(): void {
     this.condominiosService.getAll().subscribe({
@@ -22,19 +34,13 @@ export class CondominiosListComponent implements OnInit {
         this.condominios = data;
         this.filteredCondominios = data;
       },
-      error: () => {
-        // Fallback mock data
-        this.condominios = [
-          { id: 1, nombre: 'Brisa Del Este #56', precio: 12900, ciudad: 'Santo Domingo Este', sector: 'Naco', cuartos: 4, banos: 2, capacidad: 9 },
-          { id: 2, nombre: 'Brisa Del Este #56', precio: 12900, ciudad: 'Santo Domingo Este', sector: 'Naco', cuartos: 4, banos: 2, capacidad: 9 },
-          { id: 3, nombre: 'Brisa Del Este #56', precio: 12900, ciudad: 'Santo Domingo Este', sector: 'Naco', cuartos: 4, banos: 2, capacidad: 9 },
-          { id: 4, nombre: 'Brisa Del Este #56', precio: 12900, ciudad: 'Santo Domingo Este', sector: 'Naco', cuartos: 4, banos: 2, capacidad: 9 },
-          { id: 5, nombre: 'Brisa Del Este #56', precio: 12900, ciudad: 'Santo Domingo Este', sector: 'Naco', cuartos: 4, banos: 2, capacidad: 9 },
-          { id: 6, nombre: 'Brisa Del Este #56', precio: 12900, ciudad: 'Santo Domingo Este', sector: 'Naco', cuartos: 4, banos: 2, capacidad: 9 },
-        ];
-        this.filteredCondominios = this.condominios;
-      }
+      error: () => { this.condominios = []; this.filteredCondominios = []; }
     });
+    if (this.isAdmin) {
+      this.usuariosService.getAll().subscribe({
+        next: users => this.propietarios = users.filter(user => user.rol === 'Propietario')
+      });
+    }
   }
 
   onSearch(term: string): void {
@@ -43,30 +49,26 @@ export class CondominiosListComponent implements OnInit {
   }
 
   openCreateModal(): void {
+    this.editingCondominio = null;
     this.isCreateModalOpen = true;
   }
 
   closeCreateModal(): void {
     this.isCreateModalOpen = false;
+    this.editingCondominio = null;
   }
 
   handleCreateCondominio(payload: Record<string, unknown>): void {
-    const nextId = this.condominios.length ? Math.max(...this.condominios.map(c => c.id)) + 1 : 1;
-    const condominio: Condominio = {
-      id: nextId,
-      nombre: String(payload['nombre'] || ''),
-      ciudad: String(payload['ciudad'] || ''),
-      sector: String(payload['sector'] || ''),
-      precio: Number(payload['precio'] || 0),
-      cuartos: Number(payload['cuartos'] || 0),
-      banos: Number(payload['banos'] || 0),
-      capacidad: Number(payload['capacidad'] || 0),
-      descripcion: String(payload['descripcion'] || '')
-    };
+    const data = payload as Partial<Condominio>;
+    const request = this.editingCondominio ? this.condominiosService.update(this.editingCondominio.id, data) : this.condominiosService.create(data);
+    request.subscribe({ next: () => { this.ngOnInit(); this.closeCreateModal(); } });
+  }
 
-    this.condominios = [condominio, ...this.condominios];
-    this.applyFilter();
-    this.closeCreateModal();
+  edit(condominio: Condominio): void { this.editingCondominio = condominio; this.isCreateModalOpen = true; }
+  remove(condominio: Condominio): void {
+    if (confirm(`¿Eliminar el condominio “${condominio.nombre}”? Esta acción no se puede deshacer.`)) {
+      this.condominiosService.delete(condominio.id).subscribe({ next: () => this.ngOnInit() });
+    }
   }
 
   private applyFilter(): void {

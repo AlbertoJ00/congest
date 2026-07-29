@@ -18,4 +18,6 @@ export class IncidenciasService {
   getResumen(): Observable<ResumenIncidencias> {
     return this.http.get<ResumenIncidencias>(`${this.API_URL}/resumen`);
   }
+
+  getById(id: number): Observable<Incidencia> { return this.http.get<Incidencia>(`${this.API_URL}/${id}`); }
 }

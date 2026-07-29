@@ -21,7 +21,8 @@ export class HeaderComponent {
     { name: 'Condominios', route: '/condominios', icon: 'building' },
     { name: 'Inquilinos', route: '/inquilinos', icon: 'person' },
     { name: 'Reportes', route: '/reportes', icon: 'report' },
-    { name: 'Pagos', route: '/pagos', icon: 'money' }
+    { name: 'Pagos', route: '/pagos', icon: 'money' },
+    { name: 'Usuarios', route: '/usuarios', icon: 'person', adminOnly: true }
   ];
 
   navIcons = [
@@ -58,6 +59,10 @@ export class HeaderComponent {
 
   navigateTo(route: string): void {
     this.router.navigate([route]);
+  }
+
+  get visibleSections() {
+    return this.sections.filter(section => !section.adminOnly || this.currentUser?.rol === 'Administrador');
   }
 
   getInitials(name: string): string {
@@ -108,9 +113,9 @@ export class HeaderComponent {
       apellido: apellido.trim(),
       email: email.trim(),
       telefono: telefono.trim()
+    }).subscribe({
+      next: () => this.closeProfileModal()
     });
-
-    this.closeProfileModal();
   }
 
   logout(): void {

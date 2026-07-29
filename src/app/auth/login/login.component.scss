@@ -64,6 +64,37 @@
     margin-bottom: $spacing-lg;
   }
 
+  &__helper-title {
+    display: block;
+    margin-bottom: $spacing-sm;
+    color: $primary-green-dark;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__credential {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 3px $spacing-sm;
+    padding: 8px 0;
+
+    & + & {
+      border-top: 1px solid rgba(47, 174, 96, 0.16);
+    }
+
+    span:not(&-role) {
+      font-size: $font-size-xs;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  &__credential-role {
+    grid-row: span 2;
+    align-self: center;
+    color: $primary-green-dark;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+  }
+
   // Formulario
   &__form {
     display: flex;

@@ -1,0 +1,17 @@
+<main class="login-page">
+  <section class="login-page__form-side">
+    <div class="login-page__form-container">
+      <h1 class="login-page__title">Crear cuenta de propietario</h1>
+      <p class="login-page__subtitle">Un administrador deberá asignarte tus condominios.</p>
+      <form [formGroup]="form" (ngSubmit)="submit()" class="login-page__form">
+        <input class="form-input" placeholder="Nombre" formControlName="nombre">
+        <input class="form-input" placeholder="Apellido" formControlName="apellido">
+        <input class="form-input" type="email" placeholder="Correo" formControlName="email">
+        <input class="form-input" type="password" placeholder="Contraseña" formControlName="password">
+        <p *ngIf="message">{{ message }}</p>
+        <button class="btn-primary">Registrarme como propietario</button>
+      </form>
+      <a routerLink="/login">Volver a iniciar sesión</a>
+    </div>
+  </section>
+</main>

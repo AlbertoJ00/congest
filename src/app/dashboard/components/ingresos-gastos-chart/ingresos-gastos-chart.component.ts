@@ -84,21 +84,7 @@ export class IngresosGastosChartComponent implements OnInit {
 
   ngOnInit(): void {
     this.actividadesService.getIngresosGastos().subscribe({
-      next: (data) => {
-        this.updateChartData(data);
-      },
-      error: () => {
-        // Mock data if API fails
-        const mockData = [
-          { mes: 'Ene', ingresos: 1000, gastos: 5000 },
-          { mes: 'Feb', ingresos: 2000, gastos: 4500 },
-          { mes: 'Mar', ingresos: 3500, gastos: 3500 },
-          { mes: 'Abr', ingresos: 5000, gastos: 3000 },
-          { mes: 'May', ingresos: 4500, gastos: 2000 },
-          { mes: 'Jun', ingresos: 4800, gastos: 1500 }
-        ];
-        this.updateChartData(mockData);
-      }
+      next: (data) => this.updateChartData(data)
     });
   }
 

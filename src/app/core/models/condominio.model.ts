@@ -11,5 +11,6 @@ export interface Condominio {
   capacidad: number;
   imagen?: string;
   descripcion?: string;
+  propietarioId?: number;
   createdAt?: string;
 }

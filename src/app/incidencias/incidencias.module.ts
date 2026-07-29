@@ -1,0 +1,2 @@
+import { NgModule } from '@angular/core'; import { SharedModule } from '../shared/shared.module'; import { IncidenciasRoutingModule } from './incidencias-routing.module'; import { IncidenciasListComponent } from './incidencias-list/incidencias-list.component'; import { IncidenciaDetailComponent } from './incidencia-detail/incidencia-detail.component';
+@NgModule({ declarations: [IncidenciasListComponent, IncidenciaDetailComponent], imports: [SharedModule, IncidenciasRoutingModule] }) export class IncidenciasModule {}

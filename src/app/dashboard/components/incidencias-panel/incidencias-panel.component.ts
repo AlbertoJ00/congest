@@ -15,21 +15,7 @@ export class IncidenciasPanelComponent implements OnInit {
   constructor(private incidenciasService: IncidenciasService) {}
 
   ngOnInit(): void {
-    this.incidenciasService.getAll().subscribe({
-      next: (data) => this.incidencias = data,
-      error: () => {
-        this.incidencias = [
-          { id: 1, titulo: 'Fuga en estacionamiento', ubicacion: 'Sótano N-2', tiempo: 'Hace 2h', estado: 'En proceso', severidad: 'alta' },
-          { id: 2, titulo: 'Elevador 3 fuera de servicio', ubicacion: 'Torre B', tiempo: 'Hace 5h', estado: 'Asignado', severidad: 'media' },
-          { id: 3, titulo: 'Iluminación pasillo 4to piso', ubicacion: 'Torre A', tiempo: 'Ayer', estado: 'Resuelto', severidad: 'baja' },
-          { id: 4, titulo: 'Iluminación pasillo 3to piso', ubicacion: 'Torre A', tiempo: 'Ayer', estado: 'Resuelto', severidad: 'baja' },
-        ];
-      }
-    });
-
-    this.incidenciasService.getResumen().subscribe({
-      next: (data) => this.resumen = data,
-      error: () => this.resumen = { abiertas: 7, resueltasHoy: 3 }
-    });
+    this.incidenciasService.getAll().subscribe({ next: data => this.incidencias = data });
+    this.incidenciasService.getResumen().subscribe({ next: data => this.resumen = data });
   }
 }

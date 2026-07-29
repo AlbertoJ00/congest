@@ -1,5 +1,7 @@
 import { Component, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Condominio } from '../../../core/models/condominio.model';
+import { Usuario } from '../../../core/models/usuario.model';
 
 type ModalMode = 'condominio' | 'inquilino' | 'reporte' | 'pago';
 
@@ -12,6 +14,9 @@ type ModalMode = 'condominio' | 'inquilino' | 'reporte' | 'pago';
 export class EntityModalComponent implements OnChanges {
   @Input() open = false;
   @Input() mode: ModalMode = 'condominio';
+  @Input() entity: object | null = null;
+  @Input() condominios: Condominio[] = [];
+  @Input() propietarios: Usuario[] = [];
 
   @Output() close = new EventEmitter<void>();
   @Output() save = new EventEmitter<Record<string, unknown>>();
@@ -27,21 +32,22 @@ export class EntityModalComponent implements OnChanges {
       this.entityForm = this.buildForm(this.mode);
     }
 
-    if (changes['open'] && this.open) {
-      this.entityForm.reset(this.getInitialValue());
+    if ((changes['open'] && this.open) || (changes['entity'] && this.open)) {
+      this.entityForm.reset({ ...this.getInitialValue(), ...this.toFormValue(this.entity) });
     }
   }
 
   get title(): string {
+    const action = this.entity ? 'Editar' : 'Nuevo';
     switch (this.mode) {
       case 'inquilino':
-        return 'Nuevo Inquilino';
+        return `${action} Inquilino`;
       case 'reporte':
-        return 'Nuevo Reporte';
+        return `${action} Reporte`;
       case 'pago':
-        return 'Nuevo Pago';
+        return `${action} Pago`;
       default:
-        return 'Nuevo Condominio';
+        return `${action} Condominio`;
     }
   }
 
@@ -59,7 +65,7 @@ export class EntityModalComponent implements OnChanges {
   }
 
   get primaryButtonLabel(): string {
-    return 'Guardar';
+    return this.entity ? 'Guardar cambios' : 'Guardar';
   }
 
   closeModal(): void {
@@ -95,14 +101,14 @@ export class EntityModalComponent implements OnChanges {
         telefonoAdicional: [''],
         tipoSangre: [''],
         estadoCivil: [''],
-        condominioNombre: ['', Validators.required]
+        condominioId: ['', Validators.required]
       });
     }
 
     if (mode === 'reporte') {
       return this.fb.group({
         prioridad: ['Alta', Validators.required],
-        condominioNombre: ['', Validators.required],
+        condominioId: ['', Validators.required],
         estado: ['En proceso', Validators.required],
         concepto: ['', Validators.required]
       });
@@ -110,6 +116,7 @@ export class EntityModalComponent implements OnChanges {
 
     if (mode === 'pago') {
       return this.fb.group({
+        condominioId: ['', Validators.required],
         tipo: ['Ingreso', Validators.required],
         categoria: ['Cuotas', Validators.required],
         metodo: ['Efectivo', Validators.required],
@@ -126,6 +133,7 @@ export class EntityModalComponent implements OnChanges {
       cuartos: ['', Validators.required],
       banos: ['', Validators.required],
       capacidad: ['', Validators.required],
+      propietarioId: ['', Validators.required],
       descripcion: ['']
     });
   }
@@ -142,14 +150,14 @@ export class EntityModalComponent implements OnChanges {
         telefonoAdicional: '',
         tipoSangre: '',
         estadoCivil: '',
-        condominioNombre: ''
+        condominioId: ''
       };
     }
 
     if (this.mode === 'reporte') {
       return {
         prioridad: 'Alta',
-        condominioNombre: '',
+        condominioId: '',
         estado: 'En proceso',
         concepto: ''
       };
@@ -157,6 +165,7 @@ export class EntityModalComponent implements OnChanges {
 
     if (this.mode === 'pago') {
       return {
+        condominioId: '',
         tipo: 'Ingreso',
         categoria: 'Cuotas',
         metodo: 'Efectivo',
@@ -173,7 +182,19 @@ export class EntityModalComponent implements OnChanges {
       cuartos: '',
       banos: '',
       capacidad: '',
+      propietarioId: '',
       descripcion: ''
     };
+  }
+
+  private toFormValue(entity: object | null): Record<string, unknown> {
+    if (!entity) return {};
+    const value = entity as Record<string, unknown>;
+    if (this.mode === 'inquilino') {
+      const parts = String(value['nombre'] || '').trim().split(/\s+/);
+      return { ...value, nombres: parts.shift() || '', apellidos: parts.join(' '), correoElectronico: value['email'] || '' };
+    }
+    if (this.mode === 'reporte') return { ...value, concepto: value['problema'] || '' };
+    return value;
   }
 }

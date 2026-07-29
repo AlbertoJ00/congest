@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { InquilinosService } from '../../core/services/inquilinos.service';
 import { Inquilino } from '../../core/models/inquilino.model';
+import { CondominiosService } from '../../core/services/condominios.service';
+import { Condominio } from '../../core/models/condominio.model';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-inquilinos-list',
@@ -11,10 +14,19 @@ import { Inquilino } from '../../core/models/inquilino.model';
 export class InquilinosListComponent implements OnInit {
   inquilinos: Inquilino[] = [];
   filteredInquilinos: Inquilino[] = [];
+  condominios: Condominio[] = [];
   isCreateModalOpen = false;
+  editingInquilino: Inquilino | null = null;
   searchTerm = '';
+  readonly isAdmin: boolean;
 
-  constructor(private inquilinosService: InquilinosService) {}
+  constructor(
+    private inquilinosService: InquilinosService,
+    private condominiosService: CondominiosService,
+    authService: AuthService
+  ) {
+    this.isAdmin = authService.hasRole('Administrador');
+  }
 
   ngOnInit(): void {
     this.inquilinosService.getAll().subscribe({
@@ -22,20 +34,9 @@ export class InquilinosListComponent implements OnInit {
         this.inquilinos = data;
         this.filteredInquilinos = data;
       },
-      error: () => {
-        // Mock data
-        this.inquilinos = [
-          { id: 1, nombre: 'Dianne Russell', email: 'nevaeh.simmons@example.com', documento: '000-0000000-0', tipoDocumento: 'Cedula', celular: '(270) 555-0117', proximaFechaPago: '15 De Julio', montoAlquiler: 12540, estado: 'Pagado', condominioId: 1, condominioNombre: 'Brisa del este #56' },
-          { id: 2, nombre: 'Darrell Steward', email: 'sara.cruz@example.com', documento: '000-0000000-0', tipoDocumento: 'Cedula', celular: '(307) 555-0133', proximaFechaPago: '11 De Julio', montoAlquiler: 10390, estado: 'Atrasado', condominioId: 1, condominioNombre: 'Brisa del este #51' },
-          { id: 3, nombre: 'Cameron Williamson', email: 'bill.sanders@example.com', documento: '000-0000000-0', tipoDocumento: 'Cedula', celular: '(480) 555-0103', proximaFechaPago: '15 De Julio', montoAlquiler: 12540, estado: 'Pagado', condominioId: 1, condominioNombre: 'Brisa del este #256' },
-          { id: 4, nombre: 'Ralph Edwards', email: 'michael.mitc@example.com', documento: '000-0000000-0', tipoDocumento: 'Cedula', celular: '(217) 555-0113', proximaFechaPago: '18 De Julio', montoAlquiler: 10100, estado: 'Pendiente', condominioId: 2, condominioNombre: 'Jardin #43' },
-          { id: 5, nombre: 'Jenny Wilson', email: 'curtis.weaver@example.com', documento: '000-0000000-0', tipoDocumento: 'Cedula', celular: '(201) 555-0124', proximaFechaPago: '15 De Julio', montoAlquiler: 12000, estado: 'Pagado', condominioId: 3, condominioNombre: 'Isabel Aguiar #4' },
-          { id: 6, nombre: 'Guy Hawkins', email: 'alma.lawson@example.com', documento: '000-0000000-0', tipoDocumento: 'Cedula', celular: '(505) 555-0125', proximaFechaPago: '12 De Julio', montoAlquiler: 15250, estado: 'Pagado', condominioId: 4, condominioNombre: 'Herrera 2do piso' },
-          { id: 7, nombre: 'Courtney Henry', email: 'georgia.young@example.com', documento: '000-0000000-0', tipoDocumento: 'Cedula', celular: '(629) 555-0129', proximaFechaPago: '11 De Julio', montoAlquiler: 20500, estado: 'Atrasado', condominioId: 5, condominioNombre: 'Los minas bulevar' },
-        ];
-        this.filteredInquilinos = this.inquilinos;
-      }
+      error: () => { this.inquilinos = []; this.filteredInquilinos = []; }
     });
+    this.condominiosService.getAll().subscribe({ next: data => this.condominios = data });
   }
 
   onSearch(term: string): void {
@@ -44,21 +45,23 @@ export class InquilinosListComponent implements OnInit {
   }
 
   openCreateModal(): void {
+    this.editingInquilino = null;
     this.isCreateModalOpen = true;
   }
 
   closeCreateModal(): void {
     this.isCreateModalOpen = false;
+    this.editingInquilino = null;
   }
 
   handleCreateInquilino(payload: Record<string, unknown>): void {
-    const nextId = this.inquilinos.length ? Math.max(...this.inquilinos.map(i => i.id)) + 1 : 1;
     const nombres = String(payload['nombres'] || '');
     const apellidos = String(payload['apellidos'] || '');
     const nombreCompleto = [nombres, apellidos].filter(Boolean).join(' ');
+    const condominioId = Number(payload['condominioId']);
+    const condominio = this.condominios.find(item => item.id === condominioId);
 
-    const inquilino: Inquilino = {
-      id: nextId,
+    const inquilino: Partial<Inquilino> = {
       nombre: nombreCompleto || 'Nuevo inquilino',
       email: String(payload['correoElectronico'] || ''),
       documento: String(payload['documento'] || ''),
@@ -67,13 +70,19 @@ export class InquilinosListComponent implements OnInit {
       proximaFechaPago: 'Pendiente',
       montoAlquiler: 0,
       estado: 'Pendiente',
-      condominioId: 0,
-      condominioNombre: String(payload['condominioNombre'] || '')
+      condominioId,
+      condominioNombre: condominio?.nombre || ''
     };
 
-    this.inquilinos = [inquilino, ...this.inquilinos];
-    this.applyFilter();
-    this.closeCreateModal();
+    const request = this.editingInquilino ? this.inquilinosService.update(this.editingInquilino.id, inquilino) : this.inquilinosService.create(inquilino);
+    request.subscribe({ next: () => { this.ngOnInit(); this.closeCreateModal(); } });
+  }
+
+  edit(inquilino: Inquilino): void { this.editingInquilino = inquilino; this.isCreateModalOpen = true; }
+  remove(inquilino: Inquilino): void {
+    if (confirm(`¿Eliminar a “${inquilino.nombre}”? Esta acción no se puede deshacer.`)) {
+      this.inquilinosService.delete(inquilino.id).subscribe({ next: () => this.ngOnInit() });
+    }
   }
 
   getInitials(name: string): string {

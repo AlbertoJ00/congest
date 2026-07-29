@@ -23,7 +23,7 @@
       <!-- Pill con sección activa -->
       <div class="header__pill">
         <button
-          *ngFor="let section of sections"
+          *ngFor="let section of visibleSections"
           class="header__pill-item"
           [class.active]="activeSection === section.name"
           (click)="navigateTo(section.route)">
