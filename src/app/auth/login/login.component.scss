@@ -22,7 +22,7 @@
   }
 
   &__logo-image {
-    height: 52px;
+    height: 20px;
     width: auto;
     display: block;
     object-fit: contain;
@@ -42,9 +42,8 @@
   &__title {
     font-size: $font-size-3xl;
     font-weight: $font-weight-bold;
-    font-style: italic;
     color: $text-primary;
-    margin-bottom: $spacing-sm;
+    // margin-bottom: $spacing-sm;
     line-height: 1.2;
   }
 

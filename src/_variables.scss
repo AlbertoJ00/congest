@@ -3,10 +3,10 @@
 // =============================================
 
 // Colores principales
-$primary-green: #2FAE60;
+$primary-green: #45D472;
 $primary-green-light: #E8F5E9;
 $primary-green-dark: #248A4D;
-$primary-green-hover: #27995A;
+$primary-green-hover: #3CBF6B;
 
 // Fondo
 $bg-main: #E3E3E3;
@@ -21,7 +21,7 @@ $text-muted: #9CA3AF;
 $text-white: #FFFFFF;
 
 // Estados — Badges
-$status-paid: #2FAE60;
+$status-paid: #45D472;
 $status-paid-bg: #E8F5E9;
 $status-late: #EF4444;
 $status-late-bg: #FEE2E2;
@@ -42,7 +42,7 @@ $severity-medium: #F59E0B;
 $severity-low: #3B82F6;
 
 // Actividades — colores de dot
-$activity-pago: #2FAE60;
+$activity-pago: #45D472;
 $activity-anuncio: #3B82F6;
 $activity-incidencia: #EF4444;
 $activity-sistema: #F59E0B;
@@ -104,5 +104,5 @@ $breakpoint-2xl: 1536px;
 // Layout
 $header-height: 64px;
 $sidebar-width: 260px;
-$content-max-width: 1400px;
+$content-max-width: 2160px;
 $content-padding: $spacing-lg;

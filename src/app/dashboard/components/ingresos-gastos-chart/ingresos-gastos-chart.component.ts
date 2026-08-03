@@ -15,7 +15,7 @@ export class IngresosGastosChartComponent implements OnInit {
       {
         data: [],
         label: 'Ingresos',
-        borderColor: '#2FAE60',
+        borderColor: '#45D472',
         backgroundColor: 'transparent',
         tension: 0.4,
         borderWidth: 2,
