@@ -93,6 +93,7 @@ async function initializeDatabase() {
       estado TEXT NOT NULL CHECK (estado IN ('Pagado', 'Atrasado', 'Pendiente')),
       condominio_id INTEGER NOT NULL,
       condominio_nombre TEXT,
+      es_principal INTEGER NOT NULL DEFAULT 0,
       avatar TEXT,
       created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (condominio_id) REFERENCES condominios(id) ON DELETE RESTRICT
@@ -185,6 +186,7 @@ async function initializeDatabase() {
   `);
 
   await ensureColumn('condominios', 'propietario_id', 'INTEGER REFERENCES usuarios(id) ON DELETE SET NULL');
+  await ensureColumn('inquilinos', 'es_principal', 'INTEGER NOT NULL DEFAULT 0');
   await ensureColumn('incidencias', 'condominio_id', 'INTEGER REFERENCES condominios(id) ON DELETE CASCADE');
   await ensureColumn('actividades', 'condominio_id', 'INTEGER REFERENCES condominios(id) ON DELETE CASCADE');
   await ensureColumn('pagos', 'condominio_id', 'INTEGER REFERENCES condominios(id) ON DELETE CASCADE');

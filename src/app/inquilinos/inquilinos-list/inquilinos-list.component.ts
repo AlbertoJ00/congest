@@ -67,6 +67,7 @@ export class InquilinosListComponent implements OnInit {
       documento: String(payload['documento'] || ''),
       tipoDocumento: String(payload['tipoDocumento'] || 'Cedula'),
       celular: String(payload['celular'] || ''),
+      esPrincipal: Boolean(payload['esPrincipal']),
       proximaFechaPago: 'Pendiente',
       montoAlquiler: 0,
       estado: 'Pendiente',
@@ -79,6 +80,38 @@ export class InquilinosListComponent implements OnInit {
   }
 
   edit(inquilino: Inquilino): void { this.editingInquilino = inquilino; this.isCreateModalOpen = true; }
+
+  makePrincipal(inquilino: Inquilino): void {
+    if (inquilino.esPrincipal) {
+      return;
+    }
+
+    const previousValues = this.inquilinos
+      .filter(item => item.condominioId === inquilino.condominioId)
+      .map(item => ({ item, esPrincipal: item.esPrincipal }));
+
+    this.inquilinos.forEach(item => {
+      if (item.condominioId === inquilino.condominioId) {
+        item.esPrincipal = item.id === inquilino.id;
+      }
+    });
+    this.applyFilter();
+
+    this.inquilinosService.update(inquilino.id, {
+      esPrincipal: true,
+      condominioId: inquilino.condominioId
+    }).subscribe({
+      next: () => this.ngOnInit(),
+      error: () => {
+        previousValues.forEach(({ item, esPrincipal }) => {
+          item.esPrincipal = esPrincipal;
+        });
+        this.applyFilter();
+        alert('No se pudo actualizar el inquilino principal.');
+      }
+    });
+  }
+
   remove(inquilino: Inquilino): void {
     if (confirm(`¿Eliminar a “${inquilino.nombre}”? Esta acción no se puede deshacer.`)) {
       this.inquilinosService.delete(inquilino.id).subscribe({ next: () => this.ngOnInit() });

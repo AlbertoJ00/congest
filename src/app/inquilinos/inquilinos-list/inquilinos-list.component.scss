@@ -93,6 +93,44 @@
   color: $text-secondary;
 }
 
+.principal-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: rgba($text-secondary, 0.12);
+  color: $text-secondary;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: rgba($primary-green, 0.12);
+    color: $primary-green;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 1;
+  }
+
+  &--active {
+    background: rgba($primary-green, 0.14);
+    color: $primary-green;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    // box-shadow: 0 0 0 4px rgba(currentColor, 0.12);
+  }
+}
+
 .actions-cell {
   width: 92px;
   min-width: 92px;

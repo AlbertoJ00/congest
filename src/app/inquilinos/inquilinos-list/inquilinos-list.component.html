@@ -33,6 +33,7 @@
                 <th>Proxima fecha</th>
                 <th>Alquiler</th>
                 <th>Estado</th>
+                <th>Principal</th>
                 <th>Condominios</th>
                 <th>Acciones</th>
               </tr>
@@ -61,6 +62,18 @@
                 <td class="font-medium">${{ inquilino.montoAlquiler | number }}</td>
                 <td>
                   <app-status-badge [status]="inquilino.estado"></app-status-badge>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="principal-chip"
+                    [class.principal-chip--active]="inquilino.esPrincipal"
+                    [disabled]="inquilino.esPrincipal"
+                    [title]="inquilino.esPrincipal ? 'Este ya es el principal' : 'Marcar como principal'"
+                    (click)="makePrincipal(inquilino)">
+                    <span class="principal-chip__dot"></span>
+                    {{ inquilino.esPrincipal ? 'Principal' : 'Secundario' }}
+                  </button>
                 </td>
                 <td class="text-secondary">{{ inquilino.condominioNombre }}</td>
                 <td class="actions-cell">

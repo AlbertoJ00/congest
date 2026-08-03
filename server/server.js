@@ -107,7 +107,7 @@ const resources = {
       ['id', 'id'], ['nombre', 'nombre'], ['email', 'email'], ['documento', 'documento'],
       ['tipo_documento', 'tipoDocumento'], ['celular', 'celular'], ['proxima_fecha_pago', 'proximaFechaPago'],
       ['monto_alquiler', 'montoAlquiler'], ['estado', 'estado'], ['condominio_id', 'condominioId'],
-      ['condominio_nombre', 'condominioNombre'], ['avatar', 'avatar'], ['created_at', 'createdAt']
+      ['condominio_nombre', 'condominioNombre'], ['es_principal', 'esPrincipal'], ['avatar', 'avatar'], ['created_at', 'createdAt']
     ]
   },
   pagos: {
@@ -340,6 +340,9 @@ for (const [routeName, resource] of Object.entries(resources)) {
     }
     const missing = requireFields(request.body, resource.required);
     if (missing.length) return response.status(400).json({ message: `Faltan campos obligatorios: ${missing.join(', ')}.` });
+    if (resource.table === 'inquilinos' && request.body.esPrincipal === undefined) {
+      request.body.esPrincipal = 0;
+    }
     if (resource.table !== 'condominios') {
       let condominioId = request.body.condominioId;
       if (resource.table === 'estados_cuenta') {
@@ -349,6 +352,9 @@ for (const [routeName, resource] of Object.entries(resources)) {
       if (!(await canAccessCondominio(condominioId, request.auth))) {
         return response.status(403).json({ message: 'No puedes registrar información en ese condominio.' });
       }
+    }
+    if (resource.table === 'inquilinos' && Number(request.body.esPrincipal) === 1) {
+      await run('UPDATE inquilinos SET es_principal = 0 WHERE condominio_id = ?', [request.body.condominioId]);
     }
     const writable = resource.fields.filter(({ property }) => property !== 'id' && property !== 'createdAt' && request.body[property] !== undefined);
     const result = await run(`INSERT INTO ${resource.table} (${writable.map(({ column }) => column).join(', ')})
@@ -370,6 +376,12 @@ for (const [routeName, resource] of Object.entries(resources)) {
       const tenant = await get('SELECT condominio_id AS condominioId FROM inquilinos WHERE id = ?', [request.body.inquilinoId]);
       if (!(await canAccessCondominio(tenant?.condominioId, request.auth))) {
         return response.status(403).json({ message: 'No puedes asociar un inquilino de otro condominio.' });
+      }
+    }
+    if (resource.table === 'inquilinos' && request.body.esPrincipal !== undefined) {
+      const currentCondominioId = request.body.condominioId !== undefined ? request.body.condominioId : existing.condominioId;
+      if (Number(request.body.esPrincipal) === 1) {
+        await run('UPDATE inquilinos SET es_principal = 0 WHERE condominio_id = ? AND id != ?', [currentCondominioId, request.params.id]);
       }
     }
     const writable = resource.fields.filter(({ property }) => property !== 'id' && property !== 'createdAt' &&

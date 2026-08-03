@@ -86,6 +86,30 @@
     &--full {
       grid-column: 1 / -1;
     }
+
+    &--checkbox {
+      gap: 10px;
+    }
+  }
+
+  &__checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+
+    input {
+      width: 18px;
+      height: 18px;
+      accent-color: $primary-green;
+    }
+  }
+
+  &__hint {
+    font-size: $font-size-xs;
+    color: $text-secondary;
   }
 
   &__inline {

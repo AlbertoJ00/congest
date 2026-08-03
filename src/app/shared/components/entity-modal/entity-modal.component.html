@@ -62,6 +62,14 @@
             <input type="text" class="form-input" formControlName="estadoCivil">
           </div>
 
+          <div class="entity-modal__field entity-modal__field--full entity-modal__field--checkbox">
+            <label class="entity-modal__checkbox">
+              <input type="checkbox" formControlName="esPrincipal">
+              <span>Es inquilino principal</span>
+            </label>
+            <span class="entity-modal__hint">Marca esta opción si este registro corresponde al titular principal.</span>
+          </div>
+
           <div class="entity-modal__field entity-modal__field--full">
             <label>Condominio</label>
             <select class="form-input" formControlName="condominioId">
@@ -207,6 +215,34 @@
             <textarea class="form-input" formControlName="descripcion" rows="3"></textarea>
           </div>
 
+          <div class="entity-modal__field entity-modal__field--full">
+            <label>Imagen Principal</label>
+            <input type="file" class="form-input" accept="image/*" (change)="onMainImageChange($event)">
+            <input type="hidden" formControlName="imagen">
+            <div *ngIf="entityForm.get('imagen')?.value" style="margin-top: 8px;">
+              <img [src]="entityForm.get('imagen')?.value" alt="Vista previa principal" style="max-height: 120px; border-radius: 4px; border: 1px solid #ddd; object-fit: cover;">
+            </div>
+          </div>
+
+          <div class="entity-modal__field entity-modal__field--full">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <label style="margin-bottom: 0;">Imágenes Adicionales</label>
+              <button type="button" class="entity-modal__secondary" style="padding: 4px 8px; font-size: 12px; height: auto;" (click)="addImagenAdicional()">+ Añadir</button>
+            </div>
+            <div formArrayName="imagenesAdicionales">
+              <div *ngFor="let control of imagenesAdicionales.controls; let i=index" style="display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start;">
+                <div style="flex: 1;">
+                  <input type="file" class="form-input" accept="image/*" (change)="onAdditionalImageChange($event, i)">
+                  <input type="hidden" [formControlName]="i">
+                  <div *ngIf="control.value" style="margin-top: 8px;">
+                    <img [src]="control.value" alt="Vista previa adicional" style="max-height: 80px; border-radius: 4px; border: 1px solid #ddd; object-fit: cover;">
+                  </div>
+                </div>
+                <button type="button" class="entity-modal__secondary" style="padding: 6px 12px; height: auto; margin-top: 2px;" title="Quitar imagen" (click)="removeImagenAdicional(i)">✕</button>
+              </div>
+            </div>
+          </div>
+
           <div class="entity-modal__field entity-modal__field--full" *ngIf="propietarios.length">
             <label>Propietario responsable</label>
             <select class="form-input" formControlName="propietarioId">
@@ -218,6 +254,10 @@
           </div>
         </div>
       </ng-template>
+
+      <div *ngIf="fileUploadError" style="color: #ef4444; font-size: 13px; margin-bottom: 16px; padding: 0 24px; font-weight: 500;">
+        {{ fileUploadError }}
+      </div>
 
       <div class="entity-modal__actions">
         <button type="button" class="entity-modal__secondary" (click)="closeModal()">Cancelar</button>
