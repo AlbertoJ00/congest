@@ -24,6 +24,7 @@ El primer arranque crea las tablas e importa automáticamente los datos de demos
 | --- | --- | --- |
 | `admin@congest.com` | `admin123` | Administrador |
 | `ana@congest.com` | `propietario123` | Propietario |
+| `nevaeh.simmons@example.com` | `000-0000000-0` | Inquilino |
 
 ## Configuración
 

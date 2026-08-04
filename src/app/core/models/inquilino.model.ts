@@ -11,6 +11,7 @@ export interface Inquilino {
   estado: EstadoInquilino;
   condominioId: number;
   condominioNombre?: string;
+  usuarioId?: number;
   esPrincipal: boolean;
   avatar?: string;
   createdAt?: string;

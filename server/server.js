@@ -1,9 +1,10 @@
 require('dotenv').config();
 
+const crypto = require('node:crypto');
 const bcrypt = require('bcryptjs');
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const { all, databasePath, get, initializeDatabase, run } = require('./database');
+const { all, databasePath, exec, get, initializeDatabase, run } = require('./database');
 const { seedDatabase } = require('./seed');
 
 const app = express();
@@ -51,6 +52,12 @@ function requireRole(...roles) {
 
 function ownerScope(resource, auth) {
   if (auth.rol === 'Administrador') return { clause: '', params: [] };
+  if (auth.rol === 'Inquilino') {
+    if (resource.table === 'condominios') {
+      return { clause: 'id IN (SELECT condominio_id FROM inquilinos WHERE usuario_id = ?)', params: [auth.sub] };
+    }
+    return { clause: '1 = 0', params: [] };
+  }
   const ownerId = auth.sub;
   switch (resource.table) {
     case 'condominios':
@@ -69,10 +76,92 @@ function ownerScope(resource, auth) {
   }
 }
 
+function condominioScope(auth) {
+  if (auth.rol === 'Administrador') return { clause: '', params: [] };
+  if (auth.rol === 'Propietario') return { clause: 'propietario_id = ?', params: [auth.sub] };
+  if (auth.rol === 'Inquilino') {
+    return { clause: 'id IN (SELECT condominio_id FROM inquilinos WHERE usuario_id = ?)', params: [auth.sub] };
+  }
+  return { clause: '1 = 0', params: [] };
+}
+
 async function canAccessCondominio(condominioId, auth) {
   if (auth.rol === 'Administrador') return true;
   if (!condominioId) return false;
-  return !!(await get('SELECT id FROM condominios WHERE id = ? AND propietario_id = ?', [condominioId, auth.sub]));
+  if (auth.rol === 'Propietario') {
+    return !!(await get('SELECT id FROM condominios WHERE id = ? AND propietario_id = ?', [condominioId, auth.sub]));
+  }
+  if (auth.rol === 'Inquilino') {
+    return !!(await get('SELECT id FROM condominios WHERE id = ? AND id IN (SELECT condominio_id FROM inquilinos WHERE usuario_id = ?)', [condominioId, auth.sub]));
+  }
+  return false;
+}
+
+function tenantPasswordSeed(inquilino) {
+  const documentValue = String(inquilino.documento || '').trim();
+  if (documentValue) return documentValue;
+  return crypto.randomBytes(8).toString('hex');
+}
+
+async function ensureTenantUser(inquilino) {
+  const email = String(inquilino.email || '').trim();
+  const existingUser = await get('SELECT id, rol FROM usuarios WHERE email = ?', [email]);
+
+  if (existingUser) {
+    if (existingUser.rol !== 'Inquilino') {
+      throw new Error('El correo ya pertenece a un usuario con otro rol.');
+    }
+    await run('UPDATE usuarios SET nombre = ?, telefono = ? WHERE id = ?', [
+      String(inquilino.nombre || '').trim(),
+      inquilino.celular || null,
+      existingUser.id
+    ]);
+    return existingUser.id;
+  }
+
+  const passwordHash = await bcrypt.hash(tenantPasswordSeed(inquilino), 10);
+  const result = await run(`INSERT INTO usuarios (nombre, apellido, email, password_hash, rol, avatar, telefono)
+    VALUES (?, ?, ?, ?, ?, ?, ?)`, [
+    String(inquilino.nombre || '').trim(),
+    null,
+    email,
+    passwordHash,
+    'Inquilino',
+    inquilino.avatar || null,
+    inquilino.celular || null
+  ]);
+  return result.lastID;
+}
+
+async function syncTenantUser(inquilino) {
+  if (!inquilino.usuarioId) return;
+  await run('UPDATE usuarios SET nombre = ?, email = ?, telefono = ? WHERE id = ?', [
+    String(inquilino.nombre || '').trim(),
+    String(inquilino.email || '').trim(),
+    inquilino.celular || null,
+    inquilino.usuarioId
+  ]);
+}
+
+async function backfillTenantUsers() {
+  const tenants = await all(`SELECT id, nombre, email, documento, celular, avatar
+    FROM inquilinos WHERE usuario_id IS NULL ORDER BY id`);
+  for (const tenant of tenants) {
+    const usuarioId = await ensureTenantUser(tenant);
+    await run('UPDATE inquilinos SET usuario_id = ? WHERE id = ?', [usuarioId, tenant.id]);
+  }
+}
+
+async function withTransaction(work) {
+  await exec('BEGIN');
+  try {
+    const result = await work();
+    await exec('COMMIT');
+    return result;
+  } catch (error) {
+    await exec('ROLLBACK');
+    throw error;
+  }
 }
 
 async function audit(auth, action, entity, entityId, detail = null) {
@@ -107,7 +196,7 @@ const resources = {
       ['id', 'id'], ['nombre', 'nombre'], ['email', 'email'], ['documento', 'documento'],
       ['tipo_documento', 'tipoDocumento'], ['celular', 'celular'], ['proxima_fecha_pago', 'proximaFechaPago'],
       ['monto_alquiler', 'montoAlquiler'], ['estado', 'estado'], ['condominio_id', 'condominioId'],
-      ['condominio_nombre', 'condominioNombre'], ['es_principal', 'esPrincipal'], ['avatar', 'avatar'], ['created_at', 'createdAt']
+      ['condominio_nombre', 'condominioNombre'], ['usuario_id', 'usuarioId'], ['es_principal', 'esPrincipal'], ['avatar', 'avatar'], ['created_at', 'createdAt']
     ]
   },
   pagos: {
@@ -264,6 +353,7 @@ app.get('/api/actividades/ingresos-gastos', asyncRoute(async (request, response)
   if (request.auth.rol === 'Administrador') {
     return response.json(await all('SELECT mes, ingresos, gastos FROM ingresos_gastos ORDER BY orden'));
   }
+  const scope = condominioScope(request.auth);
   const rows = await all(`SELECT
     CASE strftime('%m', fecha)
       WHEN '01' THEN 'Ene' WHEN '02' THEN 'Feb' WHEN '03' THEN 'Mar'
@@ -273,30 +363,28 @@ app.get('/api/actividades/ingresos-gastos', asyncRoute(async (request, response)
     SUM(CASE WHEN tipo = 'Ingreso' THEN monto ELSE 0 END) AS ingresos,
     SUM(CASE WHEN tipo = 'Gasto' THEN monto ELSE 0 END) AS gastos,
     strftime('%Y-%m', fecha) AS periodo
-    FROM pagos WHERE condominio_id IN (SELECT id FROM condominios WHERE propietario_id = ?)
-    GROUP BY periodo ORDER BY periodo`, [request.auth.sub]);
+    FROM pagos ${scope.clause ? `WHERE ${scope.clause}` : ''}
+    GROUP BY periodo ORDER BY periodo`, scope.params);
   return response.json(rows.map(({ periodo, ...row }) => row));
 }));
 
 app.get('/api/actividades', asyncRoute(async (request, response) => {
-  const scope = request.auth.rol === 'Administrador'
-    ? { sql: '', params: [] }
-    : { sql: 'WHERE condominio_id IN (SELECT id FROM condominios WHERE propietario_id = ?)', params: [request.auth.sub] };
+  const scope = condominioScope(request.auth);
   response.json(await all(`SELECT id, tipo, descripcion, tiempo, nombre_persona AS "nombrePersona",
-    monto, unidad, created_at AS "createdAt" FROM actividades ${scope.sql} ORDER BY id DESC`, scope.params));
+    monto, unidad, created_at AS "createdAt" FROM actividades ${scope.clause ? `WHERE ${scope.clause}` : ''} ORDER BY id DESC`, scope.params));
 }));
 
 app.get('/api/estados-cuenta/resumen', asyncRoute(async (request, response) => {
-  const paymentScope = request.auth.rol === 'Administrador'
-    ? { sql: '', params: [] }
-    : { sql: 'WHERE condominio_id IN (SELECT id FROM condominios WHERE propietario_id = ?)', params: [request.auth.sub] };
+  const paymentScope = condominioScope(request.auth);
   const totals = await get(`SELECT
     COALESCE(SUM(CASE WHEN tipo = 'Ingreso' THEN monto ELSE 0 END), 0) AS recaudacionMes,
     COALESCE(SUM(CASE WHEN tipo = 'Gasto' THEN monto ELSE 0 END), 0) AS gastosMes
-    FROM pagos ${paymentScope.sql}`, paymentScope.params);
+    FROM pagos ${paymentScope.clause ? `WHERE ${paymentScope.clause}` : ''}`, paymentScope.params);
   const stateScope = request.auth.rol === 'Administrador'
     ? { sql: '', params: [] }
-    : { sql: `WHERE inquilino_id IN (SELECT i.id FROM inquilinos i
+    : request.auth.rol === 'Inquilino'
+      ? { sql: 'WHERE inquilino_id IN (SELECT id FROM inquilinos WHERE usuario_id = ?)', params: [request.auth.sub] }
+      : { sql: `WHERE inquilino_id IN (SELECT i.id FROM inquilinos i
         JOIN condominios c ON c.id = i.condominio_id WHERE c.propietario_id = ?)`, params: [request.auth.sub] };
   const payments = await get(`SELECT COUNT(*) AS totalPagos,
     SUM(CASE WHEN estado = 'Pagado' THEN 1 ELSE 0 END) AS pagosAlDia FROM estados_cuenta ${stateScope.sql}`, stateScope.params);
@@ -309,13 +397,11 @@ app.get('/api/estados-cuenta/resumen', asyncRoute(async (request, response) => {
 }));
 
 app.get('/api/incidencias/resumen', asyncRoute(async (request, response) => {
-  const scope = request.auth.rol === 'Administrador'
-    ? { sql: '', params: [] }
-    : { sql: 'WHERE condominio_id IN (SELECT id FROM condominios WHERE propietario_id = ?)', params: [request.auth.sub] };
+  const scope = condominioScope(request.auth);
   const result = await get(`SELECT
     SUM(CASE WHEN estado != 'Resuelto' THEN 1 ELSE 0 END) AS abiertas,
     SUM(CASE WHEN estado = 'Resuelto' THEN 1 ELSE 0 END) AS resueltasHoy
-    FROM incidencias ${scope.sql}`, scope.params);
+    FROM incidencias ${scope.clause ? `WHERE ${scope.clause}` : ''}`, scope.params);
   response.json({ abiertas: result.abiertas || 0, resueltasHoy: result.resueltasHoy || 0 });
 }));
 
@@ -338,6 +424,9 @@ for (const [routeName, resource] of Object.entries(resources)) {
     if (resource.table === 'condominios' && request.auth.rol !== 'Administrador') {
       return response.status(403).json({ message: 'Solo un administrador puede crear condominios.' });
     }
+    if (request.auth.rol === 'Inquilino' && resource.table !== 'condominios') {
+      return response.status(403).json({ message: 'No tienes permisos para crear registros.' });
+    }
     const missing = requireFields(request.body, resource.required);
     if (missing.length) return response.status(400).json({ message: `Faltan campos obligatorios: ${missing.join(', ')}.` });
     if (resource.table === 'inquilinos' && request.body.esPrincipal === undefined) {
@@ -353,8 +442,20 @@ for (const [routeName, resource] of Object.entries(resources)) {
         return response.status(403).json({ message: 'No puedes registrar información en ese condominio.' });
       }
     }
-    if (resource.table === 'inquilinos' && Number(request.body.esPrincipal) === 1) {
-      await run('UPDATE inquilinos SET es_principal = 0 WHERE condominio_id = ?', [request.body.condominioId]);
+    if (resource.table === 'inquilinos') {
+      return withTransaction(async () => {
+        const usuarioId = await ensureTenantUser(request.body);
+        request.body.usuarioId = usuarioId;
+        if (Number(request.body.esPrincipal) === 1) {
+          await run('UPDATE inquilinos SET es_principal = 0 WHERE condominio_id = ?', [request.body.condominioId]);
+        }
+        const writable = resource.fields.filter(({ property }) => property !== 'id' && property !== 'createdAt' && request.body[property] !== undefined);
+        const result = await run(`INSERT INTO ${resource.table} (${writable.map(({ column }) => column).join(', ')})
+          VALUES (${writable.map(() => '?').join(', ')})`, writable.map(({ property }) => request.body[property]));
+        const record = await get(`${resource.select} WHERE id = ?`, [result.lastID]);
+        await audit(request.auth, 'crear', resource.table, result.lastID);
+        return response.status(201).json(record);
+      });
     }
     const writable = resource.fields.filter(({ property }) => property !== 'id' && property !== 'createdAt' && request.body[property] !== undefined);
     const result = await run(`INSERT INTO ${resource.table} (${writable.map(({ column }) => column).join(', ')})
@@ -365,6 +466,9 @@ for (const [routeName, resource] of Object.entries(resources)) {
   }));
 
   app.put(`/api/${routeName}/:id`, asyncRoute(async (request, response) => {
+    if (request.auth.rol === 'Inquilino') {
+      return response.status(403).json({ message: 'No tienes permisos para editar registros.' });
+    }
     const scope = ownerScope(resource, request.auth);
     const condition = scope.clause ? `id = ? AND ${scope.clause}` : 'id = ?';
     const existing = await get(`${resource.select} WHERE ${condition}`, [request.params.id, ...scope.params]);
@@ -387,6 +491,17 @@ for (const [routeName, resource] of Object.entries(resources)) {
     const writable = resource.fields.filter(({ property }) => property !== 'id' && property !== 'createdAt' &&
       !(property === 'propietarioId' && request.auth.rol !== 'Administrador') && request.body[property] !== undefined);
     if (!writable.length) return response.status(400).json({ message: 'No hay datos para actualizar.' });
+    if (resource.table === 'inquilinos') {
+      return withTransaction(async () => {
+        const result = await run(`UPDATE ${resource.table} SET ${writable.map(({ column }) => `${column} = ?`).join(', ')} WHERE id = ?`,
+          [...writable.map(({ property }) => request.body[property]), request.params.id]);
+        if (!result.changes) return response.status(404).json({ message: 'Registro no encontrado.' });
+        const updatedRecord = await get(`${resource.select} WHERE id = ?`, [request.params.id]);
+        await syncTenantUser(updatedRecord);
+        await audit(request.auth, 'editar', resource.table, Number(request.params.id), { campos: writable.map(({ property }) => property) });
+        return response.json(updatedRecord);
+      });
+    }
     const result = await run(`UPDATE ${resource.table} SET ${writable.map(({ column }) => `${column} = ?`).join(', ')} WHERE id = ?`,
       [...writable.map(({ property }) => request.body[property]), request.params.id]);
     if (!result.changes) return response.status(404).json({ message: 'Registro no encontrado.' });
@@ -402,6 +517,17 @@ for (const [routeName, resource] of Object.entries(resources)) {
     const condition = scope.clause ? `id = ? AND ${scope.clause}` : 'id = ?';
     const existing = await get(`${resource.select} WHERE ${condition}`, [request.params.id, ...scope.params]);
     if (!existing) return response.status(404).json({ message: 'Registro no encontrado.' });
+    if (resource.table === 'inquilinos') {
+      return withTransaction(async () => {
+        const result = await run(`DELETE FROM ${resource.table} WHERE id = ?`, [request.params.id]);
+        if (!result.changes) return response.status(404).json({ message: 'Registro no encontrado.' });
+        if (existing.usuarioId) {
+          await run('DELETE FROM usuarios WHERE id = ?', [existing.usuarioId]);
+        }
+        await audit(request.auth, 'eliminar', resource.table, Number(request.params.id));
+        return response.status(204).send();
+      });
+    }
     const result = await run(`DELETE FROM ${resource.table} WHERE id = ?`, [request.params.id]);
     if (!result.changes) return response.status(404).json({ message: 'Registro no encontrado.' });
     await audit(request.auth, 'eliminar', resource.table, Number(request.params.id));
@@ -423,6 +549,7 @@ app.use((error, _request, response, _next) => {
 async function start() {
   await initializeDatabase();
   await seedDatabase();
+  await backfillTenantUsers();
   app.listen(port, () => {
     console.log(`API Congest escuchando en http://localhost:${port}`);
     console.log(`SQLite: ${databasePath}`);
