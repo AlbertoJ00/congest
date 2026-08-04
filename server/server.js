@@ -56,6 +56,21 @@ function ownerScope(resource, auth) {
     if (resource.table === 'condominios') {
       return { clause: 'id IN (SELECT condominio_id FROM inquilinos WHERE usuario_id = ?)', params: [auth.sub] };
     }
+    if (resource.table === 'inquilinos') {
+      return { clause: 'usuario_id = ?', params: [auth.sub] };
+    }
+    if (['pagos', 'reportes', 'incidencias'].includes(resource.table)) {
+      return {
+        clause: 'condominio_id IN (SELECT condominio_id FROM inquilinos WHERE usuario_id = ?)',
+        params: [auth.sub]
+      };
+    }
+    if (resource.table === 'estados_cuenta') {
+      return {
+        clause: 'inquilino_id IN (SELECT id FROM inquilinos WHERE usuario_id = ?)',
+        params: [auth.sub]
+      };
+    }
     return { clause: '1 = 0', params: [] };
   }
   const ownerId = auth.sub;
@@ -78,9 +93,17 @@ function ownerScope(resource, auth) {
 
 function condominioScope(auth) {
   if (auth.rol === 'Administrador') return { clause: '', params: [] };
-  if (auth.rol === 'Propietario') return { clause: 'propietario_id = ?', params: [auth.sub] };
+  if (auth.rol === 'Propietario') {
+    return {
+      clause: 'condominio_id IN (SELECT id FROM condominios WHERE propietario_id = ?)',
+      params: [auth.sub]
+    };
+  }
   if (auth.rol === 'Inquilino') {
-    return { clause: 'id IN (SELECT condominio_id FROM inquilinos WHERE usuario_id = ?)', params: [auth.sub] };
+    return {
+      clause: 'condominio_id IN (SELECT condominio_id FROM inquilinos WHERE usuario_id = ?)',
+      params: [auth.sub]
+    };
   }
   return { clause: '1 = 0', params: [] };
 }
@@ -371,6 +394,7 @@ app.get('/api/actividades/ingresos-gastos', asyncRoute(async (request, response)
 app.get('/api/actividades', asyncRoute(async (request, response) => {
   const scope = condominioScope(request.auth);
   response.json(await all(`SELECT id, tipo, descripcion, tiempo, nombre_persona AS "nombrePersona",
+    condominio_id AS "condominioId",
     monto, unidad, created_at AS "createdAt" FROM actividades ${scope.clause ? `WHERE ${scope.clause}` : ''} ORDER BY id DESC`, scope.params));
 }));
 

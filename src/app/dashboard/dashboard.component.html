@@ -1,61 +1,125 @@
 <app-header activeSection="Dashboard"></app-header>
 
-<div class="content-main-container">
-  <div class="content-main">
-    <main class="dashboard">
-      <section class="dashboard__context" *ngIf="isOwner">
-        <div>
-          <span class="dashboard__context-eyebrow">Panel de propietario</span>
-          <h1>Resumen de tus condominios</h1>
-          <p>Los indicadores, pagos e incidencias mostrados pertenecen únicamente a tus propiedades.</p>
-        </div>
-        <span class="dashboard__context-badge">Acceso limitado</span>
-      </section>
+<ng-container *ngIf="isTenant; else managementDashboard">
+  <div class="content-main-container">
+    <div class="content-main">
+      <main class="dashboard dashboard--tenant">
+        <div class="tenant-loading" *ngIf="tenantLoading">Cargando la información de tu condominio...</div>
+        <div class="tenant-error" *ngIf="!tenantLoading && tenantError">No pudimos cargar la información de tu dashboard.</div>
 
-      <!-- KPI Cards -->
-      <section class="dashboard__kpis fade-in">
-        <app-kpi-card
-          icon="revenue"
-          [value]="kpis.recaudacion"
-          title="Recaudación del mes">
-        </app-kpi-card>
-        <app-kpi-card
-          icon="expense"
-          [value]="kpis.gastos"
-          title="Gastos del mes">
-        </app-kpi-card>
-        <app-kpi-card
-          icon="payments"
-          [value]="kpis.pagosAlDia"
-          title="Pagos al día">
-        </app-kpi-card>
-        <app-kpi-card
-          icon="profit"
-          [value]="kpis.ganancias"
-          title="Ganancias del Mes"
-          [highlighted]="true">
-        </app-kpi-card>
-      </section>
-    
-      <!-- Fila central: Estados de cuenta + Incidencias -->
-      <section class="dashboard__middle fade-in">
-        <div class="dashboard__estados-cuenta">
-          <app-estados-cuenta-table></app-estados-cuenta-table>
-        </div>
-        <div class="dashboard__incidencias">
-          <app-incidencias-panel></app-incidencias-panel>
-        </div>
-      </section>
-    
-      <!-- Fila inferior: Actividades + Gráfico -->
-      <section class="dashboard__bottom fade-in">
-        <div class="dashboard__actividades">
-          <app-actividades-panel></app-actividades-panel>
-        </div>
-        <div class="dashboard__chart">
-          <app-ingresos-gastos-chart></app-ingresos-gastos-chart>
-        </div>
-      </section>
-    </main>
+        <ng-container *ngIf="!tenantLoading && !tenantError">
+          <section class="tenant-kpis fade-in" aria-label="Resumen del inquilino">
+            <article class="tenant-kpi tenant-kpi--danger">
+              <span class="tenant-kpi__icon">$</span>
+              <div><strong>{{ formatCurrency(tenantBalance) }}</strong><small>Saldo pendiente</small></div>
+              <span class="tenant-kpi__dots">⋮</span>
+            </article>
+            <article class="tenant-kpi tenant-kpi--success">
+              <span class="tenant-kpi__icon">✓</span>
+              <div><strong>{{ tenantStatus }}</strong><small>Estatus de cuenta</small></div>
+              <span class="tenant-kpi__dots">⋮</span>
+            </article>
+            <article class="tenant-kpi tenant-kpi--info">
+              <span class="tenant-kpi__icon">□</span>
+              <div><strong>{{ tenantNextPayment }}</strong><small>Próximo pago</small></div>
+              <span class="tenant-kpi__dots">⋮</span>
+            </article>
+            <article class="tenant-kpi tenant-kpi--warning">
+              <span class="tenant-kpi__icon">!</span>
+              <div><strong>{{ tenantActiveIncidencias.length }}</strong><small>Mis incidencias activas</small></div>
+              <span class="tenant-kpi__dots">⋮</span>
+            </article>
+          </section>
+
+          <section class="tenant-main-grid fade-in">
+            <article class="tenant-property-card">
+              <div class="tenant-property-card__image">
+                <img [src]="tenantImage" [alt]="tenantCondominio?.nombre || 'Condominio'">
+                <span class="tenant-property-card__menu">⋮</span>
+              </div>
+              <div class="tenant-property-card__body">
+                <h1>{{ tenantCondominio?.nombre || 'Condominio no asignado' }}</h1>
+                <p>{{ tenantCondominio?.ciudad }} <span>•</span> {{ tenantCondominio?.sector }}</p>
+
+                <div class="tenant-specs" *ngIf="tenantCondominio">
+                  <div><span>Cuartos</span><strong>{{ tenantCondominio.cuartos }}</strong></div>
+                  <div><span>Baños</span><strong>{{ tenantCondominio.banos }}</strong></div>
+                  <div><span>Capacidad</span><strong>{{ tenantCondominio.capacidad }}</strong></div>
+                </div>
+
+                <div class="tenant-payment-detail">
+                  <div class="tenant-payment-detail__icon">$</div>
+                  <div><small>Monto:</small><strong>{{ formatCurrency(tenantAccount?.cuota || tenantUser?.montoAlquiler || 0) }}</strong></div>
+                  <dl>
+                    <dt>A nombre de:</dt><dd>{{ tenantUser?.nombre || currentUser?.nombre }}</dd>
+                    <dt>Condominio:</dt><dd>{{ tenantCondominio?.nombre }}</dd>
+                    <dt>Motivo:</dt><dd>Pago {{ tenantAccount?.mes || 'mensual' }}</dd>
+                  </dl>
+                </div>
+                <button type="button" class="tenant-pay-button">Pagar Alquiler</button>
+              </div>
+            </article>
+
+            <article class="tenant-activities">
+              <header><div><h2>Actividades</h2><p>Reportes, pagos, asignados</p></div><button type="button">Ver todas ›</button></header>
+              <div class="tenant-activity-list" *ngIf="tenantActividades.length; else emptyActivities">
+                <div class="tenant-activity" *ngFor="let actividad of tenantActividades">
+                  <span class="tenant-activity-dot" [ngClass]="getDotClass(actividad.tipo)"></span>
+                  <span><b *ngIf="actividad.nombrePersona">{{ actividad.nombrePersona }}</b> {{ actividad.descripcion }}<b *ngIf="actividad.monto"> {{ formatCurrency(actividad.monto) }}</b><span *ngIf="actividad.unidad"> — {{ actividad.unidad }}</span></span>
+                  <time>{{ actividad.tiempo }}</time>
+                </div>
+              </div>
+              <ng-template #emptyActivities><p class="tenant-empty">No hay actividades recientes.</p></ng-template>
+            </article>
+          </section>
+
+          <section class="tenant-incidents fade-in">
+            <header><div><h2>Reporte de incidencias</h2><p>{{ tenantActiveIncidencias.length }} abiertas <span>•</span> {{ tenantIncidencias.length - tenantActiveIncidencias.length }} resueltas</p></div><button type="button">⊕ &nbsp;Nuevo</button></header>
+            <div class="tenant-incident-list" *ngIf="tenantIncidencias.length; else emptyIncidents">
+              <div class="tenant-incident" *ngFor="let incidencia of tenantIncidencias">
+                <span class="tenant-incident-icon" [ngClass]="getIncidentClass(incidencia.severidad)">{{ incidencia.severidad === 'alta' ? '!' : incidencia.severidad === 'media' ? '◷' : '✓' }}</span>
+                <div><strong>{{ incidencia.titulo }}</strong><small>{{ incidencia.ubicacion }} <span>•</span> {{ incidencia.tiempo }}</small></div>
+                <b class="tenant-incident-status">{{ incidencia.estado }}</b>
+              </div>
+            </div>
+            <ng-template #emptyIncidents><p class="tenant-empty">No hay incidencias registradas.</p></ng-template>
+          </section>
+        </ng-container>
+      </main>
+    </div>
   </div>
-</div>
+</ng-container>
+
+<ng-template #managementDashboard>
+  <div class="content-main-container">
+    <div class="content-main">
+      <main class="dashboard dashboard--management">
+        <section class="dashboard__context" *ngIf="isOwner">
+          <div>
+            <span class="dashboard__context-eyebrow">Panel de propietario</span>
+            <h1>Resumen de tus condominios</h1>
+            <p>Los indicadores, pagos e incidencias mostrados pertenecen únicamente a tus propiedades.</p>
+          </div>
+          <span class="dashboard__context-badge">Acceso limitado</span>
+        </section>
+
+        <section class="dashboard__kpis fade-in">
+          <app-kpi-card icon="revenue" [value]="kpis.recaudacion" title="Recaudación del mes"></app-kpi-card>
+          <app-kpi-card icon="expense" [value]="kpis.gastos" title="Gastos del mes"></app-kpi-card>
+          <app-kpi-card icon="payments" [value]="kpis.pagosAlDia" title="Pagos al día"></app-kpi-card>
+          <app-kpi-card icon="profit" [value]="kpis.ganancias" title="Ganancias del Mes" [highlighted]="true"></app-kpi-card>
+        </section>
+
+        <section class="dashboard__middle fade-in">
+          <div class="dashboard__estados-cuenta"><app-estados-cuenta-table></app-estados-cuenta-table></div>
+          <div class="dashboard__incidencias"><app-incidencias-panel></app-incidencias-panel></div>
+        </section>
+
+        <section class="dashboard__bottom fade-in">
+          <div class="dashboard__actividades"><app-actividades-panel></app-actividades-panel></div>
+          <div class="dashboard__chart"><app-ingresos-gastos-chart></app-ingresos-gastos-chart></div>
+        </section>
+      </main>
+    </div>
+  </div>
+</ng-template>

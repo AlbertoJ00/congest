@@ -1,6 +1,7 @@
 // Modelo: Incidencia
 export interface Incidencia {
   id: number;
+  condominioId?: number;
   titulo: string;
   descripcion?: string;
   ubicacion: string;
