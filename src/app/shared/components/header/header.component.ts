@@ -85,7 +85,7 @@ export class HeaderComponent {
     }
 
     if (this.currentUser.rol === 'Inquilino') {
-      return this.sections.filter(section => ['Dashboard', 'Condominios'].includes(section.name));
+      return this.sections.filter(section => ['Dashboard'].includes(section.name));
     }
 
     return this.sections.filter(section => ['Dashboard', 'Condominios', 'Inquilinos', 'Reportes', 'Pagos', 'Incidencias', 'Estados de Cuenta'].includes(section.name));
