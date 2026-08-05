@@ -48,8 +48,13 @@
                 </div>
 
                 <div class="tenant-payment-detail">
-                  <div class="tenant-payment-detail__icon">$</div>
-                  <div><small>Monto:</small><strong>{{ formatCurrency(tenantAccount?.cuota || tenantUser?.montoAlquiler || 0) }}</strong></div>
+                  <div class="tenant-payment-detail__header">
+                    <div class="tenant-payment-detail__icon">$</div>
+                    <div class="tenant-payment-detail__info">
+                      <small>Monto:</small>
+                      <strong>{{ formatCurrency(tenantAccount?.cuota || tenantUser?.montoAlquiler || 0) }}</strong>
+                    </div>
+                  </div>
                   <dl>
                     <dt>A nombre de:</dt><dd>{{ tenantUser?.nombre || currentUser?.nombre }}</dd>
                     <dt>Condominio:</dt><dd>{{ tenantCondominio?.nombre }}</dd>

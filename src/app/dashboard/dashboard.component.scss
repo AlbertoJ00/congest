@@ -183,7 +183,7 @@
 
 .tenant-payment-detail {
   display: grid;
-  grid-template-columns: 50px minmax(100px, 1fr) minmax(125px, 1.2fr);
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 14px;
   margin-top: 18px;
