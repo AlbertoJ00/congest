@@ -36,6 +36,20 @@
     }
   }
 
+  &__menu-actions {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 6px;
+    padding: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.16);
+    backdrop-filter: blur(8px);
+  }
+
   &__content {
     padding: $spacing-md;
   }

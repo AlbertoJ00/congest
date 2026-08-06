@@ -55,6 +55,7 @@
 <app-entity-modal
   [open]="isCreateModalOpen"
   mode="pago"
+  [condominios]="condominios"
   (close)="closeCreateModal()"
   (save)="handleCreatePago($event)">
 </app-entity-modal>

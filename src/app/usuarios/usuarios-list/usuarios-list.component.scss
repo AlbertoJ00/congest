@@ -1,0 +1,94 @@
+@use '../../../variables' as *;
+
+.users-page {
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: $spacing-lg;
+
+  .payments-page {
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: $spacing-lg;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+  padding: 0 8px;
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+}
+
+  &__header, &__form-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-lg;
+  }
+
+  &__header { margin-bottom: $spacing-lg; }
+  h1 { color: $text-primary; font-size: $font-size-2xl; }
+  h2 { color: $text-primary; font-size: $font-size-lg; }
+  p { color: $text-secondary; font-size: $font-size-sm; }
+
+  &__eyebrow {
+    color: $primary-green-dark;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+
+  &__form-card {
+    margin-bottom: $spacing-lg;
+    padding: $spacing-lg;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-lg;
+    background: $bg-card;
+    box-shadow: $shadow-card;
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+    margin-top: $spacing-md;
+
+    label { color: $text-secondary; font-size: $font-size-xs; font-weight: $font-weight-semibold; }
+    .form-input { margin-top: 5px; }
+  }
+
+  &__form-actions, &__error { grid-column: 1 / -1; }
+  &__form-actions { display: flex; justify-content: flex-end; gap: $spacing-sm; }
+  &__error { color: $status-late; }
+  &__secondary, &__close { padding: 9px 14px; border-radius: $border-radius-sm; color: $text-secondary; cursor: pointer; }
+  &__secondary:hover, &__close:hover { background: $bg-input; color: $text-primary; }
+  &__close { font-size: 22px; }
+
+  &__table { padding: $spacing-md; }
+  &__identity { display: flex; align-items: center; gap: $spacing-sm; color: $text-primary; }
+  &__role { display: inline-flex; padding: 5px 9px; border-radius: 999px; background: $primary-green-light; color: $primary-green-dark; font-size: $font-size-xs; font-weight: $font-weight-semibold; }
+  &__role--admin { background: #DBEAFE; color: #1D4ED8; }
+
+  @media (max-width: $breakpoint-md) {
+    &__form { grid-template-columns: 1fr; }
+    &__header { align-items: flex-start; }
+  }
+}

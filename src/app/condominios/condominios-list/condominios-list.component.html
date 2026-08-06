@@ -9,7 +9,7 @@
     
     <div class="page-header__actions">
       <app-search-bar (searchChange)="onSearch($event)"></app-search-bar>
-      <button class="btn-primary" type="button" (click)="openCreateModal()">
+      <button *ngIf="isAdmin" class="btn-primary" type="button" (click)="openCreateModal()">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="10"></circle>
           <line x1="12" y1="8" x2="12" y2="16"></line>
@@ -21,7 +21,7 @@
   </div>
 
   <div class="condominios-grid">
-    <app-condominio-card *ngFor="let condominio of filteredCondominios" [condominio]="condominio">
+    <app-condominio-card *ngFor="let condominio of filteredCondominios" [condominio]="condominio" [canDelete]="isAdmin" (edit)="edit(condominio)" (remove)="remove(condominio)">
     </app-condominio-card>
   </div>
 </main>
@@ -29,6 +29,8 @@
 <app-entity-modal
   [open]="isCreateModalOpen"
   mode="condominio"
+  [entity]="editingCondominio"
+  [propietarios]="propietarios"
   (close)="closeCreateModal()"
   (save)="handleCreateCondominio($event)">
 </app-entity-modal>

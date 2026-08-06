@@ -10,6 +10,8 @@ export interface Condominio {
   banos: number;
   capacidad: number;
   imagen?: string;
+  imagenesAdicionales?: string[];
   descripcion?: string;
+  propietarioId?: number;
   createdAt?: string;
 }

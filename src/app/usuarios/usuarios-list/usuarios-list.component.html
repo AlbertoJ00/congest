@@ -1,0 +1,75 @@
+<app-header activeSection="Usuarios"></app-header>
+
+<div class="content-main-container">
+  <div class="content-main">
+    <main class="users-page">
+      <div class="page-header">
+        <div class="page-header__titles">
+          <h1 class="page-header__title">Usuarios y roles</h1>
+          <p class="page-header__subtitle">Gestiona el acceso de administradores y propietarios.</p>
+        </div>
+
+        <button class="btn-primary" type="button" (click)="open()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="16"></line>
+            <line x1="8" y1="12" x2="16" y2="12"></line>
+          </svg>
+          Nuevo
+        </button>
+      </div>
+      
+      <section class="users-page__form-card" *ngIf="showForm">
+        <div class="users-page__form-heading">
+          <div>
+            <h2>{{ editing ? 'Editar usuario' : 'Crear usuario' }}</h2>
+            <p>Los propietarios solo accederán a los condominios que tengan asignados.</p>
+          </div>
+          <button type="button" class="users-page__close" (click)="cancel()" aria-label="Cerrar">×</button>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="save()" class="users-page__form">
+          <label>Nombre<input class="form-input" formControlName="nombre"></label>
+          <label>Apellido<input class="form-input" formControlName="apellido"></label>
+          <label>Correo<input class="form-input" type="email" formControlName="email"></label>
+          <label>Teléfono<input class="form-input" formControlName="telefono"></label>
+          <label>Rol
+            <select class="form-input" formControlName="rol">
+              <option>Propietario</option>
+              <option>Administrador</option>
+            </select>
+          </label>
+          <label>Contraseña
+            <input class="form-input" type="password" formControlName="password" [placeholder]="editing ? 'Dejar vacío para conservar' : 'Mínimo 8 caracteres'">
+          </label>
+          <p class="users-page__error" *ngIf="errorMessage">{{ errorMessage }}</p>
+          <div class="users-page__form-actions">
+            <button type="button" class="users-page__secondary" (click)="cancel()">Cancelar</button>
+            <button type="submit" class="btn-primary">Guardar usuario</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="table-container users-page__table">
+        <table class="table">
+          <thead><tr><th>Usuario</th><th>Correo</th><th>Rol</th><th>Teléfono</th><th>Acciones</th></tr></thead>
+          <tbody>
+            <tr *ngFor="let user of usuarios">
+              <td><div class="users-page__identity"><span class="avatar avatar--md avatar--color-1">{{ getInitials(user) }}</span><strong>{{ user.nombre }} {{ user.apellido }}</strong></div></td>
+              <td>{{ user.email }}</td>
+              <td><span class="users-page__role" [class.users-page__role--admin]="user.rol === 'Administrador'">{{ user.rol }}</span></td>
+              <td>{{ user.telefono || '—' }}</td>
+              <td><div class="entity-actions">
+                <button class="entity-action entity-action--edit" type="button" title="Editar usuario" (click)="open(user)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+                </button>
+                <button class="entity-action entity-action--delete" type="button" title="Eliminar usuario" (click)="remove(user)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"></path><path d="M8 6V4h8v2"></path><path d="M19 6l-1 14H6L5 6"></path></svg>
+                </button>
+              </div></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+</div>

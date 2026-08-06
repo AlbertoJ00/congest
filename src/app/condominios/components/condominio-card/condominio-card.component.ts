@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Condominio } from '../../../core/models/condominio.model';
 
 @Component({
@@ -9,6 +9,9 @@ import { Condominio } from '../../../core/models/condominio.model';
 })
 export class CondominioCardComponent {
   @Input() condominio!: Condominio;
+  @Input() canDelete = false;
+  @Output() edit = new EventEmitter<void>();
+  @Output() remove = new EventEmitter<void>();
   
   // Dummy images based on id for demo purposes
   get placeholderImage(): string {

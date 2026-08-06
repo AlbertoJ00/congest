@@ -1,0 +1,2 @@
+import { Component, OnInit } from '@angular/core'; import { EstadoDeCuenta } from '../../core/models/estado-cuenta.model'; import { EstadosCuentaService } from '../../core/services/estados-cuenta.service';
+@Component({ selector: 'app-estados-cuenta-list', standalone: false, templateUrl: './estados-cuenta-list.component.html' }) export class EstadosCuentaListComponent implements OnInit { estados: EstadoDeCuenta[] = []; constructor(private service: EstadosCuentaService) {} ngOnInit(): void { this.service.getAll().subscribe({ next: d => this.estados = d }); } }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
+import { RoleGuard } from './core/guards/role.guard';
 
 const routes: Routes = [
   { 
@@ -10,27 +11,40 @@ const routes: Routes = [
   { 
     path: 'dashboard', 
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, RoleGuard],
+    data: { roles: ['Administrador', 'Propietario', 'Inquilino'] }
   },
   { 
     path: 'condominios', 
     loadChildren: () => import('./condominios/condominios.module').then(m => m.CondominiosModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, RoleGuard],
+    data: { roles: ['Administrador', 'Propietario', 'Inquilino'] }
   },
   { 
     path: 'inquilinos', 
     loadChildren: () => import('./inquilinos/inquilinos.module').then(m => m.InquilinosModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, RoleGuard],
+    data: { roles: ['Administrador', 'Propietario'] }
   },
   {
     path: 'reportes',
     loadChildren: () => import('./reportes/reportes.module').then(m => m.ReportesModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, RoleGuard],
+    data: { roles: ['Administrador', 'Propietario'] }
   },
   {
     path: 'pagos',
     loadChildren: () => import('./pagos/pagos.module').then(m => m.PagosModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, RoleGuard],
+    data: { roles: ['Administrador', 'Propietario'] }
+  },
+  { path: 'incidencias', loadChildren: () => import('./incidencias/incidencias.module').then(m => m.IncidenciasModule), canActivate: [AuthGuard, RoleGuard], data: { roles: ['Administrador', 'Propietario'] } },
+  { path: 'estados-cuenta', loadChildren: () => import('./estados-cuenta/estados-cuenta.module').then(m => m.EstadosCuentaModule), canActivate: [AuthGuard, RoleGuard], data: { roles: ['Administrador', 'Propietario'] } },
+  {
+    path: 'usuarios',
+    loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosModule),
+    canActivate: [AuthGuard, RoleGuard],
+    data: { roles: ['Administrador'] }
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }
