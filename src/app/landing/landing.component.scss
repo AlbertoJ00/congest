@@ -3,6 +3,10 @@ $secondary-color: #01514f;
 $white-glass: rgba(255, 255, 255, 0.5);
 $max-width: 1400px;
 
+* {
+  scroll-behavior: smooth;
+}
+
 .content-main-container {
   padding: 0 15px;
 
@@ -135,10 +139,9 @@ $max-width: 1400px;
         &-register {
           color: white;
           background-color: $primary-color;
-          opacity: 0.8;
 
           &:hover {
-            opacity: 1;
+            background-color: $secondary-color;
           }
         }
       }
@@ -181,7 +184,7 @@ $max-width: 1400px;
         }
         &-overlay {
           position: relative;
-          background: #92f8b2;
+          background: $primary-color;
           display: flex;
           align-items: center;
           justify-content: center;
