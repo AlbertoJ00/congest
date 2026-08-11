@@ -1,3 +1,33 @@
 <app-header activeSection="Incidencias"></app-header>
-<main class="content-main"><div class="page-header"><div><h1 class="page-header__title">Incidencias</h1><p class="page-header__subtitle">Seguimiento de incidencias reportadas</p></div></div>
-<div class="table-container"><table class="table"><thead><tr><th>Título</th><th>Ubicación</th><th>Severidad</th><th>Estado</th><th></th></tr></thead><tbody><tr *ngFor="let item of incidencias"><td>{{ item.titulo }}</td><td>{{ item.ubicacion }}</td><td>{{ item.severidad }}</td><td>{{ item.estado }}</td><td><a [routerLink]="[item.id]">Ver detalle</a></td></tr></tbody></table></div></main>
+<main class="content-main">
+  <div class="page-header">
+    <div>
+      <h1 class="page-header__title">Incidencias</h1>
+      <p class="page-header__subtitle">Seguimiento de incidencias reportadas</p>
+    </div>
+  </div>
+
+  <p class="login-page__error login-page__error--general" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr><th>Título</th><th>Ubicación</th><th>Severidad</th><th>Estado</th><th></th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of incidencias">
+          <td>{{ item.titulo }}</td>
+          <td>{{ item.ubicacion }}</td>
+          <td>{{ item.severidad }}</td>
+          <td>
+            <select *ngIf="editable; else readOnlyState" [value]="item.estado" (change)="changeEstado(item, $any($event.target).value)">
+              <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+            </select>
+            <ng-template #readOnlyState>{{ item.estado }}</ng-template>
+          </td>
+          <td><a [routerLink]="[item.id]">Ver detalle</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>

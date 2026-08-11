@@ -30,7 +30,7 @@ const routes: Routes = [
     path: 'reportes',
     loadChildren: () => import('./reportes/reportes.module').then(m => m.ReportesModule),
     canActivate: [AuthGuard, RoleGuard],
-    data: { roles: ['Administrador', 'Propietario'] }
+    data: { roles: ['Administrador', 'Propietario', 'Inquilino'] }
   },
   {
     path: 'pagos',
@@ -38,16 +38,20 @@ const routes: Routes = [
     canActivate: [AuthGuard, RoleGuard],
     data: { roles: ['Administrador', 'Propietario'] }
   },
-  { path: 'incidencias', loadChildren: () => import('./incidencias/incidencias.module').then(m => m.IncidenciasModule), canActivate: [AuthGuard, RoleGuard], data: { roles: ['Administrador', 'Propietario'] } },
+  { path: 'incidencias', loadChildren: () => import('./incidencias/incidencias.module').then(m => m.IncidenciasModule), canActivate: [AuthGuard, RoleGuard], data: { roles: ['Administrador', 'Propietario', 'Inquilino'] } },
   { path: 'estados-cuenta', loadChildren: () => import('./estados-cuenta/estados-cuenta.module').then(m => m.EstadosCuentaModule), canActivate: [AuthGuard, RoleGuard], data: { roles: ['Administrador', 'Propietario'] } },
   {
     path: 'usuarios',
     loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosModule),
     canActivate: [AuthGuard, RoleGuard],
-    data: { roles: ['Administrador'] }
+    data: { roles: ['Administrador', 'Propietario'] }
   },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: '**', redirectTo: 'login' }
+  { path: 'registro', redirectTo: 'login/registro', pathMatch: 'full' },
+  { 
+    path: '', 
+    loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule) 
+  },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

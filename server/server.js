@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const crypto = require('node:crypto');
 const bcrypt = require('bcryptjs');
+const nodemailer = require('nodemailer');
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const { all, databasePath, exec, get, initializeDatabase, run } = require('./database');
@@ -10,6 +11,8 @@ const { seedDatabase } = require('./seed');
 const app = express();
 const port = Number(process.env.API_PORT || 3000);
 const jwtSecret = process.env.JWT_SECRET || 'congest-development-secret-change-me';
+const workflowStates = ['Pendiente', 'En proceso', 'Asignado', 'Resuelto'];
+const tenantCreatableResources = ['reportes', 'incidencias'];
 
 app.use(express.json({ limit: '1mb' }));
 
@@ -59,7 +62,10 @@ function ownerScope(resource, auth) {
     if (resource.table === 'inquilinos') {
       return { clause: 'usuario_id = ?', params: [auth.sub] };
     }
-    if (['pagos', 'reportes', 'incidencias'].includes(resource.table)) {
+    if (tenantCreatableResources.includes(resource.table)) {
+      return { clause: 'usuario_id = ?', params: [auth.sub] };
+    }
+    if (resource.table === 'pagos') {
       return {
         clause: 'condominio_id IN (SELECT condominio_id FROM inquilinos WHERE usuario_id = ?)',
         params: [auth.sub]
@@ -142,7 +148,9 @@ async function ensureTenantUser(inquilino) {
     return existingUser.id;
   }
 
-  const passwordHash = await bcrypt.hash(tenantPasswordSeed(inquilino), 10);
+  // Create with a random password hash and issue a password reset token for secure setup
+  const randomSeed = crypto.randomBytes(32).toString('hex');
+  const passwordHash = await bcrypt.hash(randomSeed, 10);
   const result = await run(`INSERT INTO usuarios (nombre, apellido, email, password_hash, rol, avatar, telefono)
     VALUES (?, ?, ?, ?, ?, ?, ?)`, [
     String(inquilino.nombre || '').trim(),
@@ -153,7 +161,45 @@ async function ensureTenantUser(inquilino) {
     inquilino.avatar || null,
     inquilino.celular || null
   ]);
-  return result.lastID;
+  const usuarioId = result.lastID;
+  // If caller requested, create reset token and send welcome email
+  if (inquilino._sendWelcomeEmail) {
+    try {
+      const token = await createPasswordResetToken(usuarioId);
+      await sendPasswordResetEmail(email, inquilino.nombre, token, inquilino.condominioNombre);
+    } catch (err) {
+      console.error('No se pudo enviar correo de bienvenida al inquilino:', err);
+    }
+  }
+  return usuarioId;
+}
+
+async function createPasswordResetToken(usuarioId) {
+  const token = crypto.randomBytes(32).toString('hex');
+  const expiresAt = Date.now() + (24 * 60 * 60 * 1000); // 24h
+  await run('INSERT INTO password_resets (usuario_id, token, expires_at) VALUES (?, ?, ?)', [usuarioId, token, expiresAt]);
+  return token;
+}
+
+async function sendPasswordResetEmail(toEmail, nombre, token, condominioNombre) {
+  const frontend = process.env.FRONTEND_URL || 'http://localhost:4200';
+  const url = `${frontend.replace(/\/$/, '')}/set-password?token=${token}`;
+  const subject = 'Acceso a CONGEST creado: establece tu contraseña';
+  const text = `Hola ${nombre || ''},\n\nSe ha creado una cuenta en CONGEST para ti${condominioNombre ? ` (condominio: ${condominioNombre})` : ''}.\n
+Accede al siguiente enlace para establecer tu contraseña de forma segura:\n\n${url}\n\nSi no solicitaste esto, ignora este correo.`;
+
+  if (process.env.SMTP_HOST) {
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT || 587),
+      secure: process.env.SMTP_SECURE === 'true',
+      auth: process.env.SMTP_USER ? { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS } : undefined
+    });
+    await transporter.sendMail({ from: process.env.SMTP_FROM || 'no-reply@congest.local', to: toEmail, subject, text });
+  } else {
+    // Fallback: log the link so local dev can copy it
+    console.log('Password reset (development):', { to: toEmail, url, subject, text });
+  }
 }
 
 async function syncTenantUser(inquilino) {
@@ -235,7 +281,8 @@ const resources = {
     required: ['prioridad', 'problema', 'condominio', 'estado', 'condominioId'],
     fields: [
       ['id', 'id'], ['prioridad', 'prioridad'], ['fecha', 'fecha'], ['problema', 'problema'],
-      ['condominio', 'condominio'], ['estado', 'estado'], ['condominio_id', 'condominioId']
+      ['condominio', 'condominio'], ['estado', 'estado'], ['condominio_id', 'condominioId'],
+      ['usuario_id', 'usuarioId']
     ]
   },
   incidencias: {
@@ -244,7 +291,8 @@ const resources = {
     fields: [
       ['id', 'id'], ['titulo', 'titulo'], ['descripcion', 'descripcion'], ['ubicacion', 'ubicacion'],
       ['tiempo', 'tiempo'], ['estado', 'estado'], ['severidad', 'severidad'],
-      ['reportado_por', 'reportadoPor'], ['condominio_id', 'condominioId'], ['created_at', 'createdAt']
+      ['reportado_por', 'reportadoPor'], ['condominio_id', 'condominioId'],
+      ['usuario_id', 'usuarioId'], ['created_at', 'createdAt']
     ]
   },
   'estados-cuenta': {
@@ -283,23 +331,67 @@ app.post('/api/auth/login', asyncRoute(async (request, response) => {
 }));
 
 app.post('/api/auth/register', asyncRoute(async (request, response) => {
-  const missing = requireFields(request.body, ['nombre', 'email', 'password']);
-  if (missing.length) return response.status(400).json({ message: `Faltan campos obligatorios: ${missing.join(', ')}.` });
-  if (String(request.body.password).length < 8) return response.status(400).json({ message: 'La contraseña debe tener al menos 8 caracteres.' });
+  const body = request.body || {};
+  const nombre = String(body.nombre || '').trim();
+  const apellido = String(body.apellido || '').trim() || null;
+  const email = String(body.email || '').trim();
+  const password = String(body.password || '');
 
-  const passwordHash = await bcrypt.hash(request.body.password, 10);
+  const missing = [];
+  if (!nombre) missing.push('nombre');
+  if (!email) missing.push('email');
+  if (!password) missing.push('password');
+  if (missing.length) return response.status(400).json({ message: `Faltan campos obligatorios: ${missing.join(', ')}.` });
+  if (!/^\S+@\S+\.\S+$/.test(email)) return response.status(400).json({ message: 'El correo no es válido.' });
+  if (password.length < 8) return response.status(400).json({ message: 'La contraseña debe tener al menos 8 caracteres.' });
+
+  const existingUser = await get('SELECT id FROM usuarios WHERE email = ?', [email]);
+  if (existingUser) return response.status(409).json({ message: 'El correo ya está registrado.' });
+
+  const passwordHash = await bcrypt.hash(password, 10);
   const result = await run(`INSERT INTO usuarios (nombre, apellido, email, password_hash, rol, avatar, telefono)
     VALUES (?, ?, ?, ?, ?, ?, ?)`, [
-    String(request.body.nombre).trim(), request.body.apellido || null, String(request.body.email).trim(),
-    passwordHash, 'Propietario', request.body.avatar || null, request.body.telefono || null
+    nombre, apellido, email, passwordHash, 'Propietario', body.avatar || null, body.telefono || null
   ]);
   const user = await get(`${userSelect} WHERE id = ?`, [result.lastID]);
   return response.status(201).json(user);
 }));
 
-app.post('/api/auth/forgot-password', asyncRoute(async (_request, response) => {
-  // Respuesta deliberadamente genérica para no revelar si una cuenta existe.
-  response.status(204).send();
+app.get('/api/auth/registration-open', asyncRoute(async (_request, response) => {
+  // El alta pública de propietarios está habilitada aunque existan usuarios demo.
+  response.json({ open: true });
+}));
+
+app.post('/api/auth/forgot-password', asyncRoute(async (request, response) => {
+  const email = String(request.body.email || '').trim();
+  if (!email) return response.status(400).json({ message: 'Correo es obligatorio.' });
+  const user = await get('SELECT id, nombre, email FROM usuarios WHERE email = ?', [email]);
+  if (user) {
+    try {
+      const token = await createPasswordResetToken(user.id);
+      await sendPasswordResetEmail(user.email, user.nombre, token);
+    } catch (err) {
+      console.error('Error enviando correo de restablecimiento:', err);
+    }
+  }
+  // Always respond the same to avoid account enumeration
+  return response.status(204).send();
+}));
+
+app.post('/api/auth/set-password', asyncRoute(async (request, response) => {
+  const { token, password } = request.body || {};
+  if (!token || !password) return response.status(400).json({ message: 'Token y contraseña son obligatorios.' });
+  if (String(password).length < 8) return response.status(400).json({ message: 'La contraseña debe tener al menos 8 caracteres.' });
+  const row = await get('SELECT usuario_id, expires_at FROM password_resets WHERE token = ?', [String(token)]);
+  if (!row) return response.status(400).json({ message: 'Token inválido o expirado.' });
+  if (Date.now() > Number(row.expires_at)) {
+    await run('DELETE FROM password_resets WHERE token = ?', [String(token)]);
+    return response.status(400).json({ message: 'Token inválido o expirado.' });
+  }
+  const passwordHash = await bcrypt.hash(String(password), 10);
+  await run('UPDATE usuarios SET password_hash = ? WHERE id = ?', [passwordHash, row.usuario_id]);
+  await run('DELETE FROM password_resets WHERE usuario_id = ?', [row.usuario_id]);
+  return response.status(200).json({ message: 'Contraseña establecida correctamente.' });
 }));
 
 app.get('/api/auth/me', authenticate, asyncRoute(async (request, response) => {
@@ -320,19 +412,23 @@ app.put('/api/auth/me', authenticate, asyncRoute(async (request, response) => {
 
 app.use('/api', authenticate);
 
-app.get('/api/usuarios', requireRole('Administrador'), asyncRoute(async (_request, response) => {
+app.get('/api/usuarios', requireRole('Administrador', 'Propietario'), asyncRoute(async (_request, response) => {
   response.json(await all(`${userSelect} ORDER BY id DESC`));
 }));
 
-app.get('/api/usuarios/:id', requireRole('Administrador'), asyncRoute(async (request, response) => {
+app.get('/api/usuarios/:id', requireRole('Administrador', 'Propietario'), asyncRoute(async (request, response) => {
   const user = await get(`${userSelect} WHERE id = ?`, [request.params.id]);
   if (!user) return response.status(404).json({ message: 'Usuario no encontrado.' });
   return response.json(user);
 }));
 
-app.post('/api/usuarios', requireRole('Administrador'), asyncRoute(async (request, response) => {
+app.post('/api/usuarios', requireRole('Administrador', 'Propietario'), asyncRoute(async (request, response) => {
   const missing = requireFields(request.body, ['nombre', 'email', 'password', 'rol']);
   if (missing.length) return response.status(400).json({ message: `Faltan campos obligatorios: ${missing.join(', ')}.` });
+  // No permitir creación de Propietario vía API una vez existe la cuenta inicial
+  if (String(request.body.rol) === 'Propietario') {
+    return response.status(403).json({ message: 'No puedes crear usuarios con rol Propietario.' });
+  }
   const passwordHash = await bcrypt.hash(request.body.password, 10);
   const result = await run(`INSERT INTO usuarios (nombre, apellido, email, password_hash, rol, avatar, telefono)
     VALUES (?, ?, ?, ?, ?, ?, ?)`, [request.body.nombre, request.body.apellido || null, request.body.email,
@@ -341,12 +437,15 @@ app.post('/api/usuarios', requireRole('Administrador'), asyncRoute(async (reques
   response.status(201).json(await get(`${userSelect} WHERE id = ?`, [result.lastID]));
 }));
 
-app.put('/api/usuarios/:id', requireRole('Administrador'), asyncRoute(async (request, response) => {
+app.put('/api/usuarios/:id', requireRole('Administrador', 'Propietario'), asyncRoute(async (request, response) => {
   const columns = { nombre: 'nombre', apellido: 'apellido', email: 'email', rol: 'rol', avatar: 'avatar', telefono: 'telefono' };
   const updates = Object.entries(columns).filter(([property]) => request.body[property] !== undefined);
   if (request.body.password) {
     updates.push(['password', 'password_hash']);
     request.body.password = await bcrypt.hash(request.body.password, 10);
+  }
+  if (request.body.rol === 'Propietario') {
+    return response.status(403).json({ message: 'No puedes asignar el rol Propietario.' });
   }
   if (!updates.length) return response.status(400).json({ message: 'No hay datos para actualizar.' });
   const result = await run(`UPDATE usuarios SET ${updates.map(([, column]) => `${column} = ?`).join(', ')} WHERE id = ?`,
@@ -356,7 +455,7 @@ app.put('/api/usuarios/:id', requireRole('Administrador'), asyncRoute(async (req
   return response.json(await get(`${userSelect} WHERE id = ?`, [request.params.id]));
 }));
 
-app.delete('/api/usuarios/:id', requireRole('Administrador'), asyncRoute(async (request, response) => {
+app.delete('/api/usuarios/:id', requireRole('Administrador', 'Propietario'), asyncRoute(async (request, response) => {
   if (Number(request.params.id) === Number(request.auth.sub)) {
     return response.status(409).json({ message: 'No puedes eliminar el usuario de tu sesión.' });
   }
@@ -366,7 +465,7 @@ app.delete('/api/usuarios/:id', requireRole('Administrador'), asyncRoute(async (
   return response.status(204).send();
 }));
 
-app.get('/api/auditoria', requireRole('Administrador'), asyncRoute(async (_request, response) => {
+app.get('/api/auditoria', requireRole('Administrador', 'Propietario'), asyncRoute(async (_request, response) => {
   response.json(await all(`SELECT a.id, a.accion, a.entidad, a.entidad_id AS "entidadId", a.detalle,
     a.created_at AS "createdAt", u.nombre AS usuarioNombre, u.email AS usuarioEmail
     FROM auditoria a LEFT JOIN usuarios u ON u.id = a.usuario_id ORDER BY a.id DESC LIMIT 250`));
@@ -421,7 +520,9 @@ app.get('/api/estados-cuenta/resumen', asyncRoute(async (request, response) => {
 }));
 
 app.get('/api/incidencias/resumen', asyncRoute(async (request, response) => {
-  const scope = condominioScope(request.auth);
+  const scope = request.auth.rol === 'Inquilino'
+    ? ownerScope(resources.incidencias, request.auth)
+    : condominioScope(request.auth);
   const result = await get(`SELECT
     SUM(CASE WHEN estado != 'Resuelto' THEN 1 ELSE 0 END) AS abiertas,
     SUM(CASE WHEN estado = 'Resuelto' THEN 1 ELSE 0 END) AS resueltasHoy
@@ -445,14 +546,17 @@ for (const [routeName, resource] of Object.entries(resources)) {
   }));
 
   app.post(`/api/${routeName}`, asyncRoute(async (request, response) => {
-    if (resource.table === 'condominios' && request.auth.rol !== 'Administrador') {
+    if (resource.table === 'condominios' && !['Administrador', 'Propietario'].includes(request.auth.rol)) {
       return response.status(403).json({ message: 'Solo un administrador puede crear condominios.' });
     }
-    if (request.auth.rol === 'Inquilino' && resource.table !== 'condominios') {
+    if (request.auth.rol === 'Inquilino' && !tenantCreatableResources.includes(resource.table)) {
       return response.status(403).json({ message: 'No tienes permisos para crear registros.' });
     }
     const missing = requireFields(request.body, resource.required);
     if (missing.length) return response.status(400).json({ message: `Faltan campos obligatorios: ${missing.join(', ')}.` });
+    if (tenantCreatableResources.includes(resource.table) && !workflowStates.includes(String(request.body.estado))) {
+      return response.status(400).json({ message: `Estado inválido. Usa: ${workflowStates.join(', ')}.` });
+    }
     if (resource.table === 'inquilinos' && request.body.esPrincipal === undefined) {
       request.body.esPrincipal = 0;
     }
@@ -466,14 +570,29 @@ for (const [routeName, resource] of Object.entries(resources)) {
         return response.status(403).json({ message: 'No puedes registrar información en ese condominio.' });
       }
     }
+    if (request.auth.rol === 'Inquilino' && tenantCreatableResources.includes(resource.table)) {
+      request.body.usuarioId = request.auth.sub;
+      request.body.estado = 'Pendiente';
+      const tenant = await get('SELECT nombre, apellido FROM usuarios WHERE id = ?', [request.auth.sub]);
+      if (resource.table === 'incidencias') {
+        request.body.reportadoPor = [tenant?.nombre, tenant?.apellido].filter(Boolean).join(' ') || null;
+      }
+      if (resource.table === 'reportes') {
+        const condominio = await get('SELECT nombre FROM condominios WHERE id = ?', [request.body.condominioId]);
+        request.body.condominio = condominio?.nombre || request.body.condominio;
+      }
+    }
     if (resource.table === 'inquilinos') {
-      return withTransaction(async () => {
-        const usuarioId = await ensureTenantUser(request.body);
-        request.body.usuarioId = usuarioId;
+        return withTransaction(async () => {
+          // When creating a tenant from the app, request sending a welcome email
+          request.body._sendWelcomeEmail = true;
+          const usuarioId = await ensureTenantUser(request.body);
+          request.body.usuarioId = usuarioId;
         if (Number(request.body.esPrincipal) === 1) {
           await run('UPDATE inquilinos SET es_principal = 0 WHERE condominio_id = ?', [request.body.condominioId]);
         }
-        const writable = resource.fields.filter(({ property }) => property !== 'id' && property !== 'createdAt' && request.body[property] !== undefined);
+        const writable = resource.fields.filter(({ property }) => property !== 'id' && property !== 'createdAt' &&
+          (property !== 'usuarioId' || request.auth.rol === 'Inquilino') && request.body[property] !== undefined);
         const result = await run(`INSERT INTO ${resource.table} (${writable.map(({ column }) => column).join(', ')})
           VALUES (${writable.map(() => '?').join(', ')})`, writable.map(({ property }) => request.body[property]));
         const record = await get(`${resource.select} WHERE id = ?`, [result.lastID]);
@@ -481,7 +600,8 @@ for (const [routeName, resource] of Object.entries(resources)) {
         return response.status(201).json(record);
       });
     }
-    const writable = resource.fields.filter(({ property }) => property !== 'id' && property !== 'createdAt' && request.body[property] !== undefined);
+    const writable = resource.fields.filter(({ property }) => property !== 'id' && property !== 'createdAt' &&
+      (property !== 'usuarioId' || request.auth.rol === 'Inquilino') && request.body[property] !== undefined);
     const result = await run(`INSERT INTO ${resource.table} (${writable.map(({ column }) => column).join(', ')})
       VALUES (${writable.map(() => '?').join(', ')})`, writable.map(({ property }) => request.body[property]));
     const record = await get(`${resource.select} WHERE id = ?`, [result.lastID]);
@@ -492,6 +612,10 @@ for (const [routeName, resource] of Object.entries(resources)) {
   app.put(`/api/${routeName}/:id`, asyncRoute(async (request, response) => {
     if (request.auth.rol === 'Inquilino') {
       return response.status(403).json({ message: 'No tienes permisos para editar registros.' });
+    }
+    if (tenantCreatableResources.includes(resource.table) && request.body.estado !== undefined &&
+      !workflowStates.includes(String(request.body.estado))) {
+      return response.status(400).json({ message: `Estado inválido. Usa: ${workflowStates.join(', ')}.` });
     }
     const scope = ownerScope(resource, request.auth);
     const condition = scope.clause ? `id = ? AND ${scope.clause}` : 'id = ?';
@@ -512,8 +636,8 @@ for (const [routeName, resource] of Object.entries(resources)) {
         await run('UPDATE inquilinos SET es_principal = 0 WHERE condominio_id = ? AND id != ?', [currentCondominioId, request.params.id]);
       }
     }
-    const writable = resource.fields.filter(({ property }) => property !== 'id' && property !== 'createdAt' &&
-      !(property === 'propietarioId' && request.auth.rol !== 'Administrador') && request.body[property] !== undefined);
+    const writable = resource.fields.filter(({ property }) => property !== 'id' && property !== 'createdAt' && property !== 'usuarioId' &&
+      !(property === 'propietarioId' && request.auth.rol === 'Inquilino') && request.body[property] !== undefined);
     if (!writable.length) return response.status(400).json({ message: 'No hay datos para actualizar.' });
     if (resource.table === 'inquilinos') {
       return withTransaction(async () => {
@@ -534,7 +658,7 @@ for (const [routeName, resource] of Object.entries(resources)) {
   }));
 
   app.delete(`/api/${routeName}/:id`, asyncRoute(async (request, response) => {
-    if (request.auth.rol !== 'Administrador') {
+    if (!['Administrador', 'Propietario'].includes(request.auth.rol)) {
       return response.status(403).json({ message: 'Solo un administrador puede eliminar registros.' });
     }
     const scope = ownerScope(resource, request.auth);

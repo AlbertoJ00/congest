@@ -18,14 +18,14 @@ export class CondominiosListComponent implements OnInit {
   editingCondominio: Condominio | null = null;
   searchTerm = '';
   propietarios: Usuario[] = [];
-  readonly isAdmin: boolean;
+  readonly canManage: boolean;
 
   constructor(
     private condominiosService: CondominiosService,
     private authService: AuthService,
     private usuariosService: UsuariosService
   ) {
-    this.isAdmin = this.authService.hasRole('Administrador');
+    this.canManage = this.authService.hasRole('Administrador', 'Propietario');
   }
 
   ngOnInit(): void {
@@ -36,7 +36,7 @@ export class CondominiosListComponent implements OnInit {
       },
       error: () => { this.condominios = []; this.filteredCondominios = []; }
     });
-    if (this.isAdmin) {
+    if (this.canManage) {
       this.usuariosService.getAll().subscribe({
         next: users => this.propietarios = users.filter(user => user.rol === 'Propietario')
       });

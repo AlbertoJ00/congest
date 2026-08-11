@@ -6,10 +6,12 @@ import { AuthService } from '../../core/services/auth.service';
   selector: 'app-register',
   standalone: false,
   templateUrl: './register.component.html',
+  styleUrls: ['../login/login.component.scss'],
 })
 export class RegisterComponent {
   form: FormGroup;
   message = '';
+  isSubmitting = false;
   constructor(
     fb: FormBuilder,
     private auth: AuthService,
@@ -23,12 +25,21 @@ export class RegisterComponent {
     });
   }
   submit(): void {
-    if (this.form.invalid) return;
+    if (this.form.invalid || this.isSubmitting) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    this.isSubmitting = true;
+    this.message = '';
     this.auth
-      .register(this.form.value)
+      .register(this.form.getRawValue())
       .subscribe({
         next: () => this.router.navigate(['/login']),
-        error: (e) => (this.message = e.error?.message || 'No se pudo crear la cuenta.'),
+        error: (e) => {
+          this.isSubmitting = false;
+          this.message = e.error?.message || 'No se pudo crear la cuenta.';
+        },
       });
   }
 }

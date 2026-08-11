@@ -5,5 +5,6 @@ export interface Reporte {
   problema: string;
   condominio: string;
   condominioId: number;
-  estado: 'En proceso' | 'Asignado' | 'Resuelto';
+  usuarioId?: number;
+  estado: 'Pendiente' | 'En proceso' | 'Asignado' | 'Resuelto';
 }

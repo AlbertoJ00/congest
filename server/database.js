@@ -123,7 +123,7 @@ async function initializeDatabase() {
       descripcion TEXT,
       ubicacion TEXT NOT NULL,
       tiempo TEXT NOT NULL,
-      estado TEXT NOT NULL CHECK (estado IN ('En proceso', 'Asignado', 'Resuelto')),
+      estado TEXT NOT NULL CHECK (estado IN ('Pendiente', 'En proceso', 'Asignado', 'Resuelto')),
       severidad TEXT NOT NULL CHECK (severidad IN ('alta', 'media', 'baja')),
       reportado_por TEXT,
       condominio_id INTEGER,
@@ -170,7 +170,7 @@ async function initializeDatabase() {
       fecha TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
       problema TEXT NOT NULL,
       condominio TEXT NOT NULL,
-      estado TEXT NOT NULL CHECK (estado IN ('En proceso', 'Asignado', 'Resuelto')),
+      estado TEXT NOT NULL CHECK (estado IN ('Pendiente', 'En proceso', 'Asignado', 'Resuelto')),
       condominio_id INTEGER,
       FOREIGN KEY (condominio_id) REFERENCES condominios(id) ON DELETE CASCADE
     );
@@ -185,15 +185,58 @@ async function initializeDatabase() {
       created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE SET NULL
     );
+
+    CREATE TABLE IF NOT EXISTS password_resets (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      usuario_id INTEGER NOT NULL,
+      token TEXT NOT NULL UNIQUE,
+      expires_at INTEGER NOT NULL,
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+    );
   `);
 
   await ensureColumn('condominios', 'propietario_id', 'INTEGER REFERENCES usuarios(id) ON DELETE SET NULL');
   await ensureColumn('inquilinos', 'usuario_id', 'INTEGER REFERENCES usuarios(id) ON DELETE CASCADE');
   await ensureColumn('inquilinos', 'es_principal', 'INTEGER NOT NULL DEFAULT 0');
   await ensureColumn('incidencias', 'condominio_id', 'INTEGER REFERENCES condominios(id) ON DELETE CASCADE');
+  await ensureColumn('incidencias', 'usuario_id', 'INTEGER REFERENCES usuarios(id) ON DELETE SET NULL');
   await ensureColumn('actividades', 'condominio_id', 'INTEGER REFERENCES condominios(id) ON DELETE CASCADE');
   await ensureColumn('pagos', 'condominio_id', 'INTEGER REFERENCES condominios(id) ON DELETE CASCADE');
   await ensureColumn('reportes', 'condominio_id', 'INTEGER REFERENCES condominios(id) ON DELETE CASCADE');
+  await ensureColumn('reportes', 'usuario_id', 'INTEGER REFERENCES usuarios(id) ON DELETE SET NULL');
+
+  await migrateWorkflowTable('incidencias', `
+    CREATE TABLE incidencias (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      titulo TEXT NOT NULL,
+      descripcion TEXT,
+      ubicacion TEXT NOT NULL,
+      tiempo TEXT NOT NULL,
+      estado TEXT NOT NULL CHECK (estado IN ('Pendiente', 'En proceso', 'Asignado', 'Resuelto')),
+      severidad TEXT NOT NULL CHECK (severidad IN ('alta', 'media', 'baja')),
+      reportado_por TEXT,
+      condominio_id INTEGER,
+      usuario_id INTEGER REFERENCES usuarios(id) ON DELETE SET NULL,
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (condominio_id) REFERENCES condominios(id) ON DELETE CASCADE
+    )`,
+    'id, titulo, descripcion, ubicacion, tiempo, estado, severidad, reportado_por, condominio_id, usuario_id, created_at'
+  );
+  await migrateWorkflowTable('reportes', `
+    CREATE TABLE reportes (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      prioridad TEXT NOT NULL CHECK (prioridad IN ('Alta', 'Media', 'Baja')),
+      fecha TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      problema TEXT NOT NULL,
+      condominio TEXT NOT NULL,
+      estado TEXT NOT NULL CHECK (estado IN ('Pendiente', 'En proceso', 'Asignado', 'Resuelto')),
+      condominio_id INTEGER,
+      usuario_id INTEGER REFERENCES usuarios(id) ON DELETE SET NULL,
+      FOREIGN KEY (condominio_id) REFERENCES condominios(id) ON DELETE CASCADE
+    )`,
+    'id, prioridad, fecha, problema, condominio, estado, condominio_id, usuario_id'
+  );
 
   await exec(`
     CREATE INDEX IF NOT EXISTS idx_condominios_propietario ON condominios(propietario_id);
@@ -201,7 +244,10 @@ async function initializeDatabase() {
     CREATE UNIQUE INDEX IF NOT EXISTS idx_inquilinos_usuario ON inquilinos(usuario_id);
     CREATE INDEX IF NOT EXISTS idx_pagos_condominio ON pagos(condominio_id);
     CREATE INDEX IF NOT EXISTS idx_reportes_condominio ON reportes(condominio_id);
+    CREATE INDEX IF NOT EXISTS idx_reportes_usuario ON reportes(usuario_id);
     CREATE INDEX IF NOT EXISTS idx_incidencias_condominio ON incidencias(condominio_id);
+    CREATE INDEX IF NOT EXISTS idx_incidencias_usuario ON incidencias(usuario_id);
+    CREATE INDEX IF NOT EXISTS idx_password_resets_usuario ON password_resets(usuario_id);
   `);
 }
 
@@ -210,6 +256,23 @@ async function ensureColumn(table, column, definition) {
   if (!columns.some((item) => item.name === column)) {
     await run(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
   }
+}
+
+async function migrateWorkflowTable(table, createSql, columns) {
+  const schema = await get('SELECT sql FROM sqlite_master WHERE type = \'table\' AND name = ?', [table]);
+  if (!schema || schema.sql.includes("'Pendiente'")) return;
+
+  const legacyTable = `${table}_legacy`;
+  await exec(`
+    PRAGMA foreign_keys = OFF;
+    BEGIN TRANSACTION;
+    ALTER TABLE ${table} RENAME TO ${legacyTable};
+    ${createSql};
+    INSERT INTO ${table} (${columns}) SELECT ${columns} FROM ${legacyTable};
+    DROP TABLE ${legacyTable};
+    COMMIT;
+    PRAGMA foreign_keys = ON;
+  `);
 }
 
 module.exports = { all, databasePath, exec, get, initializeDatabase, run };

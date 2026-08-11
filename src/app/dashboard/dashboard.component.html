@@ -26,7 +26,7 @@
             </article>
             <article class="tenant-kpi tenant-kpi--warning">
               <span class="tenant-kpi__icon">!</span>
-              <div><strong>{{ tenantActiveIncidencias.length }}</strong><small>Mis incidencias activas</small></div>
+              <div><strong>{{ tenantActiveReportes.length }}</strong><small>Mis reportes activos</small></div>
               <span class="tenant-kpi__dots">⋮</span>
             </article>
           </section>
@@ -78,17 +78,18 @@
             </article>
           </section>
 
-          <section class="tenant-incidents fade-in">
-            <header><div><h2>Reporte de incidencias</h2><p>{{ tenantActiveIncidencias.length }} abiertas <span>•</span> {{ tenantIncidencias.length - tenantActiveIncidencias.length }} resueltas</p></div><button type="button">⊕ &nbsp;Nuevo</button></header>
-            <div class="tenant-incident-list" *ngIf="tenantIncidencias.length; else emptyIncidents">
-              <div class="tenant-incident" *ngFor="let incidencia of tenantIncidencias">
-                <span class="tenant-incident-icon" [ngClass]="getIncidentClass(incidencia.severidad)">{{ incidencia.severidad === 'alta' ? '!' : incidencia.severidad === 'media' ? '◷' : '✓' }}</span>
-                <div><strong>{{ incidencia.titulo }}</strong><small>{{ incidencia.ubicacion }} <span>•</span> {{ incidencia.tiempo }}</small></div>
-                <b class="tenant-incident-status">{{ incidencia.estado }}</b>
+           <section class="tenant-incidents fade-in">
+            <header><div><h2>Mis reportes</h2><p>{{ tenantActiveReportes.length }} abiertos <span>•</span> {{ tenantReportes.length - tenantActiveReportes.length }} resueltos</p></div><a routerLink="/reportes">Ver todos</a></header>
+            <div class="tenant-incident-list" *ngIf="tenantReportes.length; else emptyReports">
+              <div class="tenant-incident" *ngFor="let reporte of tenantReportes">
+                <span class="tenant-incident-icon tenant-incident-icon--media">!</span>
+                <div><strong>{{ reporte.problema }}</strong><small>{{ reporte.condominio }} <span>•</span> {{ reporte.fecha }}</small></div>
+                <b class="tenant-incident-status">{{ reporte.estado }}</b>
               </div>
             </div>
-            <ng-template #emptyIncidents><p class="tenant-empty">No hay incidencias registradas.</p></ng-template>
-          </section>
+            <ng-template #emptyReports><p class="tenant-empty">No tienes reportes registrados.</p></ng-template>
+           </section>
+
         </ng-container>
       </main>
     </div>

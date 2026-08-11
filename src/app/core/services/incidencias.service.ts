@@ -20,4 +20,5 @@ export class IncidenciasService {
   }
 
   getById(id: number): Observable<Incidencia> { return this.http.get<Incidencia>(`${this.API_URL}/${id}`); }
+  update(id: number, data: Partial<Incidencia>): Observable<Incidencia> { return this.http.put<Incidencia>(`${this.API_URL}/${id}`, data); }
 }

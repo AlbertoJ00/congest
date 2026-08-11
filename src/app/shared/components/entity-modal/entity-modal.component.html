@@ -102,9 +102,10 @@
               </select>
             </div>
 
-            <div class="entity-modal__field">
+            <div class="entity-modal__field" *ngIf="statusEditable">
               <label>Estado</label>
               <select class="form-input" formControlName="estado">
+                <option value="Pendiente">Pendiente</option>
                 <option value="En proceso">En proceso</option>
                 <option value="Asignado">Asignado</option>
                 <option value="Resuelto">Resuelto</option>
