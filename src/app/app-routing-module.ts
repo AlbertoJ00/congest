@@ -46,8 +46,11 @@ const routes: Routes = [
     canActivate: [AuthGuard, RoleGuard],
     data: { roles: ['Administrador'] }
   },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: '**', redirectTo: 'login' }
+  { 
+    path: '', 
+    loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule) 
+  },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
