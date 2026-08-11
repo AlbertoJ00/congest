@@ -9,10 +9,11 @@ export interface Incidencia {
   estado: EstadoIncidencia;
   severidad: 'alta' | 'media' | 'baja';
   reportadoPor?: string;
+  usuarioId?: number;
   createdAt?: string;
 }
 
-export type EstadoIncidencia = 'En proceso' | 'Asignado' | 'Resuelto';
+export type EstadoIncidencia = 'Pendiente' | 'En proceso' | 'Asignado' | 'Resuelto';
 
 export interface ResumenIncidencias {
   abiertas: number;

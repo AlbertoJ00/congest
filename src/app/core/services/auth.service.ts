@@ -40,8 +40,16 @@ export class AuthService {
     return this.http.post<Usuario>(`${this.API_URL}/register`, data);
   }
 
+  registrationOpen(): Observable<{ open: boolean }> {
+    return this.http.get<{ open: boolean }>(`${this.API_URL}/registration-open`);
+  }
+
   requestPasswordReset(email: string): Observable<void> {
     return this.http.post<void>(`${this.API_URL}/forgot-password`, { email });
+  }
+
+  setPassword(token: string, password: string): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${this.API_URL}/set-password`, { token, password });
   }
 
   logout(): void {

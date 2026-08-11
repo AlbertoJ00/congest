@@ -16099,3 +16099,2049 @@
 [WEB] Application bundle generation complete. [0.262 seconds] - 2026-08-11T15:05:48.242Z
 [WEB] 
 [WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.358 seconds] - 2026-08-11T15:16:05.006Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mExpected expression.
+[WEB]     ╷
+[WEB] 184 │           background: ;
+[WEB]     │                       ^
+[WEB]     ╵
+[WEB]   src\app\landing\landing.component.scss 184:23  root stylesheet[0m [1m[35m[plugin angular-sass][0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] [32mstyles.css[39m         [2m | [22m[2mstyles[22m               [2m | [22m  [36m6.82 kB[39m[2m | [22m
+[WEB] [32mchunk-YSNQRAZK.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m3.00 kB[39m[2m | [22m
+[WEB] [32mchunk-EVSPGG2W.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.64 kB[39m[2m | [22m
+[WEB] [32mpolyfills.js[39m       [2m | [22m[2mpolyfills[22m            [2m | [22m [36m95 bytes[39m[2m | [22m
+[WEB] 
+[WEB] [1m [22m                  [2m | [22m[1mInitial total[22m        [2m | [22m [1m22.63 kB[22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-BKT2JZ37.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.22 kB[39m[2m | [22m
+[WEB] [32mchunk-U7H4KA4G.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.36 kB[39m[2m | [22m
+[WEB] [32mchunk-3OOXQGLH.js[39m  [2m | [22m[2mlanding-module[22m       [2m | [22m[36m109.02 kB[39m[2m | [22m
+[WEB] [32mchunk-LFTE77R5.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m43.06 kB[39m[2m | [22m
+[WEB] [32mchunk-NW7O7NXZ.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-NMJSNTBB.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-EJZXPX36.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-MPKF7P37.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m19.92 kB[39m[2m | [22m
+[WEB] [32mchunk-65C5FMHV.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-57CKAWYM.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] [32mchunk-XYLKFKYZ.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m16.61 kB[39m[2m | [22m
+[WEB] [32mchunk-ICSWMM6U.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.55 kB[39m[2m | [22m
+[WEB] [32mchunk-LO5U4MRY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.53 kB[39m[2m | [22m
+[WEB] [32mchunk-OAANQBR2.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] [32mchunk-GHKIMPQY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.42 kB[39m[2m | [22m
+[WEB] [2m...and 1 more lazy chunks files. Use "--verbose" to show all the files.[22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.308 seconds] - 2026-08-11T15:16:06.469Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-YJYOQ6GV.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m108.99 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.249 seconds] - 2026-08-11T15:16:39.447Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mexpected "{".
+[WEB]     ╷
+[WEB] 140 │             b
+[WEB]     │              ^
+[WEB]     ╵
+[WEB]   src\app\landing\landing.component.scss 140:14  root stylesheet[0m [1m[35m[plugin angular-sass][0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] Application bundle generation failed. [0.439 seconds] - 2026-08-11T15:16:46.244Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] [32mstyles.css[39m         [2m | [22m[2mstyles[22m               [2m | [22m  [36m6.82 kB[39m[2m | [22m
+[WEB] [32mchunk-YSNQRAZK.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m3.00 kB[39m[2m | [22m
+[WEB] [32mchunk-EVSPGG2W.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.64 kB[39m[2m | [22m
+[WEB] [32mpolyfills.js[39m       [2m | [22m[2mpolyfills[22m            [2m | [22m [36m95 bytes[39m[2m | [22m
+[WEB] 
+[WEB] [1m [22m                  [2m | [22m[1mInitial total[22m        [2m | [22m [1m22.63 kB[22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-BKT2JZ37.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.22 kB[39m[2m | [22m
+[WEB] [32mchunk-U7H4KA4G.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.36 kB[39m[2m | [22m
+[WEB] [32mchunk-K6MC2YXQ.js[39m  [2m | [22m[2mlanding-module[22m       [2m | [22m[36m109.05 kB[39m[2m | [22m
+[WEB] [32mchunk-LFTE77R5.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m43.06 kB[39m[2m | [22m
+[WEB] [32mchunk-NW7O7NXZ.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-NMJSNTBB.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-EJZXPX36.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-MPKF7P37.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m19.92 kB[39m[2m | [22m
+[WEB] [32mchunk-65C5FMHV.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-57CKAWYM.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] [32mchunk-XYLKFKYZ.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m16.61 kB[39m[2m | [22m
+[WEB] [32mchunk-ICSWMM6U.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.55 kB[39m[2m | [22m
+[WEB] [32mchunk-LO5U4MRY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.53 kB[39m[2m | [22m
+[WEB] [32mchunk-OAANQBR2.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] [32mchunk-GHKIMPQY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.42 kB[39m[2m | [22m
+[WEB] [2m...and 1 more lazy chunks files. Use "--verbose" to show all the files.[22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.250 seconds] - 2026-08-11T15:16:47.430Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-6RATQWMV.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.02 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.368 seconds] - 2026-08-11T15:16:51.748Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-C7EMFEX3.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.02 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.260 seconds] - 2026-08-11T15:17:17.562Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-COVBFX7K.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.05 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.381 seconds] - 2026-08-11T15:17:56.646Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-N4FDGKI2.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.05 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.328 seconds] - 2026-08-11T15:17:58.179Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-EOV5E5RI.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.09 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.299 seconds] - 2026-08-11T15:17:59.300Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-JEQC4YMJ.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.10 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.250 seconds] - 2026-08-11T15:18:00.595Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-NXVWMX76.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.12 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.261 seconds] - 2026-08-11T15:18:01.681Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-RFSTXTPA.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.12 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.289 seconds] - 2026-08-11T15:18:14.267Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-C6X335B3.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.274 seconds] - 2026-08-11T15:18:19.125Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-34QVVVMY.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.07 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.340 seconds] - 2026-08-11T15:18:28.443Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-XYU53TIA.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.13 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.261 seconds] - 2026-08-11T15:18:30.649Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-ED4US4DM.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.492 seconds] - 2026-08-11T15:18:36.611Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-UHWG47UB.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.309 seconds] - 2026-08-11T15:18:39.639Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-WOAFXDH7.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.10 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.351 seconds] - 2026-08-11T15:18:46.420Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-F777HJAH.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.09 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.248 seconds] - 2026-08-11T15:18:51.313Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] 
+[WEB] No output file changes.
+[WEB] 
+[WEB] Application bundle generation complete. [0.242 seconds] - 2026-08-11T15:19:11.798Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-NMR7DN62.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m111.01 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.354 seconds] - 2026-08-11T15:19:14.142Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-G72KZCZF.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.30 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.273 seconds] - 2026-08-11T15:19:16.529Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-7MFD3EDL.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.22 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.289 seconds] - 2026-08-11T15:19:21.458Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-F777HJAH.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.09 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.247 seconds] - 2026-08-11T15:19:24.318Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mexpected "{".
+[WEB]   ╷
+[WEB] 7 │   sc
+[WEB]   │     ^
+[WEB]   ╵
+[WEB]   src\app\landing\landing.component.scss 7:5  root stylesheet[0m [1m[35m[plugin angular-sass][0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] Application bundle generation failed. [0.229 seconds] - 2026-08-11T15:19:25.530Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] [32mstyles.css[39m         [2m | [22m[2mstyles[22m               [2m | [22m  [36m6.82 kB[39m[2m | [22m
+[WEB] [32mchunk-YSNQRAZK.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m3.00 kB[39m[2m | [22m
+[WEB] [32mchunk-EVSPGG2W.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.64 kB[39m[2m | [22m
+[WEB] [32mpolyfills.js[39m       [2m | [22m[2mpolyfills[22m            [2m | [22m [36m95 bytes[39m[2m | [22m
+[WEB] 
+[WEB] [1m [22m                  [2m | [22m[1mInitial total[22m        [2m | [22m [1m22.63 kB[22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-BKT2JZ37.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.22 kB[39m[2m | [22m
+[WEB] [32mchunk-U7H4KA4G.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.36 kB[39m[2m | [22m
+[WEB] [32mchunk-FNMR72WI.js[39m  [2m | [22m[2mlanding-module[22m       [2m | [22m[36m109.19 kB[39m[2m | [22m
+[WEB] [32mchunk-LFTE77R5.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m43.06 kB[39m[2m | [22m
+[WEB] [32mchunk-NW7O7NXZ.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-NMJSNTBB.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-EJZXPX36.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-MPKF7P37.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m19.92 kB[39m[2m | [22m
+[WEB] [32mchunk-65C5FMHV.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-57CKAWYM.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] [32mchunk-XYLKFKYZ.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m16.61 kB[39m[2m | [22m
+[WEB] [32mchunk-ICSWMM6U.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.55 kB[39m[2m | [22m
+[WEB] [32mchunk-LO5U4MRY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.53 kB[39m[2m | [22m
+[WEB] [32mchunk-OAANQBR2.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] [32mchunk-GHKIMPQY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.42 kB[39m[2m | [22m
+[WEB] [2m...and 1 more lazy chunks files. Use "--verbose" to show all the files.[22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.246 seconds] - 2026-08-11T15:19:26.763Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mexpected "{".
+[WEB]   ╷
+[WEB] 8 │   tra
+[WEB]   │      ^
+[WEB]   ╵
+[WEB]   src\app\landing\landing.component.scss 8:6  root stylesheet[0m [1m[35m[plugin angular-sass][0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] Application bundle generation failed. [0.381 seconds] - 2026-08-11T15:19:36.805Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] [32mstyles.css[39m         [2m | [22m[2mstyles[22m               [2m | [22m  [36m6.82 kB[39m[2m | [22m
+[WEB] [32mchunk-YSNQRAZK.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m3.00 kB[39m[2m | [22m
+[WEB] [32mchunk-EVSPGG2W.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.64 kB[39m[2m | [22m
+[WEB] [32mpolyfills.js[39m       [2m | [22m[2mpolyfills[22m            [2m | [22m [36m95 bytes[39m[2m | [22m
+[WEB] 
+[WEB] [1m [22m                  [2m | [22m[1mInitial total[22m        [2m | [22m [1m22.63 kB[22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-BKT2JZ37.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.22 kB[39m[2m | [22m
+[WEB] [32mchunk-U7H4KA4G.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.36 kB[39m[2m | [22m
+[WEB] [32mchunk-YKX5FRUT.js[39m  [2m | [22m[2mlanding-module[22m       [2m | [22m[36m109.26 kB[39m[2m | [22m
+[WEB] [32mchunk-LFTE77R5.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m43.06 kB[39m[2m | [22m
+[WEB] [32mchunk-NW7O7NXZ.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-NMJSNTBB.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-EJZXPX36.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-MPKF7P37.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m19.92 kB[39m[2m | [22m
+[WEB] [32mchunk-65C5FMHV.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-57CKAWYM.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] [32mchunk-XYLKFKYZ.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m16.61 kB[39m[2m | [22m
+[WEB] [32mchunk-ICSWMM6U.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.55 kB[39m[2m | [22m
+[WEB] [32mchunk-LO5U4MRY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.53 kB[39m[2m | [22m
+[WEB] [32mchunk-OAANQBR2.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] [32mchunk-GHKIMPQY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.42 kB[39m[2m | [22m
+[WEB] [2m...and 1 more lazy chunks files. Use "--verbose" to show all the files.[22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.315 seconds] - 2026-08-11T15:19:38.340Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-FNMR72WI.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.19 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.367 seconds] - 2026-08-11T15:19:47.684Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-3ABXWEGW.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.18 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.258 seconds] - 2026-08-11T15:19:51.057Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] 
+[WEB] No output file changes.
+[WEB] 
+[WEB] Application bundle generation complete. [0.335 seconds] - 2026-08-11T15:19:53.189Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.801 seconds] - 2026-08-11T20:08:18.246Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'registrationOpen' does not exist on type 'AuthService'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:27:14:
+[WEB] [37m      27 │     this.auth.[32mregistrationOpen[37m().subscribe({ next: (res) => { this...
+[WEB]          ╵               [32m~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS7006: Parameter 'res' implicitly has an 'any' type.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:27:52:
+[WEB] [37m      27 │ ...tionOpen().subscribe({ next: ([32mres[37m) => { this.registrationOpen =...
+[WEB]          ╵                                  [32m~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:30:32:
+[WEB] [37m      30 │     if (!this.registrationOpen) [32mreturn[37m this.message = 'El registro...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.703 seconds] - 2026-08-11T20:08:21.379Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:30:32:
+[WEB] [37m      30 │     if (!this.registrationOpen) [32mreturn[37m this.message = 'El registro...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.306 seconds] - 2026-08-11T20:08:27.950Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:30:32:
+[WEB] [37m      30 │     if (!this.registrationOpen) [32mreturn[37m this.message = 'El registro...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.474 seconds] - 2026-08-11T20:09:22.879Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:30:32:
+[WEB] [37m      30 │     if (!this.registrationOpen) [32mreturn[37m this.message = 'El registro...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.573 seconds] - 2026-08-11T20:13:01.963Z
+[WEB] 
+[WEB] [1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8103: The `*ngIf` directive was used in the template, but neither the `NgIf` directive nor the `CommonModule` was imported. Use Angular's built-in control flow @if or make sure that either the `NgIf` directive or the `CommonModule` is included in the `@Component.imports` array of this component.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.html:8:12:
+[WEB] [37m      8 │         <p *[32mngIf[37m="message">{{ message }}</p>
+[WEB]         ╵             [32m~~~~[0m
+[WEB] 
+[WEB]   Warning occurs in the template of component SetPasswordComponent.
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:6:56:
+[WEB] [37m      6 │ ...'app-set-password', templateUrl: [32m'./set-password.component.html'[37m })
+[WEB]         ╵                                     [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:30:32:
+[WEB] [37m      30 │     if (!this.registrationOpen) [32mreturn[37m this.message = 'El registro...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.html:5:12:
+[WEB] [37m      5 │       <form [32m[formGroup]="form"[37m (ngSubmit)="submit()" class="login-p...
+[WEB]         ╵             [32m~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB]   Error occurs in the template of component SetPasswordComponent.
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:6:56:
+[WEB] [37m      6 │ ...'app-set-password', templateUrl: [32m'./set-password.component.html'[37m })
+[WEB]         ╵                                     [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:23:62:
+[WEB] [37m      23 │ ...!== this.form.value.confirm) [32mreturn[37m this.message = 'Las contras...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'setPassword' does not exist on type 'AuthService'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:24:14:
+[WEB] [37m      24 │     this.auth.[32msetPassword[37m(this.token, this.form.value.password).su...
+[WEB]          ╵               [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS7006: Parameter 'e' implicitly has an 'any' type.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:24:129:
+[WEB] [37m      24 │ ...r.navigate(['/login']), error: [32me[37m => this.message = e.error?.mes...
+[WEB]          ╵                                   [32m^[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.292 seconds] - 2026-08-11T20:13:05.005Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG6008: Component SetPasswordComponent is standalone, and cannot be declared in an NgModule. Did you mean to import it instead?[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/auth.module.ts:15:5:
+[WEB] [37m      15 │     ,[32mSetPasswordComponent[37m
+[WEB]          ╵      [32m~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:30:32:
+[WEB] [37m      30 │     if (!this.registrationOpen) [32mreturn[37m this.message = 'El registro...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:23:62:
+[WEB] [37m      23 │ ...!== this.form.value.confirm) [32mreturn[37m this.message = 'Las contras...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'setPassword' does not exist on type 'AuthService'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:24:14:
+[WEB] [37m      24 │     this.auth.[32msetPassword[37m(this.token, this.form.value.password).su...
+[WEB]          ╵               [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS7006: Parameter 'e' implicitly has an 'any' type.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:24:129:
+[WEB] [37m      24 │ ...r.navigate(['/login']), error: [32me[37m => this.message = e.error?.mes...
+[WEB]          ╵                                   [32m^[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.393 seconds] - 2026-08-11T20:13:09.401Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG6008: Component SetPasswordComponent is standalone, and cannot be declared in an NgModule. Did you mean to import it instead?[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/auth.module.ts:15:5:
+[WEB] [37m      15 │     ,[32mSetPasswordComponent[37m
+[WEB]          ╵      [32m~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:30:32:
+[WEB] [37m      30 │     if (!this.registrationOpen) [32mreturn[37m this.message = 'El registro...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:23:62:
+[WEB] [37m      23 │ ...!== this.form.value.confirm) [32mreturn[37m this.message = 'Las contras...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.332 seconds] - 2026-08-11T20:13:51.280Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:30:32:
+[WEB] [37m      30 │     if (!this.registrationOpen) [32mreturn[37m this.message = 'El registro...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:23:62:
+[WEB] [37m      23 │ ...!== this.form.value.confirm) [32mreturn[37m this.message = 'Las contras...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:30:32:
+[WEB] [37m      30 │     if (!this.registrationOpen) [32mreturn[37m this.message = 'El registro...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:23:62:
+[WEB] [37m      23 │ ...!== this.form.value.confirm) [32mreturn[37m this.message = 'Las contras...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] Application bundle generation failed. [0.382 seconds] - 2026-08-11T20:15:10.634Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.406 seconds] - 2026-08-11T20:15:36.583Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:30:32:
+[WEB] [37m      30 │     if (!this.registrationOpen) [32mreturn[37m this.message = 'El registro...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:23:62:
+[WEB] [37m      23 │ ...!== this.form.value.confirm) [32mreturn[37m this.message = 'Las contras...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type '"En proceso" | "Asignado" | "Resuelto"'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-list/reportes-list.component.ts:16:34:
+[WEB] [37m      16 │ ...s: Reporte['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.347 seconds] - 2026-08-11T20:15:41.599Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:30:32:
+[WEB] [37m      30 │     if (!this.registrationOpen) [32mreturn[37m this.message = 'El registro...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:23:62:
+[WEB] [37m      23 │ ...!== this.form.value.confirm) [32mreturn[37m this.message = 'Las contras...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type '"En proceso" | "Asignado" | "Resuelto"'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-list/reportes-list.component.ts:16:34:
+[WEB] [37m      16 │ ...s: Reporte['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.427 seconds] - 2026-08-11T20:15:49.232Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:30:32:
+[WEB] [37m      30 │     if (!this.registrationOpen) [32mreturn[37m this.message = 'El registro...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:23:62:
+[WEB] [37m      23 │ ...!== this.form.value.confirm) [32mreturn[37m this.message = 'Las contras...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type 'EstadoIncidencia'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencia-detail/incidencia-detail.component.ts:10:37:
+[WEB] [37m      10 │ ...Incidencia['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type '"En proceso" | "Asignado" | "Resuelto"'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-list/reportes-list.component.ts:16:34:
+[WEB] [37m      16 │ ...s: Reporte['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.288 seconds] - 2026-08-11T20:16:08.559Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:30:32:
+[WEB] [37m      30 │     if (!this.registrationOpen) [32mreturn[37m this.message = 'El registro...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:23:62:
+[WEB] [37m      23 │ ...!== this.form.value.confirm) [32mreturn[37m this.message = 'Las contras...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type 'EstadoIncidencia'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencia-detail/incidencia-detail.component.ts:10:37:
+[WEB] [37m      10 │ ...Incidencia['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type '"En proceso" | "Asignado" | "Resuelto"'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-list/reportes-list.component.ts:16:34:
+[WEB] [37m      16 │ ...s: Reporte['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/register/register.component.ts:30:32:
+[WEB] [37m      30 │     if (!this.registrationOpen) [32mreturn[37m this.message = 'El registro...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:23:62:
+[WEB] [37m      23 │ ...!== this.form.value.confirm) [32mreturn[37m this.message = 'Las contras...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type 'EstadoIncidencia'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencia-detail/incidencia-detail.component.ts:10:37:
+[WEB] [37m      10 │ ...Incidencia['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type '"En proceso" | "Asignado" | "Resuelto"'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-list/reportes-list.component.ts:16:34:
+[WEB] [37m      16 │ ...s: Reporte['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] Application bundle generation failed. [0.550 seconds] - 2026-08-11T20:20:51.483Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:23:62:
+[WEB] [37m      23 │ ...!== this.form.value.confirm) [32mreturn[37m this.message = 'Las contras...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type 'EstadoIncidencia'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencia-detail/incidencia-detail.component.ts:10:37:
+[WEB] [37m      10 │ ...Incidencia['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type '"En proceso" | "Asignado" | "Resuelto"'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-list/reportes-list.component.ts:16:34:
+[WEB] [37m      16 │ ...s: Reporte['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] Application bundle generation failed. [0.486 seconds] - 2026-08-11T20:23:56.230Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'void'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:23:62:
+[WEB] [37m      23 │ ...!== this.form.value.confirm) [32mreturn[37m this.message = 'Las contras...
+[WEB]          ╵                                 [32m~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type 'EstadoIncidencia'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencia-detail/incidencia-detail.component.ts:10:37:
+[WEB] [37m      10 │ ...Incidencia['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type '"En proceso" | "Asignado" | "Resuelto"'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-list/reportes-list.component.ts:16:34:
+[WEB] [37m      16 │ ...s: Reporte['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] Application bundle generation failed. [0.425 seconds] - 2026-08-11T20:23:57.636Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type 'EstadoIncidencia'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencia-detail/incidencia-detail.component.ts:10:37:
+[WEB] [37m      10 │ ...Incidencia['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type '"En proceso" | "Asignado" | "Resuelto"'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-list/reportes-list.component.ts:16:34:
+[WEB] [37m      16 │ ...s: Reporte['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] Application bundle generation failed. [0.399 seconds] - 2026-08-11T20:24:00.068Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type 'EstadoIncidencia'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencia-detail/incidencia-detail.component.ts:10:37:
+[WEB] [37m      10 │ ...Incidencia['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type '"En proceso" | "Asignado" | "Resuelto"'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-list/reportes-list.component.ts:16:34:
+[WEB] [37m      16 │ ...s: Reporte['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] Application bundle generation failed. [0.287 seconds] - 2026-08-11T20:24:01.155Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.580 seconds] - 2026-08-11T20:24:31.747Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+[WEB]   Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:10:26:
+[WEB] [37m      10 │   imports: [CommonModule, [32mReactiveFormsModule[37m],
+[WEB]          ╵                           [32m~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB]   Unknown reference.
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:10:26:
+[WEB] [37m      10 │   imports: [CommonModule, [32mReactiveFormsModule[37m],
+[WEB]          ╵                           [32m~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'ReactiveFormsModule'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/auth/set-password/set-password.component.ts:10:26:
+[WEB] [37m      10 │   imports: [CommonModule, [32mReactiveFormsModule[37m],
+[WEB]          ╵                           [32m~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type 'EstadoIncidencia'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencia-detail/incidencia-detail.component.ts:10:37:
+[WEB] [37m      10 │ ...Incidencia['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type '"En proceso" | "Asignado" | "Resuelto"'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-list/reportes-list.component.ts:16:34:
+[WEB] [37m      16 │ ...s: Reporte['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.538 seconds] - 2026-08-11T20:24:33.060Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type 'EstadoIncidencia'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencia-detail/incidencia-detail.component.ts:10:37:
+[WEB] [37m      10 │ ...Incidencia['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type '"En proceso" | "Asignado" | "Resuelto"'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-list/reportes-list.component.ts:16:34:
+[WEB] [37m      16 │ ...s: Reporte['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.558 seconds] - 2026-08-11T20:24:34.230Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '"Pendiente"' is not assignable to type 'EstadoIncidencia'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencia-detail/incidencia-detail.component.ts:10:37:
+[WEB] [37m      10 │ ...Incidencia['estado'][] = [[32m'Pendiente'[37m, 'En proceso', 'Asignado'...
+[WEB]          ╵                              [32m~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] [32mstyles.css[39m         [2m | [22m[2mstyles[22m               [2m | [22m  [36m6.82 kB[39m[2m | [22m
+[WEB] [32mchunk-Z2NZSRTG.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m3.20 kB[39m[2m | [22m
+[WEB] [32mchunk-EVSPGG2W.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.64 kB[39m[2m | [22m
+[WEB] [32mpolyfills.js[39m       [2m | [22m[2mpolyfills[22m            [2m | [22m [36m95 bytes[39m[2m | [22m
+[WEB] 
+[WEB] [1m [22m                  [2m | [22m[1mInitial total[22m        [2m | [22m [1m22.83 kB[22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-XFBC2FKT.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.22 kB[39m[2m | [22m
+[WEB] [32mchunk-FK6E2RMA.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.36 kB[39m[2m | [22m
+[WEB] [32mchunk-3ABXWEGW.js[39m  [2m | [22m[2mlanding-module[22m       [2m | [22m[36m109.18 kB[39m[2m | [22m
+[WEB] [32mchunk-ZQNQQCIY.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m50.73 kB[39m[2m | [22m
+[WEB] [32mchunk-WFADGZAZ.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-KS4TW5CD.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-7RTEVVCP.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-ATNKD5MN.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m22.87 kB[39m[2m | [22m
+[WEB] [32mchunk-C3BOISML.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-YRPDVL2C.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m19.35 kB[39m[2m | [22m
+[WEB] [32mchunk-EK36OHR7.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] [32mchunk-ICSWMM6U.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.55 kB[39m[2m | [22m
+[WEB] [32mchunk-LO5U4MRY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.53 kB[39m[2m | [22m
+[WEB] [32mchunk-OAANQBR2.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] [32mchunk-DWVIFX2T.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.46 kB[39m[2m | [22m
+[WEB] [2m...and 1 more lazy chunks files. Use "--verbose" to show all the files.[22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.982 seconds] - 2026-08-11T20:24:35.815Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m      [2m | [22m[1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m       [2m | [22m[36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m      [2m | [22m[1mRaw size[22m
+[WEB] [32mchunk-F2XJCLGN.js[39m  [2m | [22m[2mauth-module[22m[2m | [22m[36m50.74 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [1.207 seconds] - 2026-08-11T20:29:37.990Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m          [2m | [22m [36m11.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-YEZVEKBZ.js[39m  [2m | [22m[2mlanding-module[22m[2m | [22m[36m109.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [1.145 seconds] - 2026-08-11T20:29:39.939Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m[2m | [22m[1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m [2m | [22m[36m11.15 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.844 seconds] - 2026-08-11T20:30:06.744Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m      [2m | [22m[1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m       [2m | [22m[36m11.15 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m      [2m | [22m[1mRaw size[22m
+[WEB] [32mchunk-S7KJ77RT.js[39m  [2m | [22m[2mauth-module[22m[2m | [22m[36m58.88 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.605 seconds] - 2026-08-11T20:32:31.662Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m      [2m | [22m[1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m       [2m | [22m[36m11.15 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m      [2m | [22m[1mRaw size[22m
+[WEB] [32mchunk-4SFVKWEQ.js[39m  [2m | [22m[2mauth-module[22m[2m | [22m[36m41.92 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.708 seconds] - 2026-08-11T20:32:34.039Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.15 kB[39m[2m | [22m
+[WEB] [32mstyles.css[39m         [2m | [22m[2mstyles[22m               [2m | [22m  [36m6.82 kB[39m[2m | [22m
+[WEB] [32mchunk-Z2NZSRTG.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m3.20 kB[39m[2m | [22m
+[WEB] [32mchunk-EVSPGG2W.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.64 kB[39m[2m | [22m
+[WEB] [32mpolyfills.js[39m       [2m | [22m[2mpolyfills[22m            [2m | [22m [36m95 bytes[39m[2m | [22m
+[WEB] 
+[WEB] [1m [22m                  [2m | [22m[1mInitial total[22m        [2m | [22m [1m22.91 kB[22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-XFBC2FKT.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.22 kB[39m[2m | [22m
+[WEB] [32mchunk-FK6E2RMA.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.36 kB[39m[2m | [22m
+[WEB] [32mchunk-YEZVEKBZ.js[39m  [2m | [22m[2mlanding-module[22m       [2m | [22m[36m109.21 kB[39m[2m | [22m
+[WEB] [32mchunk-4SFVKWEQ.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m41.92 kB[39m[2m | [22m
+[WEB] [32mchunk-WFADGZAZ.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-KS4TW5CD.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-7RTEVVCP.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-ATNKD5MN.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m22.87 kB[39m[2m | [22m
+[WEB] [32mchunk-C3BOISML.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-YRPDVL2C.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m19.35 kB[39m[2m | [22m
+[WEB] [32mchunk-EK36OHR7.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] [32mchunk-ICSWMM6U.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.55 kB[39m[2m | [22m
+[WEB] [32mchunk-LO5U4MRY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.53 kB[39m[2m | [22m
+[WEB] [32mchunk-OAANQBR2.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] [32mchunk-DWVIFX2T.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.46 kB[39m[2m | [22m
+[WEB] [2m...and 1 more lazy chunks files. Use "--verbose" to show all the files.[22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.032 seconds] - 2026-08-11T20:32:35.355Z
+[WEB] 
+[WEB] [2m4:32:37 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ new dependencies optimized: [33mtslib[32m[39m
+[WEB] [2m4:32:37 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+[WEB] 
+[WEB]     src/app/shared/components/header/header.component.scss:73:24:
+[WEB] [37m      73 │       background-color: [32m[37mdarken($bg-input, 5%);
+[WEB]          ╵                         [32m^[0m
+[WEB] 
+[WEB] 
+[WEB]   Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[WEB]   Use color.adjust instead.
+[WEB]   
+[WEB]   More info and automated migrator: [4mhttps://sass-lang.com/d/import[0m
+[WEB] 
+[WEB] 
+[WEB] [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+[WEB] 
+[WEB]     src/app/shared/components/header/header.component.scss:73:24:
+[WEB] [37m      73 │       background-color: [32m[37mdarken($bg-input, 5%);
+[WEB]          ╵                         [32m^[0m
+[WEB] 
+[WEB] 
+[WEB]   darken() is deprecated. Suggestions:
+[WEB]   
+[WEB]   color.scale($color, $lightness: -5.1829268293%)
+[WEB]   color.adjust($color, $lightness: -5%)
+[WEB]   
+[WEB]   More info: [4mhttps://sass-lang.com/d/color-functions[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m      [2m | [22m[1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m       [2m | [22m[36m11.18 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m      [2m | [22m[1mRaw size[22m
+[WEB] [32mchunk-QU7F7EXV.js[39m  [2m | [22m[2mauth-module[22m[2m | [22m[36m62.29 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [2.541 seconds] - 2026-08-11T20:35:01.929Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [2m4:35:03 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ new dependencies optimized: [33m@angular/compiler[32m[39m
+[WEB] [2m4:35:03 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m[2m | [22m[1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m [2m | [22m[36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.433 seconds] - 2026-08-11T20:42:22.781Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+[WEB] 
+[WEB]     src/app/shared/components/header/header.component.scss:73:24:
+[WEB] [37m      73 │       background-color: [32m[37mdarken($bg-input, 5%);
+[WEB]          ╵                         [32m^[0m
+[WEB] 
+[WEB] 
+[WEB]   Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[WEB]   Use color.adjust instead.
+[WEB]   
+[WEB]   More info and automated migrator: [4mhttps://sass-lang.com/d/import[0m
+[WEB] 
+[WEB] 
+[WEB] [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+[WEB] 
+[WEB]     src/app/shared/components/header/header.component.scss:73:24:
+[WEB] [37m      73 │       background-color: [32m[37mdarken($bg-input, 5%);
+[WEB]          ╵                         [32m^[0m
+[WEB] 
+[WEB] 
+[WEB]   darken() is deprecated. Suggestions:
+[WEB]   
+[WEB]   color.scale($color, $lightness: -5.1829268293%)
+[WEB]   color.adjust($color, $lightness: -5%)
+[WEB]   
+[WEB]   More info: [4mhttps://sass-lang.com/d/color-functions[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-R26OZ3HS.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.25 kB[39m[2m | [22m
+[WEB] [32mchunk-V7BKATGP.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.36 kB[39m[2m | [22m
+[WEB] [32mchunk-SAG2ZEJ6.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m62.29 kB[39m[2m | [22m
+[WEB] [32mchunk-YCR3FEDN.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-MEXKNM65.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-BSACZBZO.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-ETKX3NEO.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m22.87 kB[39m[2m | [22m
+[WEB] [32mchunk-MTCZUXTZ.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-K6F3L7EW.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m19.35 kB[39m[2m | [22m
+[WEB] [32mchunk-CPERO7IX.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.933 seconds] - 2026-08-11T20:42:24.632Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-JR2MMD3J.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.46 kB[39m[2m | [22m
+[WEB] [32mchunk-MAJUH652.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.36 kB[39m[2m | [22m
+[WEB] [32mchunk-S25T3DMX.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m62.29 kB[39m[2m | [22m
+[WEB] [32mchunk-DVD5B6KJ.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-X62366DQ.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-PNUCKHNT.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-PURXVA26.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m22.87 kB[39m[2m | [22m
+[WEB] [32mchunk-DQPCXQZH.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-3NZ3RCNY.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m19.35 kB[39m[2m | [22m
+[WEB] [32mchunk-NVHLZMOU.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [1.214 seconds] - 2026-08-11T20:42:26.217Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m[2m | [22m[1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m [2m | [22m[36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.351 seconds] - 2026-08-11T20:42:35.340Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './reportes-list/reportes-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-routing.module.ts:3:38:
+[WEB] [37m      3 │ ...rtesListComponent } from [32m'./reportes-list/reportes-list.component'[37m;
+[WEB]         ╵                             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './reportes-list/reportes-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes.module.ts:4:38:
+[WEB] [37m      4 │ ...rtesListComponent } from [32m'./reportes-list/reportes-list.component'[37m;
+[WEB]         ╵                             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: Value at position 0 in the NgModule.declarations of ReportesModule is not a reference
+[WEB]   Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes.module.ts:7:16:
+[WEB] [37m      7 │   declarations: [32m[[37m
+[WEB]         ╵                 [32m^[0m
+[WEB] 
+[WEB]   Unknown reference.
+[WEB] 
+[WEB]     src/app/reportes/reportes.module.ts:8:4:
+[WEB] [37m      8 │     [32mReportesListComponent[37m
+[WEB]         ╵     [32m~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./reportes-list/reportes-list.component"[0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-routing.module.ts:3:38:
+[WEB] [37m      3 │ ...rtesListComponent } from [32m'./reportes-list/reportes-list.component'[37m;
+[WEB]         ╵                             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./reportes-list/reportes-list.component"[0m
+[WEB] 
+[WEB]     src/app/reportes/reportes.module.ts:5:38:
+[WEB] [37m      5 │ ...rtesListComponent } from [32m'./reportes-list/reportes-list.component'[37m;
+[WEB]         ╵                             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] Application bundle generation failed. [0.851 seconds] - 2026-08-11T20:42:59.356Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.002 seconds] - 2026-08-11T20:42:59.942Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './reportes-list/reportes-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-routing.module.ts:3:38:
+[WEB] [37m      3 │ ...rtesListComponent } from [32m'./reportes-list/reportes-list.component'[37m;
+[WEB]         ╵                             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './reportes-list/reportes-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes.module.ts:4:38:
+[WEB] [37m      4 │ ...rtesListComponent } from [32m'./reportes-list/reportes-list.component'[37m;
+[WEB]         ╵                             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: Value at position 0 in the NgModule.declarations of ReportesModule is not a reference
+[WEB]   Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes.module.ts:7:16:
+[WEB] [37m      7 │   declarations: [32m[[37m
+[WEB]         ╵                 [32m^[0m
+[WEB] 
+[WEB]   Unknown reference.
+[WEB] 
+[WEB]     src/app/reportes/reportes.module.ts:8:4:
+[WEB] [37m      8 │     [32mReportesListComponent[37m
+[WEB]         ╵     [32m~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./reportes-list/reportes-list.component"[0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-routing.module.ts:3:38:
+[WEB] [37m      3 │ ...rtesListComponent } from [32m'./reportes-list/reportes-list.component'[37m;
+[WEB]         ╵                             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./reportes-list/reportes-list.component"[0m
+[WEB] 
+[WEB]     src/app/reportes/reportes.module.ts:5:38:
+[WEB] [37m      5 │ ...rtesListComponent } from [32m'./reportes-list/reportes-list.component'[37m;
+[WEB]         ╵                             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './reportes-list/reportes-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-routing.module.ts:3:38:
+[WEB] [37m      3 │ ...rtesListComponent } from [32m'./reportes-list/reportes-list.component'[37m;
+[WEB]         ╵                             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './reportes-list/reportes-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes.module.ts:4:38:
+[WEB] [37m      4 │ ...rtesListComponent } from [32m'./reportes-list/reportes-list.component'[37m;
+[WEB]         ╵                             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: Value at position 0 in the NgModule.declarations of ReportesModule is not a reference
+[WEB]   Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/reportes/reportes.module.ts:7:16:
+[WEB] [37m      7 │   declarations: [32m[[37m
+[WEB]         ╵                 [32m^[0m
+[WEB] 
+[WEB]   Unknown reference.
+[WEB] 
+[WEB]     src/app/reportes/reportes.module.ts:8:4:
+[WEB] [37m      8 │     [32mReportesListComponent[37m
+[WEB]         ╵     [32m~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./reportes-list/reportes-list.component"[0m
+[WEB] 
+[WEB]     src/app/reportes/reportes-routing.module.ts:3:38:
+[WEB] [37m      3 │ ...rtesListComponent } from [32m'./reportes-list/reportes-list.component'[37m;
+[WEB]         ╵                             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./reportes-list/reportes-list.component"[0m
+[WEB] 
+[WEB]     src/app/reportes/reportes.module.ts:5:38:
+[WEB] [37m      5 │ ...rtesListComponent } from [32m'./reportes-list/reportes-list.component'[37m;
+[WEB]         ╵                             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.001 seconds] - 2026-08-11T20:43:00.956Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.890 seconds] - 2026-08-11T20:43:22.473Z
+[WEB] 
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './incidencias-list/incidencias-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias-routing.module.ts:1:139:
+[WEB] [37m      1 │ ...ent } from [32m'./incidencias-list/incidencias-list.component'[37m; impo...
+[WEB]         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './incidencias-list/incidencias-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:1:212:
+[WEB] [37m      1 │ ...ent } from [32m'./incidencias-list/incidencias-list.component'[37m; impo...
+[WEB]         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: Value at position 0 in the NgModule.declarations of IncidenciasModule is not a reference
+[WEB]   Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:2:26:
+[WEB] [37m      2 │ ...larations: [32m[IncidenciasListComponent, IncidenciaDetailComponent][37m...
+[WEB]         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB]   Unknown reference.
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:2:27:
+[WEB] [37m      2 │ ...le({ declarations: [[32mIncidenciasListComponent[37m, IncidenciaDetailCo...
+[WEB]         ╵                        [32m~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./incidencias-list/incidencias-list.component"[0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias-routing.module.ts:3:41:
+[WEB] [37m      3 │ ...stComponent } from [32m'./incidencias-list/incidencias-list.component'[37m;
+[WEB]         ╵                       [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./incidencias-list/incidencias-list.component"[0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:5:41:
+[WEB] [37m      5 │ ...stComponent } from [32m'./incidencias-list/incidencias-list.component'[37m;
+[WEB]         ╵                       [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './incidencias-list/incidencias-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias-routing.module.ts:1:139:
+[WEB] [37m      1 │ ...ent } from [32m'./incidencias-list/incidencias-list.component'[37m; impo...
+[WEB]         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './incidencias-list/incidencias-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:1:212:
+[WEB] [37m      1 │ ...ent } from [32m'./incidencias-list/incidencias-list.component'[37m; impo...
+[WEB]         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: Value at position 0 in the NgModule.declarations of IncidenciasModule is not a reference
+[WEB]   Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:2:26:
+[WEB] [37m      2 │ ...larations: [32m[IncidenciasListComponent, IncidenciaDetailComponent][37m...
+[WEB]         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB]   Unknown reference.
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:2:27:
+[WEB] [37m      2 │ ...le({ declarations: [[32mIncidenciasListComponent[37m, IncidenciaDetailCo...
+[WEB]         ╵                        [32m~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./incidencias-list/incidencias-list.component"[0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias-routing.module.ts:3:41:
+[WEB] [37m      3 │ ...stComponent } from [32m'./incidencias-list/incidencias-list.component'[37m;
+[WEB]         ╵                       [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./incidencias-list/incidencias-list.component"[0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:5:41:
+[WEB] [37m      5 │ ...stComponent } from [32m'./incidencias-list/incidencias-list.component'[37m;
+[WEB]         ╵                       [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.001 seconds] - 2026-08-11T20:43:22.983Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './incidencias-list/incidencias-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias-routing.module.ts:1:139:
+[WEB] [37m      1 │ ...ent } from [32m'./incidencias-list/incidencias-list.component'[37m; impo...
+[WEB]         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './incidencias-list/incidencias-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:1:212:
+[WEB] [37m      1 │ ...ent } from [32m'./incidencias-list/incidencias-list.component'[37m; impo...
+[WEB]         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: Value at position 0 in the NgModule.declarations of IncidenciasModule is not a reference
+[WEB]   Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:2:26:
+[WEB] [37m      2 │ ...larations: [32m[IncidenciasListComponent, IncidenciaDetailComponent][37m...
+[WEB]         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB]   Unknown reference.
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:2:27:
+[WEB] [37m      2 │ ...le({ declarations: [[32mIncidenciasListComponent[37m, IncidenciaDetailCo...
+[WEB]         ╵                        [32m~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./incidencias-list/incidencias-list.component"[0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias-routing.module.ts:3:41:
+[WEB] [37m      3 │ ...stComponent } from [32m'./incidencias-list/incidencias-list.component'[37m;
+[WEB]         ╵                       [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./incidencias-list/incidencias-list.component"[0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:5:41:
+[WEB] [37m      5 │ ...stComponent } from [32m'./incidencias-list/incidencias-list.component'[37m;
+[WEB]         ╵                       [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.002 seconds] - 2026-08-11T20:43:24.197Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './incidencias-list/incidencias-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias-routing.module.ts:1:139:
+[WEB] [37m      1 │ ...ent } from [32m'./incidencias-list/incidencias-list.component'[37m; impo...
+[WEB]         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './incidencias-list/incidencias-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:1:212:
+[WEB] [37m      1 │ ...ent } from [32m'./incidencias-list/incidencias-list.component'[37m; impo...
+[WEB]         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: Value at position 0 in the NgModule.declarations of IncidenciasModule is not a reference
+[WEB]   Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:2:26:
+[WEB] [37m      2 │ ...larations: [32m[IncidenciasListComponent, IncidenciaDetailComponent][37m...
+[WEB]         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB]   Unknown reference.
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:2:27:
+[WEB] [37m      2 │ ...le({ declarations: [[32mIncidenciasListComponent[37m, IncidenciaDetailCo...
+[WEB]         ╵                        [32m~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./incidencias-list/incidencias-list.component"[0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias-routing.module.ts:3:41:
+[WEB] [37m      3 │ ...stComponent } from [32m'./incidencias-list/incidencias-list.component'[37m;
+[WEB]         ╵                       [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./incidencias-list/incidencias-list.component"[0m
+[WEB] 
+[WEB]     src/app/incidencias/incidencias.module.ts:5:41:
+[WEB] [37m      5 │ ...stComponent } from [32m'./incidencias-list/incidencias-list.component'[37m;
+[WEB]         ╵                       [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] Application bundle generation failed. [0.001 seconds] - 2026-08-11T20:43:25.179Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] [32mstyles.css[39m         [2m | [22m[2mstyles[22m               [2m | [22m  [36m6.82 kB[39m[2m | [22m
+[WEB] [32mchunk-Z2NZSRTG.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m3.20 kB[39m[2m | [22m
+[WEB] [32mchunk-EVSPGG2W.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.64 kB[39m[2m | [22m
+[WEB] [32mpolyfills.js[39m       [2m | [22m[2mpolyfills[22m            [2m | [22m [36m95 bytes[39m[2m | [22m
+[WEB] 
+[WEB] [1m [22m                  [2m | [22m[1mInitial total[22m        [2m | [22m [1m22.96 kB[22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-JR2MMD3J.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.46 kB[39m[2m | [22m
+[WEB] [32mchunk-MAJUH652.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.36 kB[39m[2m | [22m
+[WEB] [32mchunk-YEZVEKBZ.js[39m  [2m | [22m[2mlanding-module[22m       [2m | [22m[36m109.21 kB[39m[2m | [22m
+[WEB] [32mchunk-S25T3DMX.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m62.29 kB[39m[2m | [22m
+[WEB] [32mchunk-DVD5B6KJ.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-X62366DQ.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-PNUCKHNT.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-E6LZ3QMH.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m25.01 kB[39m[2m | [22m
+[WEB] [32mchunk-DKCFEUVM.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m23.77 kB[39m[2m | [22m
+[WEB] [32mchunk-DQPCXQZH.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-NVHLZMOU.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] [32mchunk-ICSWMM6U.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.55 kB[39m[2m | [22m
+[WEB] [32mchunk-LO5U4MRY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.53 kB[39m[2m | [22m
+[WEB] [32mchunk-OAANQBR2.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] [32mchunk-DWVIFX2T.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.46 kB[39m[2m | [22m
+[WEB] [2m...and 1 more lazy chunks files. Use "--verbose" to show all the files.[22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.830 seconds] - 2026-08-11T20:43:40.930Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] [32mstyles.css[39m         [2m | [22m[2mstyles[22m               [2m | [22m  [36m6.82 kB[39m[2m | [22m
+[WEB] [32mchunk-Z2NZSRTG.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m3.20 kB[39m[2m | [22m
+[WEB] [32mchunk-EVSPGG2W.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.64 kB[39m[2m | [22m
+[WEB] [32mpolyfills.js[39m       [2m | [22m[2mpolyfills[22m            [2m | [22m [36m95 bytes[39m[2m | [22m
+[WEB] 
+[WEB] [1m [22m                  [2m | [22m[1mInitial total[22m        [2m | [22m [1m22.96 kB[22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-JR2MMD3J.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.46 kB[39m[2m | [22m
+[WEB] [32mchunk-MAJUH652.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.36 kB[39m[2m | [22m
+[WEB] [32mchunk-YEZVEKBZ.js[39m  [2m | [22m[2mlanding-module[22m       [2m | [22m[36m109.21 kB[39m[2m | [22m
+[WEB] [32mchunk-S25T3DMX.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m62.29 kB[39m[2m | [22m
+[WEB] [32mchunk-DVD5B6KJ.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-X62366DQ.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-PNUCKHNT.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-E6LZ3QMH.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m25.01 kB[39m[2m | [22m
+[WEB] [32mchunk-DKCFEUVM.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m23.77 kB[39m[2m | [22m
+[WEB] [32mchunk-DQPCXQZH.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-NVHLZMOU.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] [32mchunk-ICSWMM6U.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.55 kB[39m[2m | [22m
+[WEB] [32mchunk-LO5U4MRY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.53 kB[39m[2m | [22m
+[WEB] [32mchunk-OAANQBR2.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] [32mchunk-DWVIFX2T.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.46 kB[39m[2m | [22m
+[WEB] [2m...and 1 more lazy chunks files. Use "--verbose" to show all the files.[22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.423 seconds] - 2026-08-11T20:43:47.264Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] [32mstyles.css[39m         [2m | [22m[2mstyles[22m               [2m | [22m  [36m6.82 kB[39m[2m | [22m
+[WEB] [32mchunk-Z2NZSRTG.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m3.20 kB[39m[2m | [22m
+[WEB] [32mchunk-EVSPGG2W.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.64 kB[39m[2m | [22m
+[WEB] [32mpolyfills.js[39m       [2m | [22m[2mpolyfills[22m            [2m | [22m [36m95 bytes[39m[2m | [22m
+[WEB] 
+[WEB] [1m [22m                  [2m | [22m[1mInitial total[22m        [2m | [22m [1m22.96 kB[22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-JR2MMD3J.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.46 kB[39m[2m | [22m
+[WEB] [32mchunk-MAJUH652.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.36 kB[39m[2m | [22m
+[WEB] [32mchunk-YEZVEKBZ.js[39m  [2m | [22m[2mlanding-module[22m       [2m | [22m[36m109.21 kB[39m[2m | [22m
+[WEB] [32mchunk-S25T3DMX.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m62.29 kB[39m[2m | [22m
+[WEB] [32mchunk-DVD5B6KJ.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-X62366DQ.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-PNUCKHNT.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-E6LZ3QMH.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m25.01 kB[39m[2m | [22m
+[WEB] [32mchunk-DKCFEUVM.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m23.77 kB[39m[2m | [22m
+[WEB] [32mchunk-DQPCXQZH.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-NVHLZMOU.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] [32mchunk-ICSWMM6U.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.55 kB[39m[2m | [22m
+[WEB] [32mchunk-LO5U4MRY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.53 kB[39m[2m | [22m
+[WEB] [32mchunk-OAANQBR2.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] [32mchunk-DWVIFX2T.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.46 kB[39m[2m | [22m
+[WEB] [2m...and 1 more lazy chunks files. Use "--verbose" to show all the files.[22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.334 seconds] - 2026-08-11T20:43:48.221Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m            [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-XFMAK3RI.js[39m  [2m | [22m[2mdashboard-module[22m[2m | [22m[36m119.24 kB[39m[2m | [22m
+[WEB] [32mchunk-ARHSFMZA.js[39m  [2m | [22m[2mreportes-module[22m [2m | [22m [36m23.56 kB[39m[2m | [22m
+[WEB] [32mchunk-K7ZW43TW.js[39m  [2m | [22m[2m-[22m               [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [1.283 seconds] - 2026-08-11T20:44:08.278Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m            [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-LOXKZNPT.js[39m  [2m | [22m[2mdashboard-module[22m[2m | [22m[36m123.17 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.985 seconds] - 2026-08-11T20:44:09.598Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-7CM7Q233.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.46 kB[39m[2m | [22m
+[WEB] [32mchunk-IMDAVSIS.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m123.17 kB[39m[2m | [22m
+[WEB] [32mchunk-JMHVH2UH.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m62.29 kB[39m[2m | [22m
+[WEB] [32mchunk-C6PZZL4Y.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-LOU2F4MI.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-MHCSM4DM.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-UC2SMVNA.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m23.77 kB[39m[2m | [22m
+[WEB] [32mchunk-Y2HYC3FG.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m23.56 kB[39m[2m | [22m
+[WEB] [32mchunk-OOUXNYQ4.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-NTXTQYES.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [1.019 seconds] - 2026-08-11T20:46:10.514Z
+[WEB] 
+[WEB] [1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+[WEB] 
+[WEB]     src/app/shared/components/header/header.component.scss:73:24:
+[WEB] [37m      73 │       background-color: [32m[37mdarken($bg-input, 5%);
+[WEB]          ╵                         [32m^[0m
+[WEB] 
+[WEB] 
+[WEB]   Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[WEB]   Use color.adjust instead.
+[WEB]   
+[WEB]   More info and automated migrator: [4mhttps://sass-lang.com/d/import[0m
+[WEB] 
+[WEB] 
+[WEB] [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+[WEB] 
+[WEB]     src/app/shared/components/header/header.component.scss:73:24:
+[WEB] [37m      73 │       background-color: [32m[37mdarken($bg-input, 5%);
+[WEB]          ╵                         [32m^[0m
+[WEB] 
+[WEB] 
+[WEB]   darken() is deprecated. Suggestions:
+[WEB]   
+[WEB]   color.scale($color, $lightness: -5.1829268293%)
+[WEB]   color.adjust($color, $lightness: -5%)
+[WEB]   
+[WEB]   More info: [4mhttps://sass-lang.com/d/color-functions[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-65YL3P2Q.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.45 kB[39m[2m | [22m
+[WEB] [32mchunk-D6L4LWNS.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m123.17 kB[39m[2m | [22m
+[WEB] [32mchunk-2RZMVYI4.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m62.29 kB[39m[2m | [22m
+[WEB] [32mchunk-5DZYT435.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-HLXFRH3Y.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-J3FN3BES.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-XDDQKRW7.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m23.77 kB[39m[2m | [22m
+[WEB] [32mchunk-KY7VRZZO.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m23.56 kB[39m[2m | [22m
+[WEB] [32mchunk-DGA35L5O.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-2MZR4SXZ.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [1.026 seconds] - 2026-08-11T20:46:15.517Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-63A3DTW4.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.56 kB[39m[2m | [22m
+[WEB] [32mchunk-UGOHNDD2.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m123.17 kB[39m[2m | [22m
+[WEB] [32mchunk-7QEFU3FB.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m62.29 kB[39m[2m | [22m
+[WEB] [32mchunk-S3DX2SSJ.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-TTLWOJ5B.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-2FIVEUPZ.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-WVGZW7H7.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m23.77 kB[39m[2m | [22m
+[WEB] [32mchunk-G43TVG7V.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m23.56 kB[39m[2m | [22m
+[WEB] [32mchunk-SMRDWXGG.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-RLQMUTKV.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [2.845 seconds] - 2026-08-11T20:50:09.015Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-BXTV3DXC.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.94 kB[39m[2m | [22m
+[WEB] [32mchunk-NGWKS2QE.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m123.17 kB[39m[2m | [22m
+[WEB] [32mchunk-EGWRSNVY.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m62.29 kB[39m[2m | [22m
+[WEB] [32mchunk-7URUPMQ5.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-QLP42Y2F.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-HUT2PYR5.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-ILYO5LW5.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m23.77 kB[39m[2m | [22m
+[WEB] [32mchunk-YU6V2I4G.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m23.56 kB[39m[2m | [22m
+[WEB] [32mchunk-VI5QLRZJ.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-4V4NG5HV.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [1.819 seconds] - 2026-08-11T20:50:10.840Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m          [2m | [22m[1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m           [2m | [22m[36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m          [2m | [22m[1mRaw size[22m
+[WEB] [32mchunk-MRAGRTLC.js[39m  [2m | [22m[2mreportes-module[22m[2m | [22m[36m23.63 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.940 seconds] - 2026-08-11T20:50:11.782Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m            [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-PVXFNCBI.js[39m  [2m | [22m[2mdashboard-module[22m[2m | [22m[36m119.24 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [1.220 seconds] - 2026-08-11T20:59:16.335Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m            [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-YOWWCVPY.js[39m  [2m | [22m[2mdashboard-module[22m[2m | [22m[36m118.70 kB[39m[2m | [22m
+[WEB] [32mchunk-EH4BUZ2F.js[39m  [2m | [22m[2mreportes-module[22m [2m | [22m [36m25.08 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.726 seconds] - 2026-08-11T20:59:17.692Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m            [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-T6Z4AGKK.js[39m  [2m | [22m[2mdashboard-module[22m[2m | [22m[36m119.35 kB[39m[2m | [22m
+[WEB] [32mchunk-MRAGRTLC.js[39m  [2m | [22m[2mreportes-module[22m [2m | [22m [36m23.63 kB[39m[2m | [22m
+[WEB] [32mchunk-K7ZW43TW.js[39m  [2m | [22m[2m-[22m               [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.570 seconds] - 2026-08-11T21:02:21.512Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m            [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-AOIGOY2R.js[39m  [2m | [22m[2mdashboard-module[22m[2m | [22m[36m118.80 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.916 seconds] - 2026-08-11T21:02:34.723Z
+[WEB] 
+[WEB] Component update sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m            [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-APTBUM73.js[39m  [2m | [22m[2mdashboard-module[22m[2m | [22m[36m118.13 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.769 seconds] - 2026-08-11T21:02:48.926Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m            [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-5ATGJO55.js[39m  [2m | [22m[2mdashboard-module[22m[2m | [22m[36m118.04 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.594 seconds] - 2026-08-11T21:02:59.126Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m            [2m | [22m [36m11.21 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m           [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-E3VUJWUO.js[39m  [2m | [22m[2mdashboard-module[22m[2m | [22m[36m118.42 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.692 seconds] - 2026-08-11T21:06:23.880Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m[2m | [22m[1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m [2m | [22m[36m11.22 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.308 seconds] - 2026-08-11T21:09:29.519Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+[WEB] 
+[WEB]     src/app/shared/components/header/header.component.scss:73:24:
+[WEB] [37m      73 │       background-color: [32m[37mdarken($bg-input, 5%);
+[WEB]          ╵                         [32m^[0m
+[WEB] 
+[WEB] 
+[WEB]   Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[WEB]   Use color.adjust instead.
+[WEB]   
+[WEB]   More info and automated migrator: [4mhttps://sass-lang.com/d/import[0m
+[WEB] 
+[WEB] 
+[WEB] [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+[WEB] 
+[WEB]     src/app/shared/components/header/header.component.scss:73:24:
+[WEB] [37m      73 │       background-color: [32m[37mdarken($bg-input, 5%);
+[WEB]          ╵                         [32m^[0m
+[WEB] 
+[WEB] 
+[WEB]   darken() is deprecated. Suggestions:
+[WEB]   
+[WEB]   color.scale($color, $lightness: -5.1829268293%)
+[WEB]   color.adjust($color, $lightness: -5%)
+[WEB]   
+[WEB]   More info: [4mhttps://sass-lang.com/d/color-functions[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.22 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-4PZUDMAZ.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.95 kB[39m[2m | [22m
+[WEB] [32mchunk-FV2CZHRF.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.42 kB[39m[2m | [22m
+[WEB] [32mchunk-74RPQIHT.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m62.29 kB[39m[2m | [22m
+[WEB] [32mchunk-C6DSBWBW.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.66 kB[39m[2m | [22m
+[WEB] [32mchunk-SP33BFXI.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-2NTFFWJK.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-POXK2OZB.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m23.77 kB[39m[2m | [22m
+[WEB] [32mchunk-DLGIWYT6.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m23.63 kB[39m[2m | [22m
+[WEB] [32mchunk-OQVV6D2S.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-BEGVI7BS.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.815 seconds] - 2026-08-11T21:09:31.436Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'isAdmin' does not exist on type 'CondominiosListComponent'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/condominios/condominios-list/condominios-list.component.html:12:21:
+[WEB] [37m      12 │       <button *ngIf="[32misAdmin[37m" class="btn-primary" type="button" (c...
+[WEB]          ╵                      [32m~~~~~~~[0m
+[WEB] 
+[WEB]   Error occurs in the template of component CondominiosListComponent.
+[WEB] 
+[WEB]     src/app/condominios/condominios-list/condominios-list.component.ts:11:15:
+[WEB] [37m      11 │   templateUrl: [32m'./condominios-list.component.html'[37m,
+[WEB]          ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] 
+[WEB] [31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'isAdmin' does not exist on type 'CondominiosListComponent'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/condominios/condominios-list/condominios-list.component.html:24:111:
+[WEB] [37m      24 │ ...]="condominio" [canDelete]="[32misAdmin[37m" (edit)="edit(condominio)" ...
+[WEB]          ╵                                [32m~~~~~~~[0m
+[WEB] 
+[WEB]   Error occurs in the template of component CondominiosListComponent.
+[WEB] 
+[WEB]     src/app/condominios/condominios-list/condominios-list.component.ts:11:15:
+[WEB] [37m      11 │   templateUrl: [32m'./condominios-list.component.html'[37m,
+[WEB]          ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] Application bundle generation failed. [0.865 seconds] - 2026-08-11T21:09:32.831Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.22 kB[39m[2m | [22m
+[WEB] [32mstyles.css[39m         [2m | [22m[2mstyles[22m               [2m | [22m  [36m6.82 kB[39m[2m | [22m
+[WEB] [32mchunk-Z2NZSRTG.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m3.20 kB[39m[2m | [22m
+[WEB] [32mchunk-EVSPGG2W.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.64 kB[39m[2m | [22m
+[WEB] [32mpolyfills.js[39m       [2m | [22m[2mpolyfills[22m            [2m | [22m [36m95 bytes[39m[2m | [22m
+[WEB] 
+[WEB] [1m [22m                  [2m | [22m[1mInitial total[22m        [2m | [22m [1m22.98 kB[22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-4PZUDMAZ.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.95 kB[39m[2m | [22m
+[WEB] [32mchunk-FV2CZHRF.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.42 kB[39m[2m | [22m
+[WEB] [32mchunk-YEZVEKBZ.js[39m  [2m | [22m[2mlanding-module[22m       [2m | [22m[36m109.21 kB[39m[2m | [22m
+[WEB] [32mchunk-74RPQIHT.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m62.29 kB[39m[2m | [22m
+[WEB] [32mchunk-FCQX4XZ5.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.68 kB[39m[2m | [22m
+[WEB] [32mchunk-SP33BFXI.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.70 kB[39m[2m | [22m
+[WEB] [32mchunk-2NTFFWJK.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-POXK2OZB.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m23.77 kB[39m[2m | [22m
+[WEB] [32mchunk-DLGIWYT6.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m23.63 kB[39m[2m | [22m
+[WEB] [32mchunk-OQVV6D2S.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-BEGVI7BS.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] [32mchunk-ICSWMM6U.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.55 kB[39m[2m | [22m
+[WEB] [32mchunk-LO5U4MRY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.53 kB[39m[2m | [22m
+[WEB] [32mchunk-OAANQBR2.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] [32mchunk-K7ZW43TW.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] [2m...and 2 more lazy chunks files. Use "--verbose" to show all the files.[22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.356 seconds] - 2026-08-11T21:09:33.764Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'isAdmin' does not exist on type 'InquilinosListComponent'.[0m [1m[35m[plugin angular-compiler][0m
+[WEB] 
+[WEB]     src/app/inquilinos/inquilinos-list/inquilinos-list.component.html:93:29:
+[WEB] [37m      93 │                       *ngIf="[32misAdmin[37m"
+[WEB]          ╵                              [32m~~~~~~~[0m
+[WEB] 
+[WEB]   Error occurs in the template of component InquilinosListComponent.
+[WEB] 
+[WEB]     src/app/inquilinos/inquilinos-list/inquilinos-list.component.ts:11:15:
+[WEB] [37m      11 │   templateUrl: [32m'./inquilinos-list.component.html'[37m,
+[WEB]          ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] Application bundle generation failed. [0.806 seconds] - 2026-08-11T21:09:35.539Z
+[WEB] 
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.22 kB[39m[2m | [22m
+[WEB] [32mstyles.css[39m         [2m | [22m[2mstyles[22m               [2m | [22m  [36m6.82 kB[39m[2m | [22m
+[WEB] [32mchunk-Z2NZSRTG.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m3.20 kB[39m[2m | [22m
+[WEB] [32mchunk-EVSPGG2W.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.64 kB[39m[2m | [22m
+[WEB] [32mpolyfills.js[39m       [2m | [22m[2mpolyfills[22m            [2m | [22m [36m95 bytes[39m[2m | [22m
+[WEB] 
+[WEB] [1m [22m                  [2m | [22m[1mInitial total[22m        [2m | [22m [1m22.98 kB[22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-4PZUDMAZ.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.95 kB[39m[2m | [22m
+[WEB] [32mchunk-FV2CZHRF.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.42 kB[39m[2m | [22m
+[WEB] [32mchunk-YEZVEKBZ.js[39m  [2m | [22m[2mlanding-module[22m       [2m | [22m[36m109.21 kB[39m[2m | [22m
+[WEB] [32mchunk-74RPQIHT.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m62.29 kB[39m[2m | [22m
+[WEB] [32mchunk-FCQX4XZ5.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.68 kB[39m[2m | [22m
+[WEB] [32mchunk-VVD4FYXZ.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.72 kB[39m[2m | [22m
+[WEB] [32mchunk-2NTFFWJK.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-POXK2OZB.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m23.77 kB[39m[2m | [22m
+[WEB] [32mchunk-DLGIWYT6.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m23.63 kB[39m[2m | [22m
+[WEB] [32mchunk-OQVV6D2S.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-BEGVI7BS.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] [32mchunk-ICSWMM6U.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.55 kB[39m[2m | [22m
+[WEB] [32mchunk-LO5U4MRY.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.53 kB[39m[2m | [22m
+[WEB] [32mchunk-OAANQBR2.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] [32mchunk-K7ZW43TW.js[39m  [2m | [22m[2m-[22m                    [2m | [22m  [36m1.47 kB[39m[2m | [22m
+[WEB] [2m...and 2 more lazy chunks files. Use "--verbose" to show all the files.[22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.388 seconds] - 2026-08-11T21:09:36.712Z
+[WEB] 
+[WEB] Page reload sent to client(s).
+[WEB] [33m>[39m Changes detected. Rebuilding...
+[WEB] [32m√[39m Changes detected. Rebuilding...
+[WEB] [1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+[WEB] 
+[WEB]     src/app/shared/components/header/header.component.scss:73:24:
+[WEB] [37m      73 │       background-color: [32m[37mdarken($bg-input, 5%);
+[WEB]          ╵                         [32m^[0m
+[WEB] 
+[WEB] 
+[WEB]   Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[WEB]   Use color.adjust instead.
+[WEB]   
+[WEB]   More info and automated migrator: [4mhttps://sass-lang.com/d/import[0m
+[WEB] 
+[WEB] 
+[WEB] [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDeprecation[0m [1m[35m[plugin angular-sass][0m
+[WEB] 
+[WEB]     src/app/shared/components/header/header.component.scss:73:24:
+[WEB] [37m      73 │       background-color: [32m[37mdarken($bg-input, 5%);
+[WEB]          ╵                         [32m^[0m
+[WEB] 
+[WEB] 
+[WEB]   darken() is deprecated. Suggestions:
+[WEB]   
+[WEB]   color.scale($color, $lightness: -5.1829268293%)
+[WEB]   color.adjust($color, $lightness: -5%)
+[WEB]   
+[WEB]   More info: [4mhttps://sass-lang.com/d/color-functions[0m
+[WEB] 
+[WEB] [39m[22m
+[WEB] [1mInitial chunk files[22m[2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mmain.js[39m            [2m | [22m[2mmain[22m                 [2m | [22m [36m11.22 kB[39m[2m | [22m
+[WEB] 
+[WEB] [1mLazy chunk files[22m   [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m
+[WEB] [32mchunk-RW4SQAVD.js[39m  [2m | [22m[2m-[22m                    [2m | [22m[36m130.96 kB[39m[2m | [22m
+[WEB] [32mchunk-TMDBQG44.js[39m  [2m | [22m[2mdashboard-module[22m     [2m | [22m[36m118.42 kB[39m[2m | [22m
+[WEB] [32mchunk-TVIKDF3R.js[39m  [2m | [22m[2mauth-module[22m          [2m | [22m [36m62.29 kB[39m[2m | [22m
+[WEB] [32mchunk-MLSVFDAV.js[39m  [2m | [22m[2mcondominios-module[22m   [2m | [22m [36m37.68 kB[39m[2m | [22m
+[WEB] [32mchunk-EFEVC5FX.js[39m  [2m | [22m[2minquilinos-module[22m    [2m | [22m [36m30.72 kB[39m[2m | [22m
+[WEB] [32mchunk-CWQWMOKE.js[39m  [2m | [22m[2musuarios-module[22m      [2m | [22m [36m28.94 kB[39m[2m | [22m
+[WEB] [32mchunk-I3NITHOW.js[39m  [2m | [22m[2mincidencias-module[22m   [2m | [22m [36m23.77 kB[39m[2m | [22m
+[WEB] [32mchunk-AHY66UXT.js[39m  [2m | [22m[2mreportes-module[22m      [2m | [22m [36m23.63 kB[39m[2m | [22m
+[WEB] [32mchunk-SHHXVOGV.js[39m  [2m | [22m[2mpagos-module[22m         [2m | [22m [36m19.86 kB[39m[2m | [22m
+[WEB] [32mchunk-RG22KH3O.js[39m  [2m | [22m[2mestados-cuenta-module[22m[2m | [22m [36m17.51 kB[39m[2m | [22m
+[WEB] 
+[WEB] Application bundle generation complete. [0.518 seconds] - 2026-08-11T21:14:13.399Z
+[WEB] 
+[WEB] Page reload sent to client(s).

@@ -17,6 +17,7 @@ export class EntityModalComponent implements OnChanges {
   @Input() entity: object | null = null;
   @Input() condominios: Condominio[] = [];
   @Input() propietarios: Usuario[] = [];
+  @Input() statusEditable = true;
 
   @Output() close = new EventEmitter<void>();
   @Output() save = new EventEmitter<Record<string, unknown>>();
@@ -180,7 +181,7 @@ export class EntityModalComponent implements OnChanges {
       return this.fb.group({
         prioridad: ['Alta', Validators.required],
         condominioId: ['', Validators.required],
-        estado: ['En proceso', Validators.required],
+        estado: ['Pendiente', Validators.required],
         concepto: ['', Validators.required]
       });
     }
@@ -232,7 +233,7 @@ export class EntityModalComponent implements OnChanges {
       return {
         prioridad: 'Alta',
         condominioId: '',
-        estado: 'En proceso',
+        estado: 'Pendiente',
         concepto: ''
       };
     }

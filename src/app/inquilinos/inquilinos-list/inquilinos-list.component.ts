@@ -18,14 +18,14 @@ export class InquilinosListComponent implements OnInit {
   isCreateModalOpen = false;
   editingInquilino: Inquilino | null = null;
   searchTerm = '';
-  readonly isAdmin: boolean;
+  readonly canManage: boolean;
 
   constructor(
     private inquilinosService: InquilinosService,
     private condominiosService: CondominiosService,
     authService: AuthService
   ) {
-    this.isAdmin = authService.hasRole('Administrador');
+    this.canManage = authService.hasRole('Administrador', 'Propietario');
   }
 
   ngOnInit(): void {
